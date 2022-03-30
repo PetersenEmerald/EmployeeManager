@@ -17,14 +17,14 @@ export class EmployeeService {
     }, error => console.error(error));
   }
 
-  createEmployee(employee: EmployeeModel): void {
-    this.employeeHttpService.createEmployee(employee).subscribe(result => {
+  newEmployee(employee: EmployeeModel): void {
+    this.employeeHttpService.newEmployee(employee).subscribe(result => {
       this.employees$.next(result);
     }, error => console.error(error));
   }
 
-  updateEmployee(employee: EmployeeModel): void {
-    this.employeeHttpService.updateEmployee(employee).subscribe(result => {
+  editEmployee(employee: EmployeeModel): void {
+    this.employeeHttpService.editEmployee(employee).subscribe(result => {
       this.employees$.next(result);
     }, error => console.error(error));
   }

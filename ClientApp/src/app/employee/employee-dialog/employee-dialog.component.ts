@@ -15,7 +15,7 @@ export class EmployeeDialogComponent implements OnInit {
     defaultPhoneNumberControl: new FormControl(),
     emailControl: new FormControl('', [Validators.required, Validators.email]),
     faxControl: new FormControl(),
-    firstNameControl: new FormControl('', Validators.required),
+    firstNameControl: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9\-\_]+')]),
     homeFaxControl: new FormControl(),
     homePhoneNumberControl: new FormControl('', Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')),
     isActiveControl: new FormControl(),
@@ -64,12 +64,12 @@ export class EmployeeDialogComponent implements OnInit {
     return employee;
   }
 
-  createEmployee(): void {
-    this.employeeService.createEmployee(this.prepareEmployee());
+  newEmployee(): void {
+    this.employeeService.newEmployee(this.prepareEmployee());
   }
 
-  updateEmployee(): void {
-    this.employeeService.updateEmployee(this.prepareEmployee());
+  editEmployee(): void {
+    this.employeeService.editEmployee(this.prepareEmployee());
   }
 
   deleteEmployee(): void {
