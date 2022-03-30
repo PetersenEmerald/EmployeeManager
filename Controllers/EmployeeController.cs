@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Scheduler.Models;
+using Assessment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Scheduler.Controllers
+namespace Assessment.Controllers
 {
      [ApiController]
      [Route("[controller]")]
