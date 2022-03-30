@@ -18,6 +18,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { HomeComponent } from './home/home.component';
+import { ProjectComponent } from './project/project.component';
+import { ProjectDialogComponent } from './project/project-dialog/project-dialog.component';
 
 
 
@@ -26,7 +29,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     AppComponent,
     NavMenuComponent,
     EmployeeComponent,
-    EmployeeDialogComponent
+    EmployeeDialogComponent,
+    HomeComponent,
+    ProjectComponent,
+    ProjectDialogComponent
   ],
   entryComponents: [EmployeeDialogComponent],
   imports: [
@@ -45,7 +51,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTabsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: EmployeeComponent, pathMatch: 'full' },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
     ], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
 
