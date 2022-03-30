@@ -9,7 +9,7 @@ import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.compo
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  employeeColumns: string[] = ['firstName', 'defaultPhoneNumber', 'email'];
+  employeeColumns: string[] = ['isActive', 'firstName', 'defaultPhoneNumber', 'email'];
   selectedRowIndex = -1;
 
   constructor(public dialog: MatDialog, public employeeService: EmployeeService) { }
@@ -19,13 +19,9 @@ export class EmployeeComponent implements OnInit {
   }
 
   openEmployeeDialog(employee: any): void {
-    const dialogRef = this.dialog.open(EmployeeDialogComponent, {
+    this.dialog.open(EmployeeDialogComponent, {
       width: '500px',
       data: { employee: employee },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 

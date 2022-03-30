@@ -5,3 +5,7 @@ table {
 .highlight {
   background: #42A948;
 }
+
+.mat-row:hover {
+  background: #42A948;
+}

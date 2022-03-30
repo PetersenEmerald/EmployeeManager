@@ -13,28 +13,24 @@ export class EmployeeService {
 
   getEmployees(): void {
     this.employeeHttpService.getEmployees().subscribe(result => {
-      console.log({ result });
       this.employees$.next(result);
     }, error => console.error(error));
   }
 
   createEmployee(employee: EmployeeModel): void {
     this.employeeHttpService.createEmployee(employee).subscribe(result => {
-      console.log({ result });
       this.employees$.next(result);
     }, error => console.error(error));
   }
 
   updateEmployee(employee: EmployeeModel): void {
     this.employeeHttpService.updateEmployee(employee).subscribe(result => {
-      console.log({ result });
       this.employees$.next(result);
     }, error => console.error(error));
   }
 
   deleteEmployee(employeeID: number): void {
     this.employeeHttpService.deleteEmployee(employeeID).subscribe(result => {
-      console.log({ result });
       this.employees$.next(result);
     }, error => console.error(error));
   }

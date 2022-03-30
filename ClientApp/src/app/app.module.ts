@@ -16,7 +16,10 @@ import { MatTableModule } from '@angular/material/table';
 import { EmployeeDialogComponent } from './employee/employee-dialog/employee-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+
+
 
 @NgModule({
   declarations: [
@@ -32,13 +35,14 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     CommonModule,
     FormsModule,
     MatButtonModule,
-    MatButtonToggleModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatTableModule,
+    MatTabsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: EmployeeComponent, pathMatch: 'full' },
