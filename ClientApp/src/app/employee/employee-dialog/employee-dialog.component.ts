@@ -32,12 +32,8 @@ export class EmployeeDialogComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  createNewEmployee(): void {
-    console.log('create');
-  }
-
-  updateEmployee(): void {
-    let employee: EmployeeModel = {
+  prepareEmployee(): EmployeeModel {
+    const employee: EmployeeModel = {
       cellNumber: this.employeeForm.controls.cellNumberControl.value,
       defaultPhoneNumber: this.employeeForm.controls.defaultPhoneNumberControl.value,
       email: this.employeeForm.controls.emailControl.value,
@@ -51,10 +47,22 @@ export class EmployeeDialogComponent implements OnInit {
       title: this.employeeForm.controls.titleControl.value,
     }
 
-    //this.employeeService
+    return employee;
+  }
+
+  createEmployee(): void {
+    console.log('create');
+    this.employeeService.createEmployee(this.prepareEmployee());
+  }
+
+  updateEmployee(): void {
+   
+
+    this.employeeService.updateEmployee(this.prepareEmployee());
   }
 
   deleteEmployee(): void {
-    console.log('delete');    
+    console.log('delete');
+    this.employeeService.deleteEmployee(this.data.employee.employeeID);
   }
 }

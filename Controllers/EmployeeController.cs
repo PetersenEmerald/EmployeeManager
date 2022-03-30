@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Assessment.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Assessment.Controllers
 {
@@ -12,20 +8,12 @@ namespace Assessment.Controllers
      [Route("[controller]")]
      public class EmployeeController : ControllerBase
      {
-          private static readonly string[] Summaries = new[]
-          {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
           private static readonly List<EmployeeModel> _employees = SetUpEmployeeData();
 
           private static int latestEmployeeID = 9;
 
-          private readonly ILogger<EmployeeController> _logger;
-
-          public EmployeeController(ILogger<EmployeeController> logger)
+          public EmployeeController()
           {
-               _logger = logger;
           }
 
           public static List<EmployeeModel> SetUpEmployeeData()
@@ -186,19 +174,6 @@ namespace Assessment.Controllers
                return employees;
           }
 
-          //[HttpGet]
-          //public IEnumerable<WeatherForecast> Get()
-          //{
-          //     var rng = new Random();
-          //     return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-          //     {
-          //          Date = DateTime.Now.AddDays(index),
-          //          TemperatureC = rng.Next(-20, 55),
-          //          Summary = Summaries[rng.Next(Summaries.Length)]
-          //     })
-          //     .ToArray();
-          //}
-
           [HttpGet]
           public List<EmployeeModel> GetEmployees()
           {
@@ -206,6 +181,7 @@ namespace Assessment.Controllers
           }
 
           [HttpPost]
+          [Route("createEmployee")]
           public List<EmployeeModel> CreateEmployee(EmployeeModel employee)
           {
                latestEmployeeID++;
@@ -217,6 +193,7 @@ namespace Assessment.Controllers
           }
 
           [HttpPost]
+          [Route("updateEmployee")]
           public List<EmployeeModel> UpdateEmployee(EmployeeModel employee)
           {
                _employees[employee.employeeID] = employee;

@@ -13,4 +13,16 @@ export class EmployeeHttpService {
   getEmployees(): Observable<EmployeeModel[]> {
     return this.http.get<EmployeeModel[]>(this.baseUrl + 'employee');
   }
+
+  createEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
+    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/createEmployee', employee);
+  }
+
+  updateEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
+    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/updateEmployee', employee);
+  }
+
+  deleteEmployee(employeeID: number): Observable<EmployeeModel[]> {
+    return this.http.delete<EmployeeModel[]>(this.baseUrl + 'employee/' + employeeID);
+  }
 }
