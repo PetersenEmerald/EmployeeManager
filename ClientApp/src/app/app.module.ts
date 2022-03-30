@@ -5,8 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -21,30 +20,31 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { HomeComponent } from './home/home.component';
 import { ProjectComponent } from './project/project.component';
 import { ProjectDialogComponent } from './project/project-dialog/project-dialog.component';
-
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
     EmployeeComponent,
     EmployeeDialogComponent,
     HomeComponent,
     ProjectComponent,
     ProjectDialogComponent
   ],
-  entryComponents: [EmployeeDialogComponent],
+  entryComponents: [EmployeeDialogComponent, ProjectDialogComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     CommonModule,
     FormsModule,
     MatButtonModule,
+    MatDatepickerModule,
     MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatNativeDateModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatTableModule,
@@ -56,7 +56,7 @@ import { ProjectDialogComponent } from './project/project-dialog/project-dialog.
     BrowserAnimationsModule,
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

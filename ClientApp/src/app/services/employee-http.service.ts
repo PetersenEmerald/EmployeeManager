@@ -15,11 +15,11 @@ export class EmployeeHttpService {
   }
 
   newEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
-    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/createEmployee', employee);
+    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/newEmployee', employee);
   }
 
   editEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
-    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/updateEmployee', employee);
+    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/editEmployee', employee);
   }
 
   deleteEmployee(employeeID: number): Observable<EmployeeModel[]> {

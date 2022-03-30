@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ProjectModel } from '../models/project.model';
@@ -14,25 +15,30 @@ export class ProjectService {
   getProjects(): void {
     this.projectHttpService.getProjects().subscribe(result => {
       this.projects$.next(result);
-      console.log({ result });
     }, error => console.error(error));
   }
 
-  //newEmployee(employee: EmployeeModel): void {
-  //  this.employeeHttpService.newEmployee(employee).subscribe(result => {
-  //    this.employees$.next(result);
-  //  }, error => console.error(error));
-  //}
+  newProject(project: ProjectModel): void {
+    this.projectHttpService.newProject(project).subscribe(result => {
+      this.projects$.next(result);
+    }, error => console.error(error));
+  }
 
-  //editEmployee(employee: EmployeeModel): void {
-  //  this.employeeHttpService.editEmployee(employee).subscribe(result => {
-  //    this.employees$.next(result);
-  //  }, error => console.error(error));
-  //}
+  editProject(project: ProjectModel): void {
+    this.projectHttpService.editProject(project).subscribe(result => {
+      this.projects$.next(result);
+    }, error => console.error(error));
+  }
 
-  //deleteEmployee(employeeID: number): void {
-  //  this.employeeHttpService.deleteEmployee(employeeID).subscribe(result => {
-  //    this.employees$.next(result);
-  //  }, error => console.error(error));
-  //}
+  deleteProject(projectID: number): void {
+    this.projectHttpService.deleteProject(projectID).subscribe(result => {
+      this.projects$.next(result);
+    }, error => console.error(error));
+  }
+
+  purgeProjects(): void {
+    this.projectHttpService.purgeProjects().subscribe(result => {
+      this.projects$.next(result);
+    }, error => console.error(error));
+  }
 }

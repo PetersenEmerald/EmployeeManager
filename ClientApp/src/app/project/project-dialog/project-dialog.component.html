@@ -1,1 +1,39 @@
-<p>project-dialog works!</p>
+<div style="display: flex; margin-bottom: 20px;">
+  <div style="flex: 1"></div>
+  <button mat-raised-button color="warn" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<form [formGroup]="projectFormGroup">
+  <h2>Project Form</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Project Name" formControlName="projectNameControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="projectDateControl" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <!--<mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input matInput placeholder="Date" formControlName="projectDateControl">
+  </mat-form-field>-->
+  <mat-form-field appearance="fill">
+    <mat-label>Employee Contact</mat-label>
+    <mat-select formControlName="contactEmployeeControl">
+      <ng-containter *ngIf="(employeeService.employees$ | async) as employees">
+        <mat-option *ngFor="let employee of employees" [value]="employee.employeeID">{{ employee.firstName }} {{ employee.lastName }}</mat-option>
+      </ng-containter>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<div style="display: flex">
+  <div style="flex: 1"></div>
+  <button mat-raised-button color="warn" (click)="deleteProject()">Delete</button>
+  <button mat-raised-button color="warn" (click)="purgeProjects()">Purge</button>
+  <button mat-raised-button color="accent" (click)="newProject()" [disabled]="!projectFormGroup.valid">New</button>
+  <button mat-raised-button color="primary" (click)="editProject()" [disabled]="!projectFormGroup.valid || !projectFormGroup.dirty">Edit</button>
+</div>

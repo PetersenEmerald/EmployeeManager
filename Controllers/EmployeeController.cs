@@ -20,8 +20,8 @@ namespace Assessment.Controllers
           }
 
           [HttpPost]
-          [Route("createEmployee")]
-          public List<EmployeeModel> CreateEmployee(EmployeeModel employee)
+          [Route("newEmployee")]
+          public List<EmployeeModel> NewEmployee(EmployeeModel employee)
           {
                latestEmployeeID++;
                employee.employeeID = latestEmployeeID;
@@ -32,12 +32,14 @@ namespace Assessment.Controllers
           }
 
           [HttpPost]
-          [Route("updateEmployee")]
-          public List<EmployeeModel> UpdateEmployee(EmployeeModel employee)
+          [Route("editEmployee")]
+          public List<EmployeeModel> EditEmployee(EmployeeModel employee)
           {
                _employees[employee.employeeID] = employee;
                int employeeIndex = _employees.FindIndex((emp) => emp.employeeID == employee.employeeID);
-               _employees[employeeIndex] = employee;
+               if(employeeIndex != -1){
+                    _employees[employeeIndex] = employee;
+               }
 
                return _employees;
           }
@@ -46,7 +48,9 @@ namespace Assessment.Controllers
           public List<EmployeeModel> DeleteEmployee(int employeeID)
           {
                int employeeIndex = _employees.FindIndex((emp) => emp.employeeID == employeeID);
-               _employees.RemoveAt(employeeIndex);
+               if(employeeIndex != -1){
+                    _employees.RemoveAt(employeeIndex);
+               }
                return _employees;
           }
      }

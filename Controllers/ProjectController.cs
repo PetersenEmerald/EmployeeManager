@@ -38,17 +38,20 @@ namespace Assessment.Controllers
           {
                _projects[project.projectID] = project;
                int projectIndex = _projects.FindIndex((proj) => proj.projectID == project.projectID);
-               _projects[projectIndex] = project;
+               if(projectIndex != -1){
+                    _projects[projectIndex] = project;
+               }              
 
                return _projects;
           }
 
-          [HttpPost]
+          [HttpDelete]
           [Route("purgeProjects")]
-          public List<ProjectModel> PurgeProjects(DateTime purgeDate)
+          public List<ProjectModel> PurgeProjects()
           {
-               for(int i = 0; i < _projects.Count; i++){
-                    if(_projects[i].projectDate.Year - purgeDate.Year >= 5){
+               DateTime today = DateTime.Today;
+               for (int i = 0; i < _projects.Count; i++){
+                    if(Math.Abs(_projects[i].projectDate.Year - today.Year) >= 5){
                          _projects.RemoveAt(i);
                     }
                }
@@ -56,11 +59,14 @@ namespace Assessment.Controllers
                return _projects;
           }
 
-          [HttpDelete("{employeeID}")]
+          [HttpDelete("{projectID}")]
           public List<ProjectModel> DeleteEmployee(int projectID)
           {
                int projectIndex = _projects.FindIndex((proj) => proj.projectID == projectID);
-               _projects.RemoveAt(projectIndex);
+               if (projectIndex != -1)
+               {
+                    _projects.RemoveAt(projectIndex);
+               }
                return _projects;
           }
      }

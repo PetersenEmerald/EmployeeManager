@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EmployeeModel } from '../models/employee.model';
 import { ProjectModel } from '../models/project.model';
 
 @Injectable({
@@ -15,15 +14,20 @@ export class ProjectHttpService {
     return this.http.get<ProjectModel[]>(this.baseUrl + 'project');
   }
 
-  //newEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
-  //  return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/createEmployee', employee);
-  //}
+  newProject(project: ProjectModel): Observable<ProjectModel[]> {
+    return this.http.post<ProjectModel[]>(this.baseUrl + 'project/newProject', project);
+  }
 
-  //editEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
-  //  return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/updateEmployee', employee);
-  //}
+  editProject(project: ProjectModel): Observable<ProjectModel[]> {
+    return this.http.post<ProjectModel[]>(this.baseUrl + 'project/editProject', project);
+  }
 
-  //deleteEmployee(employeeID: number): Observable<EmployeeModel[]> {
-  //  return this.http.delete<EmployeeModel[]>(this.baseUrl + 'employee/' + employeeID);
-  //}
+  deleteProject(projectID: number): Observable<ProjectModel[]> {
+    console.log(projectID);
+    return this.http.delete<ProjectModel[]>(this.baseUrl + 'project/' + projectID);
+  }
+
+  purgeProjects(): Observable<ProjectModel[]> {
+    return this.http.delete<ProjectModel[]>(this.baseUrl + 'project/purgeProjects');
+  }
 }
