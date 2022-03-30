@@ -7,7 +7,6 @@ namespace Scheduler.Models
 {
      public class EmployeeModel
      {
-
           public string cellNumber { get; set; }
 
           public string defaultPhoneNumber { get; set; }

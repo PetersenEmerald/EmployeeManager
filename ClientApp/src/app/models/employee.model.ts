@@ -1,4 +1,5 @@
 export class EmployeeModel {
+  cellNumber: string;
   defaultPhoneNumber: string;
   email: string;
   employeeID: number;
@@ -6,6 +7,8 @@ export class EmployeeModel {
   firstName: string;
   homeFax: string;
   homePhoneNumber: string;
+  isActive: boolean;
   lastName: string;
+  title: string;
 
 }

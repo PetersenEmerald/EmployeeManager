@@ -1,0 +1,11 @@
+<form [formGroup]="employeeForm">
+  First Name: <input formControlName="firstNameControl" placeholder="Enter First Name">
+  Last Name: <input formControlName="lastNameControl" placeholder="Enter Last Name">
+  Email Address: <input formControlName="emailControl" placeholder="Enter Email">
+  Direct Phone Number: <input formControlName="defaultPhoneNumberControl" placeholder="Enter Direct Phone Number">
+  Home Phone Number: <input formControlName="homePhoneNumberControl" placeholder="Enter Home Phone Number">
+  Cell Phone: <input formControlName="cellNumberControl" placeholder="Enter Cell Phone">
+  Fax: <input formControlName="faxControl" placeholder="Enter Fax">
+  Home Fax: <input formControlName="homeFaxControl" placeholder="Enter Home Fax">
+  <button type="submit" (click)="updateEmployee()">Update Employee</button>
+</form>

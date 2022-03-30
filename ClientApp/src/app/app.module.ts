@@ -1,42 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { EmployeeComponent } from './employee/employee.component';
+import { MatTableModule } from '@angular/material/table';
+import { EmployeeDialogComponent } from './employee/employee-dialog/employee-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    EmployeeComponent,
+    EmployeeDialogComponent
   ],
+  entryComponents: [EmployeeDialogComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     CommonModule,
     FormsModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatTableModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: FetchDataComponent, pathMatch: 'full' },
-], { relativeLinkResolution: 'legacy' }),
-    SharedModule,
+      { path: '', component: EmployeeComponent, pathMatch: 'full' },
+    ], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
 
   ],
