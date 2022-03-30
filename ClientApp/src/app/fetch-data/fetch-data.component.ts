@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { EmployeeModel } from '../models/employee.model';
 
 @Component({
   selector: 'app-fetch-data',
@@ -9,8 +10,9 @@ export class FetchDataComponent {
   public forecasts: WeatherForecast[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'employee').subscribe(result => {
-      this.forecasts = result;
+    http.get<EmployeeModel[]>(baseUrl + 'employee').subscribe(result => {
+      console.log({ result });
+      //this.forecasts = result;
     }, error => console.error(error));
   }
 }
