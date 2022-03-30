@@ -16,4 +16,8 @@
     <tr mat-row *matRowDef="let row; columns: projectColumns;" [ngClass]="{'highlight': selectedRowIndex == row.projectID}"
         (click)="openProjectDialog(row); highlight(row.projectID)"></tr>
   </table>
+  <div style="display: flex">
+    <div style="flex: 1"></div>
+    <button mat-raised-button color="warn" (click)="purgeProjects()">Purge</button>
+  </div>
 </div>

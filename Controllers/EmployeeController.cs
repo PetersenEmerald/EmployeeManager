@@ -34,7 +34,6 @@ namespace Assessment.Controllers
           [Route("editEmployee")]
           public List<EmployeeModel> EditEmployee(EmployeeModel employee)
           {
-               _employees[employee.employeeID] = employee;
                int employeeIndex = _employees.FindIndex((emp) => emp.employeeID == employee.employeeID);
                if (employeeIndex != -1)
                {

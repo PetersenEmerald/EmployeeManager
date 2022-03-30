@@ -23,7 +23,6 @@ export class ProjectHttpService {
   }
 
   deleteProject(projectID: number): Observable<ProjectModel[]> {
-    console.log(projectID);
     return this.http.delete<ProjectModel[]>(this.baseUrl + 'project/' + projectID);
   }
 

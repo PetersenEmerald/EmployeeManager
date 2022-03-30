@@ -55,4 +55,7 @@ export class ProjectComponent implements OnInit {
     }
   }
 
+  purgeProjects(): void {
+    this.projectService.purgeProjects();
+  }
 }

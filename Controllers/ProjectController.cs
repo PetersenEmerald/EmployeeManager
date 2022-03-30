@@ -35,7 +35,6 @@ namespace Assessment.Controllers
           [Route("editProject")]
           public List<ProjectModel> EditProject(ProjectModel project)
           {
-               _projects[project.projectID] = project;
                int projectIndex = _projects.FindIndex((proj) => proj.projectID == project.projectID);
                if (projectIndex != -1)
                {

@@ -14,7 +14,7 @@ import { ProjectService } from '../../services/project.service';
 export class ProjectDialogComponent implements OnInit {
   employees: EmployeeModel;
   projectFormGroup = new FormGroup({
-    projectNameControl: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9\.\-\_]+')]),
+    projectNameControl: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9\.\-\_ ]+')]),
     projectDateControl: new FormControl('', Validators.required),
     contactEmployeeControl: new FormControl('', Validators.required),
   })
@@ -57,12 +57,7 @@ export class ProjectDialogComponent implements OnInit {
   deleteProject(): void {
     this.projectService.deleteProject(this.data.project.projectID);
     this.closeDialog();
-  }
-
-  purgeProjects(): void {
-    this.projectService.purgeProjects();
-    this.closeDialog();
-  }
+  }  
 
   closeDialog(): void {
     this.dialogRef.close();

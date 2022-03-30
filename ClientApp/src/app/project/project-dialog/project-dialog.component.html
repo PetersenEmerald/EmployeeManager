@@ -29,7 +29,6 @@
 <div style="display: flex">
   <div style="flex: 1"></div>
   <button mat-raised-button color="warn" (click)="deleteProject()">Delete</button>
-  <button mat-raised-button color="warn" (click)="purgeProjects()">Purge</button>
   <button mat-raised-button color="accent" (click)="newProject()" [disabled]="!projectFormGroup.valid">New</button>
   <button mat-raised-button color="primary" (click)="editProject()" [disabled]="!projectFormGroup.valid || !projectFormGroup.dirty">Edit</button>
 </div>
