@@ -19,5 +19,4 @@
     <tr mat-row *matRowDef="let row; columns: employeeColumns;" [ngClass]="{'highlight': selectedRowIndex == row.employeeID}"
          (click)="openEmployeeDialog(row); highlight(row.employeeID)"></tr>
   </table>
-
 </div>

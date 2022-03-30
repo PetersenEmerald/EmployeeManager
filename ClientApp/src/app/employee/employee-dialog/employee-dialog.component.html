@@ -1,15 +1,50 @@
-<form [formGroup]="employeeForm">
-  First Name: <input formControlName="firstNameControl" placeholder="Enter First Name">
-  Last Name: <input formControlName="lastNameControl" placeholder="Enter Last Name">
-  Email Address: <input formControlName="emailControl" placeholder="Enter Email">
-  Direct Phone Number: <input formControlName="defaultPhoneNumberControl" placeholder="Enter Direct Phone Number">
-  Home Phone Number: <input formControlName="homePhoneNumberControl" placeholder="Enter Home Phone Number">
-  Cell Phone: <input formControlName="cellNumberControl" placeholder="Enter Cell Phone">
-  Fax: <input formControlName="faxControl" placeholder="Enter Fax">
-  Home Fax: <input formControlName="homeFaxControl" placeholder="Enter Home Fax">
-  <button type="submit" (click)="createEmployee()">Create</button>
-  <button type="submit" (click)="updateEmployee()">
-    Update
-  </button>
-  <button type="submit" (click)="deleteEmployee()">Delete</button>
+<form [formGroup]="employeeFormGroup">
+  <div style="display: flex; margin-right: 45px; margin-bottom: 20px;">
+    <h2>Employee Form</h2>
+    <div style="flex: 1"></div>
+    <mat-slide-toggle formControlName="isActiveControl" style="margin-top: 10px;">Active</mat-slide-toggle>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name" formControlName="firstNameControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" formControlName="lastNameControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Title" formControlName="titleControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email Address</mat-label>
+    <input matInput placeholder="Email" formControlName="emailControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Default Phone Number</mat-label>
+    <input matInput placeholder="Default" formControlName="defaultPhoneNumberControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Home Phone Number</mat-label>
+    <input matInput placeholder="Home" formControlName="homePhoneNumberControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Cell Number</mat-label>
+    <input matInput placeholder="Cell" formControlName="cellNumberControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Fax</mat-label>
+    <input matInput placeholder="Fax" formControlName="faxControl">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Home Fax</mat-label>
+    <input matInput placeholder="Home Fax" formControlName="homeFaxControl">
+  </mat-form-field>
 </form>
+
+<div style="display: flex; margin-right: 40px;">
+  <div style="flex: 1"></div>
+  <button mat-raised-button color="warn" (click)="deleteEmployee()">Delete</button>
+  <button mat-raised-button color="accent" (click)="createEmployee()" [disabled]="!employeeFormGroup.valid">Create</button>
+  <button mat-raised-button color="primary" (click)="updateEmployee()" [disabled]="!employeeFormGroup.valid">Update</button>
+</div>
