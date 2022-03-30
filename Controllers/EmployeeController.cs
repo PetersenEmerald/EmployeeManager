@@ -10,8 +10,7 @@ namespace Assessment.Controllers
      public class EmployeeController : ControllerBase
      {
           private static readonly List<EmployeeModel> _employees = EmployeeData.SetUpEmployeeData();
-
-          private static int latestEmployeeID = 9;          
+          private static int latestEmployeeID = 9;
 
           [HttpGet]
           public List<EmployeeModel> GetEmployees()
@@ -37,7 +36,8 @@ namespace Assessment.Controllers
           {
                _employees[employee.employeeID] = employee;
                int employeeIndex = _employees.FindIndex((emp) => emp.employeeID == employee.employeeID);
-               if(employeeIndex != -1){
+               if (employeeIndex != -1)
+               {
                     _employees[employeeIndex] = employee;
                }
 
@@ -48,7 +48,8 @@ namespace Assessment.Controllers
           public List<EmployeeModel> DeleteEmployee(int employeeID)
           {
                int employeeIndex = _employees.FindIndex((emp) => emp.employeeID == employeeID);
-               if(employeeIndex != -1){
+               if (employeeIndex != -1)
+               {
                     _employees.RemoveAt(employeeIndex);
                }
                return _employees;

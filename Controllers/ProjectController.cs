@@ -11,8 +11,7 @@ namespace Assessment.Controllers
      public class ProjectController : ControllerBase
      {
           private static readonly List<ProjectModel> _projects = ProjectData.SetUpProjectData();
-
-          private static int latestProjectID = 6;          
+          private static int latestProjectID = 6;
 
           [HttpGet]
           public List<ProjectModel> GetProjects()
@@ -38,9 +37,10 @@ namespace Assessment.Controllers
           {
                _projects[project.projectID] = project;
                int projectIndex = _projects.FindIndex((proj) => proj.projectID == project.projectID);
-               if(projectIndex != -1){
+               if (projectIndex != -1)
+               {
                     _projects[projectIndex] = project;
-               }              
+               }
 
                return _projects;
           }
@@ -50,8 +50,10 @@ namespace Assessment.Controllers
           public List<ProjectModel> PurgeProjects()
           {
                DateTime today = DateTime.Today;
-               for (int i = 0; i < _projects.Count; i++){
-                    if(Math.Abs(_projects[i].projectDate.Year - today.Year) >= 5){
+               for (int i = 0; i < _projects.Count; i++)
+               {
+                    if (Math.Abs(_projects[i].projectDate.Year - today.Year) >= 5)
+                    {
                          _projects.RemoveAt(i);
                     }
                }

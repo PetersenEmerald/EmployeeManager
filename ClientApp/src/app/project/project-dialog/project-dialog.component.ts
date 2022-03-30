@@ -28,7 +28,6 @@ export class ProjectDialogComponent implements OnInit {
   }
 
   initializeProjectForm(): void {
-
     if (this.data?.project) {
       this.projectFormGroup.controls.projectNameControl.setValue(this.data.project.projectName);
       this.projectFormGroup.controls.projectDateControl.setValue(this.data.project.projectDate);
