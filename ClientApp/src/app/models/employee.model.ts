@@ -10,5 +10,4 @@ export class EmployeeModel {
   isActive: boolean;
   lastName: string;
   title: string;
-
 }

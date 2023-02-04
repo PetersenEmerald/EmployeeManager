@@ -1,0 +1,13 @@
+<table [dataSource]="dataSource" mat-table matSort class="mat-elevation-z8" style="width: 100%">
+    <ng-container *ngFor="let column of columns">
+        <ng-container matColumnDef="{{column.name}}">
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> {{column.displayName}}</th>
+            <td *matCellDef="let row" mat-cell> {{row[column.name] }} </td>
+        </ng-container>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayColumns;" mat-row [ngClass]="{'highlight': selectedRowIndex == row[rowIdentifier]}"
+        (click)="outputRow(row); highlight(row)">
+    </tr>
+</table>

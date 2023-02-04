@@ -22,6 +22,11 @@ import { ProjectComponent } from './project/project.component';
 import { ProjectDialogComponent } from './project/project-dialog/project-dialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DynamicComponent } from './dynamic/dynamic.component';
+import { TableComponent } from './dynamic/table/table.component';
+import { TextComponent } from './dynamic/text/text.component';
+import { SelectComponent } from './dynamic/select/select.component';
+import { DateComponent } from './dynamic/date/date.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     EmployeeDialogComponent,
     HomeComponent,
     ProjectComponent,
-    ProjectDialogComponent
+    ProjectDialogComponent,
+    DynamicComponent,
+    TableComponent,
+    TextComponent,
+    SelectComponent,
+    DateComponent
   ],
   entryComponents: [EmployeeDialogComponent, ProjectDialogComponent],
   imports: [

@@ -1,0 +1,7 @@
+.highlight {
+    background: #42A948; /* green */
+  }
+  
+  .mat-row:hover {
+    background-color: grey;
+  }
