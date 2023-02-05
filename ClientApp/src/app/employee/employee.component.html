@@ -1,5 +1,5 @@
 <div *ngIf="(employeeService.employees$ | async) as employees">
-  <app-table [dataSource]="employees" (newItemEvent)="openEmployeeDialog($event)"></app-table>
+  <app-table [dataSource]="employees" [columns]="columns" (rowClickEvent)="openEmployeeDialog($event)"></app-table>
   <table mat-table [dataSource]="employees" class="mat-elevation-z8">
     <ng-container matColumnDef="isActive">
       <th mat-header-cell *matHeaderCellDef> Active </th>

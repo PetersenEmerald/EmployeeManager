@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { MatDialog } from '@angular/material/dialog';
+import { ColumnDescription } from 'src/app/models/column.model';
 import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.component';
 
 @Component({
@@ -9,6 +10,15 @@ import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.compo
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
+  columns: ColumnDescription[] = [
+    { name: 'employeeID', displayName: 'ID', columnType: 'id' },
+    { name: 'isActive', displayName: 'isActive', columnType: '' },
+    { name: 'title', displayName: 'title', columnType: '' },
+    { name: 'firstName', displayName: 'First Name', columnType: '' },
+    { name: 'lastName', displayName: 'lastName', columnType: '' },
+    { name: 'defaultPhoneNumber', displayName: 'Phone Number', columnType: '' },
+    { name: 'email', displayName: 'Email', columnType: '' },    
+  ];
   employeeColumns: string[] = ['isActive', 'firstName', 'defaultPhoneNumber', 'email'];
   selectedRowIndex = -1;
 

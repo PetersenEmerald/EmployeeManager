@@ -1,4 +1,4 @@
-<table [dataSource]="dataSource" mat-table matSort class="mat-elevation-z8" style="width: 100%">
+<table [dataSource]="dataSource" mat-table matSort #empTbSort="matSort" class="mat-elevation-z8" style="width: 100%">
     <ng-container *ngFor="let column of columns">
         <ng-container matColumnDef="{{column.name}}">
             <th *matHeaderCellDef mat-header-cell mat-sort-header> {{column.displayName}}</th>
