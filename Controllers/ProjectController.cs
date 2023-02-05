@@ -44,22 +44,6 @@ namespace Assessment.Controllers
                return _projects;
           }
 
-          [HttpDelete]
-          [Route("purgeProjects")]
-          public List<ProjectModel> PurgeProjects()
-          {
-               DateTime today = DateTime.Today;
-               for (int i = 0; i < _projects.Count; i++)
-               {
-                    if (Math.Abs(_projects[i].projectDate.Year - today.Year) >= 5)
-                    {
-                         _projects.RemoveAt(i);
-                    }
-               }
-
-               return _projects;
-          }
-
           [HttpDelete("{projectID}")]
           public List<ProjectModel> DeleteEmployee(int projectID)
           {

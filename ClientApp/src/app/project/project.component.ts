@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ColumnDescription } from '../models/column.model';
 import { EmployeeModel } from '../models/employee.model';
 import { EmployeeService } from '../services/employee.service';
 import { ProjectService } from '../services/project.service';
@@ -11,6 +12,12 @@ import { ProjectDialogComponent } from './project-dialog/project-dialog.componen
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+  columns: ColumnDescription[] = [
+    { name: 'projectID', displayName: 'ID', columnType: 'id' },
+    { name: 'projectName', displayName: 'Project Name', columnType: 'column' },
+    { name: 'projectDate', displayName: 'Project Date', columnType: 'column' },
+    { name: 'contactEmployeeID', displayName: 'Employee Contact', columnType: 'column' },
+  ];
   employees: EmployeeModel[];
   projectColumns: string[] = ['projectName', 'projectDate', 'contactEmployeeID'];
   selectedRowIndex = -1;
@@ -53,9 +60,5 @@ export class ProjectComponent implements OnInit {
     else {
       this.selectedRowIndex = -1;
     }
-  }
-
-  purgeProjects(): void {
-    this.projectService.purgeProjects();
   }
 }

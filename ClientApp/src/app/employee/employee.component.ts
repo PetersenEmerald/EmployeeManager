@@ -19,7 +19,6 @@ export class EmployeeComponent implements OnInit {
     { name: 'defaultPhoneNumber', displayName: 'Phone Number', columnType: 'column' },
     { name: 'email', displayName: 'Email', columnType: 'column' },    
   ];
-  employeeColumns: string[] = ['isActive', 'firstName', 'defaultPhoneNumber', 'email'];
   selectedRowIndex = -1;
 
   constructor(public dialog: MatDialog, public employeeService: EmployeeService) { }
