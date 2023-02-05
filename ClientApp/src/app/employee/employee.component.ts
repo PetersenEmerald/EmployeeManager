@@ -12,10 +12,10 @@ import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.compo
 export class EmployeeComponent implements OnInit {
   columns: ColumnDescription[] = [
     { name: 'employeeID', displayName: 'ID', columnType: 'id' },
-    { name: 'isActive', displayName: 'isActive', columnType: '' },
-    { name: 'title', displayName: 'title', columnType: '' },
+    { name: 'isActive', displayName: 'Active', columnType: '' },
+    { name: 'title', displayName: 'Title', columnType: '' },
     { name: 'firstName', displayName: 'First Name', columnType: '' },
-    { name: 'lastName', displayName: 'lastName', columnType: '' },
+    { name: 'lastName', displayName: 'Last Name', columnType: '' },
     { name: 'defaultPhoneNumber', displayName: 'Phone Number', columnType: '' },
     { name: 'email', displayName: 'Email', columnType: '' },    
   ];

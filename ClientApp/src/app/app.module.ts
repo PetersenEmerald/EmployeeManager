@@ -48,6 +48,7 @@ import { ProjectDialogComponent } from './project/project-dialog/project-dialog.
     TextComponent,
   ],
   entryComponents: [EmployeeDialogComponent, ProjectDialogComponent],
+  exports: [MatSortModule],
   imports: [
     BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
