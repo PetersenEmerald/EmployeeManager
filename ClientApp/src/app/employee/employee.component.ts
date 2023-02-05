@@ -12,12 +12,12 @@ import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.compo
 export class EmployeeComponent implements OnInit {
   columns: ColumnDescription[] = [
     { name: 'employeeID', displayName: 'ID', columnType: 'id' },
-    { name: 'isActive', displayName: 'Active', columnType: '' },
-    { name: 'title', displayName: 'Title', columnType: '' },
-    { name: 'firstName', displayName: 'First Name', columnType: '' },
-    { name: 'lastName', displayName: 'Last Name', columnType: '' },
-    { name: 'defaultPhoneNumber', displayName: 'Phone Number', columnType: '' },
-    { name: 'email', displayName: 'Email', columnType: '' },    
+    { name: 'isActive', displayName: 'Active', columnType: 'activeIcon' },
+    { name: 'title', displayName: 'Title', columnType: 'column' },
+    { name: 'firstName', displayName: 'First Name', columnType: 'column' },
+    { name: 'lastName', displayName: 'Last Name', columnType: 'column' },
+    { name: 'defaultPhoneNumber', displayName: 'Phone Number', columnType: 'column' },
+    { name: 'email', displayName: 'Email', columnType: 'column' },    
   ];
   employeeColumns: string[] = ['isActive', 'firstName', 'defaultPhoneNumber', 'email'];
   selectedRowIndex = -1;

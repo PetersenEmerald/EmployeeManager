@@ -1,8 +1,8 @@
 import { DatePipe } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import {MatSort, Sort} from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
 import { ColumnDescription } from 'src/app/models/column.model';
 
 @Component({
@@ -15,9 +15,8 @@ export class TableComponent implements OnInit {
   @Input() dataSource: any = new MatTableDataSource();
   @Input() columns: ColumnDescription[] = [];
   @Output() rowClickEvent = new EventEmitter<string>();
-  @ViewChild('empTbSort') empTbSort = new MatSort();
   datePipe: DatePipe = new DatePipe('en-US');
-  displayColumns: string[] = [];
+  displayedColumns: string[] = [];
   isFirstLoad = true;
   rowIdentifier = '';
   selectedRowIndex = -1;
@@ -25,7 +24,7 @@ export class TableComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.displayColumns = this.columns.map((column: ColumnDescription) => column.name);
+    this.displayedColumns = this.columns.map((column: ColumnDescription) => column.name);
     this.columns.forEach(data => {
       if (data.columnType === 'id') {
         this.rowIdentifier = data.name;

@@ -1,27 +1,3 @@
 <div *ngIf="(employeeService.employees$ | async) as employees">
   <app-table [dataSource]="employees" [columns]="columns" (rowClickEvent)="openEmployeeDialog($event)"></app-table>
-  <table mat-table [dataSource]="employees" class="mat-elevation-z8">
-    <ng-container matColumnDef="isActive">
-      <th mat-header-cell *matHeaderCellDef> Active </th>
-      <td mat-cell *matCellDef="let employee">
-        <mat-icon *ngIf="employee.isActive" [ngStyle]="{'color':'green'}">check</mat-icon>
-        <mat-icon *ngIf="!employee.isActive" [ngStyle]="{'color':'red'}">close</mat-icon>
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="firstName">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let employee"> {{employee.firstName}} {{employee.lastName}}</td>
-    </ng-container>
-    <ng-container matColumnDef="defaultPhoneNumber">
-      <th mat-header-cell *matHeaderCellDef> Phone Number </th>
-      <td mat-cell *matCellDef="let employee"> {{employee.defaultPhoneNumber}} </td>
-    </ng-container>
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email Address </th>
-      <td mat-cell *matCellDef="let employee"> {{employee.email}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="employeeColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: employeeColumns;" [ngClass]="{'highlight': selectedRowIndex == row.employeeID}"
-        (click)="openEmployeeDialog(row); highlight(row.employeeID)"></tr>
-  </table>
 </div>
