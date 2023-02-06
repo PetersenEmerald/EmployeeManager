@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assessment.Models
+namespace EmployeeViewer.Models
 {
      public class ProjectModel
      {

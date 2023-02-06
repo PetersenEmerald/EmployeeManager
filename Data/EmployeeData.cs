@@ -1,7 +1,7 @@
-﻿using Assessment.Models;
+﻿using EmployeeViewer.Models;
 using System.Collections.Generic;
 
-namespace Assessment.Data
+namespace EmployeeViewer.Data
 {
      public class EmployeeData
      {

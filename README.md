@@ -1,4 +1,4 @@
-# Assessment
+# EmployeeViewer
 # Technology
 - Angular v13.2.5
 - Typescript

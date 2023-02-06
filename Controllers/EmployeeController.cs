@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Assessment.Models;
+using EmployeeViewer.Models;
 using System.Collections.Generic;
-using Assessment.Data;
+using EmployeeViewer.Data;
 
-namespace Assessment.Controllers
+namespace EmployeeViewer.Controllers
 {
      [ApiController]
      [Route("[controller]")]

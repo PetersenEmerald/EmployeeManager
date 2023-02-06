@@ -1,4 +1,4 @@
-﻿namespace Assessment.Models
+﻿namespace EmployeeViewer.Models
 {
      public class EmployeeModel
      {
