@@ -22,7 +22,7 @@ Click Run.
     - View all employees.
 - To view Employee Form, select an employee in the Employees table. This will open a dialog with the Employee Form.
   - Employee Form Actions
-    - Edit 
+    - Save 
     - New
     - Delete
 - To view projects, click the Project tab.
@@ -30,7 +30,7 @@ Click Run.
     - View all projects.
 - To view Projects Form, select a project in the Projects table. This will open a dialog with the Project Form.
   - Project Form Actions
-    - Edit
+    - Save
     - New
     - Delete
 
