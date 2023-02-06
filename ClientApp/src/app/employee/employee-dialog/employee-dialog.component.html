@@ -52,5 +52,5 @@
   <div style="flex: 1"></div>
   <button mat-raised-button color="warn" (click)="deleteEmployee()">Delete</button>
   <button mat-raised-button color="accent" (click)="newEmployee()" [disabled]="!employeeFormGroup.valid">New</button>
-  <button mat-raised-button color="primary" (click)="editEmployee()" [disabled]="!employeeFormGroup.valid || !employeeFormGroup.dirty">Edit</button>
+  <button mat-raised-button color="primary" (click)="saveEmployee()" [disabled]="!employeeFormGroup.valid || !employeeFormGroup.dirty">Save</button>
 </div>

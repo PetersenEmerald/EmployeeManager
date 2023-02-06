@@ -32,8 +32,8 @@ namespace EmployeeViewer.Controllers
           }
 
           [HttpPost]
-          [Route("editProject")]
-          public List<ProjectModel> EditProject(ProjectModel project)
+          [Route("saveProject")]
+          public List<ProjectModel> SaveProject(ProjectModel project)
           {
                int projectIndex = _projects.FindIndex((proj) => proj.projectID == project.projectID);
                if (projectIndex != -1)

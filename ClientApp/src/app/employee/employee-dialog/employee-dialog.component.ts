@@ -68,8 +68,8 @@ export class EmployeeDialogComponent implements OnInit {
     this.employeeService.newEmployee(this.prepareEmployee());
   }
 
-  editEmployee(): void {
-    this.employeeService.editEmployee(this.prepareEmployee());
+  saveEmployee(): void {
+    this.employeeService.saveEmployee(this.prepareEmployee());
   }
 
   deleteEmployee(): void {

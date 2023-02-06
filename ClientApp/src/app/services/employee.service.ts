@@ -23,8 +23,8 @@ export class EmployeeService {
     }, error => console.error(error));
   }
 
-  editEmployee(employee: EmployeeModel): void {
-    this.employeeHttpService.editEmployee(employee).subscribe(result => {
+  saveEmployee(employee: EmployeeModel): void {
+    this.employeeHttpService.saveEmployee(employee).subscribe(result => {
       this.employees$.next(result);
     }, error => console.error(error));
   }

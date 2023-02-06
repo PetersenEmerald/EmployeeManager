@@ -1,9 +1,8 @@
 import { DatePipe } from '@angular/common';
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort, Sort } from '@angular/material/sort';
-import { ColumnDescription } from 'src/app/models/column.model';
+import { ColumnDescription } from 'app/models/column.model';
 
 @Component({
   selector: 'app-table',

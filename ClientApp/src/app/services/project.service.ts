@@ -24,8 +24,8 @@ export class ProjectService {
     }, error => console.error(error));
   }
 
-  editProject(project: ProjectModel): void {
-    this.projectHttpService.editProject(project).subscribe(result => {
+  saveProject(project: ProjectModel): void {
+    this.projectHttpService.saveProject(project).subscribe(result => {
       this.projects$.next(result);
     }, error => console.error(error));
   }

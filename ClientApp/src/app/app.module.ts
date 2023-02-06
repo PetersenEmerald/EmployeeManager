@@ -23,29 +23,21 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { DateComponent } from './dynamic/date/date.component';
-import { DynamicComponent } from './dynamic/dynamic.component';
-import { SelectComponent } from './dynamic/select/select.component';
-import { TableComponent } from './dynamic/table/table.component';
-import { TextComponent } from './dynamic/text/text.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeDialogComponent } from './employee/employee-dialog/employee-dialog.component';
 import { ProjectComponent } from './project/project.component';
 import { ProjectDialogComponent } from './project/project-dialog/project-dialog.component';
+import { TableComponent } from './dynamic/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DateComponent,
-    DynamicComponent,
     EmployeeComponent,
     EmployeeDialogComponent,
     HomeComponent,
     ProjectComponent,
     ProjectDialogComponent,
-    SelectComponent,
-    TableComponent,
-    TextComponent,
+    TableComponent
   ],
   entryComponents: [EmployeeDialogComponent, ProjectDialogComponent],
   exports: [MatSortModule],

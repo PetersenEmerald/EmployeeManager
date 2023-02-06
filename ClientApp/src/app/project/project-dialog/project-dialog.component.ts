@@ -50,8 +50,8 @@ export class ProjectDialogComponent implements OnInit {
     this.projectService.newProject(this.prepareProject());
   }
 
-  editProject(): void {
-    this.projectService.editProject(this.prepareProject());
+  saveProject(): void {
+    this.projectService.saveProject(this.prepareProject());
   }
 
   deleteProject(): void {

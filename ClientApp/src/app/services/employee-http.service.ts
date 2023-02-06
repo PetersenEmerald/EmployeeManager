@@ -18,8 +18,8 @@ export class EmployeeHttpService {
     return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/newEmployee', employee);
   }
 
-  editEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
-    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/editEmployee', employee);
+  saveEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
+    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/saveEmployee', employee);
   }
 
   deleteEmployee(employeeID: number): Observable<EmployeeModel[]> {

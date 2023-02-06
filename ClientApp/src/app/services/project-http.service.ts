@@ -18,8 +18,8 @@ export class ProjectHttpService {
     return this.http.post<ProjectModel[]>(this.baseUrl + 'project/newProject', project);
   }
 
-  editProject(project: ProjectModel): Observable<ProjectModel[]> {
-    return this.http.post<ProjectModel[]>(this.baseUrl + 'project/editProject', project);
+  saveProject(project: ProjectModel): Observable<ProjectModel[]> {
+    return this.http.post<ProjectModel[]>(this.baseUrl + 'project/saveProject', project);
   }
 
   deleteProject(projectID: number): Observable<ProjectModel[]> {

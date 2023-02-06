@@ -31,8 +31,8 @@ namespace EmployeeViewer.Controllers
           }
 
           [HttpPost]
-          [Route("editEmployee")]
-          public List<EmployeeModel> EditEmployee(EmployeeModel employee)
+          [Route("saveEmployee")]
+          public List<EmployeeModel> SaveEmployee(EmployeeModel employee)
           {
                int employeeIndex = _employees.FindIndex((emp) => emp.employeeID == employee.employeeID);
                if (employeeIndex != -1)

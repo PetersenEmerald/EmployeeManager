@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ColumnDescription } from 'src/app/models/column.model';
+import { ColumnDescription } from 'app/models/column.model';
 import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.component';
 
 @Component({

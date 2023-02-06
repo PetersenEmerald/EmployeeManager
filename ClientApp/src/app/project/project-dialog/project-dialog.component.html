@@ -30,5 +30,5 @@
   <div style="flex: 1"></div>
   <button mat-raised-button color="warn" (click)="deleteProject()">Delete</button>
   <button mat-raised-button color="accent" (click)="newProject()" [disabled]="!projectFormGroup.valid">New</button>
-  <button mat-raised-button color="primary" (click)="editProject()" [disabled]="!projectFormGroup.valid || !projectFormGroup.dirty">Save</button>
+  <button mat-raised-button color="primary" (click)="saveProject()" [disabled]="!projectFormGroup.valid || !projectFormGroup.dirty">Save</button>
 </div>
