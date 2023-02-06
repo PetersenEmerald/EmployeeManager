@@ -11,7 +11,7 @@
 - Clone repo.
 - Open sln file in IDE. Recommended to use Visual Studio.
 - Restore NuGet packages.
-- On a command line, navigate to the angular project at ClientApp/src. Run npm install.
+- On a command line, navigate to the angular project at ClientApp/src. Run npm install --force.
 - Rebuild solution in Visual Studio.
 - Set run project to EmployeeViewer.
 Click Run.
