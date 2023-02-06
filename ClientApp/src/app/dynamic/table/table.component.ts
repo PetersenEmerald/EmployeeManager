@@ -38,9 +38,7 @@ export class TableComponent implements OnInit {
   }
 
   highlight(row) {
-    console.log({ row });
     const rowID = row[this.rowIdentifier];
-    console.log(rowID);
     if (this.selectedRowIndex != rowID) {
       this.selectedRowIndex = rowID;
     }

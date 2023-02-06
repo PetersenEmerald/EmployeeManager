@@ -12,7 +12,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = null,
                     defaultPhoneNumber = "612-555-1234",
-                    email = "johns@willdan.com",
+                    email = "johns@companyname.com",
                     employeeID = 0,
                     fax = "612-555-4321",
                     firstName = "John",
@@ -26,7 +26,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = null,
                     defaultPhoneNumber = "612-555-1235",
-                    email = "moniqueu@willdan.com",
+                    email = "moniqueu@companyname.com",
                     employeeID = 1,
                     fax = "612-555-5321",
                     firstName = "Monique",
@@ -40,7 +40,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = null,
                     defaultPhoneNumber = "612-555-1236",
-                    email = "elmerd@willdan.com",
+                    email = "elmerd@companyname.com",
                     employeeID = 2,
                     fax = "612-555-6321",
                     firstName = "Elmer",
@@ -54,7 +54,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = "612-555-9900",
                     defaultPhoneNumber = "612-555-1237",
-                    email = "johns@willdan.com",
+                    email = "johns@companyname.com",
                     employeeID = 3,
                     fax = "612-555-7321",
                     firstName = "John",
@@ -68,7 +68,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = null,
                     defaultPhoneNumber = "612-555-1238",
-                    email = "josephw@willdan.com",
+                    email = "josephw@companyname.com",
                     employeeID = 4,
                     fax = "612-555-8321",
                     firstName = "Joseph",
@@ -82,7 +82,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = "612-555-1239",
                     defaultPhoneNumber = "612-555-1239",
-                    email = "milesc@willdan.com",
+                    email = "milesc@companyname.com",
                     employeeID = 5,
                     fax = null,
                     firstName = "Miles",
@@ -96,7 +96,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = "612-555-8800",
                     defaultPhoneNumber = "612-555-1235",
-                    email = "moniqueu@willdan.com",
+                    email = "moniqueu@companyname.com",
                     employeeID = 6,
                     fax = "612-555-5321",
                     firstName = "Monique",
@@ -110,7 +110,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = "612-555-7700",
                     defaultPhoneNumber = "612-555-5500",
-                    email = "willd@willdan.com",
+                    email = "willd@companyname.com",
                     employeeID = 7,
                     fax = "612-555-0055",
                     firstName = "Will",
@@ -124,7 +124,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = "612-555-6600",
                     defaultPhoneNumber = "612-555-6789",
-                    email = "chadj@willdan.com",
+                    email = "chadj@companyname.com",
                     employeeID = 8,
                     fax = "612-555-9876",
                     firstName = "Chad",
@@ -138,7 +138,7 @@ namespace EmployeeViewer.Data
                {
                     cellNumber = "612-555-1100",
                     defaultPhoneNumber = "612-555-3456",
-                    email = "michellea@willdan.com",
+                    email = "michellea@companyname.com",
                     employeeID = 9,
                     fax = "612-555-6543",
                     firstName = "Michelle",
