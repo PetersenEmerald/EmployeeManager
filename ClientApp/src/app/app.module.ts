@@ -62,7 +62,7 @@ import { TableComponent } from './dynamic/table/table.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-    ], { relativeLinkResolution: 'legacy' })
+    ])
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -15,8 +15,8 @@ export class ProjectDialogComponent implements OnInit {
   employees: EmployeeModel;
   projectFormGroup = new FormGroup({
     projectNameControl: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9\.\-\_ ]+')]),
-    projectDateControl: new FormControl('', Validators.required),
-    contactEmployeeControl: new FormControl('', Validators.required),
+    projectDateControl: new FormControl(null, Validators.required),
+    contactEmployeeControl: new FormControl(null, Validators.required),
   })
 
   constructor(public dialogRef: MatDialogRef<ProjectDialogComponent>,
