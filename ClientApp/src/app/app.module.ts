@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -14,11 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DynamicModule } from './dynamic/dynamic.module';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -27,7 +26,6 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeDialogComponent } from './employee/employee-dialog/employee-dialog.component';
 import { ProjectComponent } from './project/project.component';
 import { ProjectDialogComponent } from './project/project-dialog/project-dialog.component';
-import { TableComponent } from './dynamic/table/table.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +34,7 @@ import { TableComponent } from './dynamic/table/table.component';
     EmployeeDialogComponent,
     HomeComponent,
     ProjectComponent,
-    ProjectDialogComponent,
-    TableComponent
+    ProjectDialogComponent
   ],
   entryComponents: [EmployeeDialogComponent, ProjectDialogComponent],
   exports: [MatSortModule],
@@ -45,6 +42,7 @@ import { TableComponent } from './dynamic/table/table.component';
     BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     CommonModule,
+    DynamicModule,
     FormsModule,
     HttpClientModule,
     MatButtonModule,
@@ -57,7 +55,6 @@ import { TableComponent } from './dynamic/table/table.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatSortModule,
-    MatTableModule,
     MatTabsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
