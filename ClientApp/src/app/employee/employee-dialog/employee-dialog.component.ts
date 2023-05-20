@@ -12,37 +12,32 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrls: ['./employee-dialog.component.css']
 })
 export class EmployeeDialogComponent implements OnInit {
-  data: {
-    cellNumber: string;
+  employee: EmployeeModel;
+  // employeeFormGroup = new FormGroup({
+  //   cellNumberControl: new FormControl(),
+  //   defaultPhoneNumberControl: new FormControl(),
+  //   emailControl: new FormControl('', [Validators.required, Validators.email]),
+  //   faxControl: new FormControl(),
+  //   firstNameControl: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9\-\_]+')]),
+  //   homeFaxControl: new FormControl(),
+  //   homePhoneNumberControl: new FormControl('', Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')),
+  //   isActiveControl: new FormControl(),
+  //   lastNameControl: new FormControl('', Validators.required),
+  //   titleControl: new FormControl(),
+  // })
+
+  dataFields: {
     defaultPhoneNumber: string;
     email: string;
     employeeID: number;
     fax: string;
     firstName: string;
-    homeFax: string;
     isActive: boolean;
     lastName: string;
     title: string;
-  } = {
-    cellNumber: 'aaaa',
-    defaultPhoneNumber: 'bbbbb',
-    email: 'street',
-    employeeID: 3223432,
-    fax: '',
-    firstName: 'Tester',
-    homeFax: '11',
-    isActive: true,
-    lastName: 'Testing',
-    title: 'Devolper',
-    };
+  }
 
   fields: Field<any>[] = [
-    new ShortText({
-      placeHolder: 'Cell Number',
-      label: 'Cell Number',
-      name: 'cellNumber',
-      priority: 3,
-    }),
     new ShortText({
       placeHolder: 'Default Phone Number',
       label: 'Default Phone Number',
@@ -60,7 +55,7 @@ export class EmployeeDialogComponent implements OnInit {
       label: 'Employee ID',
       name: 'employeeID',
       priority: 0,
-    }),new ShortText({
+    }), new ShortText({
       placeHolder: 'Fax',
       label: 'Fax',
       name: 'fax',
@@ -70,18 +65,6 @@ export class EmployeeDialogComponent implements OnInit {
       placeHolder: 'First Name',
       label: 'First Name',
       name: 'firstName',
-      priority: 0,
-    }),
-    new ShortText({
-      placeHolder: 'Home Fax',
-      label: 'Home Fax',
-      name: 'homeFax',
-      priority: 0,
-    }),
-    new ShortText({
-      placeHolder: 'Home Phone Number',
-      label: 'Home Phone Number',
-      name: 'homePhoneNumber',
       priority: 0,
     }),
     new ShortText({
@@ -104,20 +87,8 @@ export class EmployeeDialogComponent implements OnInit {
     }),
   ];
 
-  employeeFormGroup = new FormGroup({
-    cellNumberControl: new FormControl(),
-    defaultPhoneNumberControl: new FormControl(),
-    emailControl: new FormControl('', [Validators.required, Validators.email]),
-    faxControl: new FormControl(),
-    firstNameControl: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9\-\_]+')]),
-    homeFaxControl: new FormControl(),
-    homePhoneNumberControl: new FormControl('', Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')),
-    isActiveControl: new FormControl(),
-    lastNameControl: new FormControl('', Validators.required),
-    titleControl: new FormControl(),
-  })
-
-  constructor(public dialogRef: MatDialogRef<EmployeeDialogComponent>, private employeeService: EmployeeService) {
+  constructor(public dialogRef: MatDialogRef<EmployeeDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
+    private employeeService: EmployeeService) {
   }
 
   ngOnInit(): void {
@@ -125,6 +96,16 @@ export class EmployeeDialogComponent implements OnInit {
   }
 
   initializeEmployeeForm(): void {
+      this.dataFields = {
+        defaultPhoneNumber: this.data.employee.defaultPhoneNumber,
+        email: this.data.employee.email,
+        employeeID: this.data.employee.employeeID,
+        fax: this.data.employee.fax,
+        firstName: this.data.employee.firstName,
+        isActive: this.data.employee.isActive,
+        lastName: this.data.employee.lastName,
+        title: this.data.employee.title,
+      };
     // if (this.data ?.employee) {
     //   this.employeeFormGroup.controls.cellNumberControl.setValue(this.data.employee.cellNumber);
     //   this.employeeFormGroup.controls.defaultPhoneNumberControl.setValue(this.data.employee.defaultPhoneNumber);
