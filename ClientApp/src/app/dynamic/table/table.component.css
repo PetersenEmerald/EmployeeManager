@@ -1,7 +1,11 @@
 .highlight {
-    background: #42A948; /* green */
-  }
-  
-  .mat-row:hover {
-    background-color: grey;
-  }
+  background: #42A948;
+}
+
+.mat-row:hover {
+  background-color: grey;
+}
+
+.table-style {
+  width: 100%;
+}

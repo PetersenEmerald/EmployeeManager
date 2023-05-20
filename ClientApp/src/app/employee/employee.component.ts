@@ -33,13 +33,4 @@ export class EmployeeComponent implements OnInit {
       data: { employee: employee },
     });
   }
-
-  highlight(employeeID) {
-    if (this.selectedRowIndex != employeeID) {
-      this.selectedRowIndex = employeeID;
-    }
-    else {
-      this.selectedRowIndex = -1;
-    }
-  }
 }

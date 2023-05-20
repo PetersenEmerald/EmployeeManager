@@ -39,8 +39,7 @@ export class ProjectComponent implements OnInit {
   getEmployeeName(contactEmployeeID: number): string {
     const employeeIndex = this.employees.findIndex((employee) => employee.employeeID === contactEmployeeID);
     return employeeIndex != -1 ?
-      this.employees[employeeIndex].firstName + ' ' + this.employees[employeeIndex].lastName
-      : null
+      this.employees[employeeIndex].firstName + ' ' + this.employees[employeeIndex].lastName : null
   }
 
   openProjectDialog(project: any): void {
@@ -51,14 +50,5 @@ export class ProjectComponent implements OnInit {
       width: '500px',
       data: { project: project, employee: employee },
     });
-  }
-
-  highlight(employeeID) {
-    if (this.selectedRowIndex != employeeID) {
-      this.selectedRowIndex = employeeID;
-    }
-    else {
-      this.selectedRowIndex = -1;
-    }
   }
 }

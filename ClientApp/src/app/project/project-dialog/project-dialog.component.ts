@@ -23,6 +23,7 @@ export class ProjectDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private projectService: ProjectService, public employeeService: EmployeeService) {
   }
+
   ngOnInit(): void {
     this.initializeProjectForm();
   }

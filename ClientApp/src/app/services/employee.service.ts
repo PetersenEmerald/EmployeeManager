@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { EmployeeModel } from '../models/employee.model';
 import { EmployeeHttpService } from './employee-http.service';
 

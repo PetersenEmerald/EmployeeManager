@@ -1,14 +1,14 @@
-<div style="display: flex; margin-bottom: 20px;">
-  <div style="flex: 1"></div>
+<div class="display-flex">
+  <div class="flex-align"></div>
   <button mat-raised-button color="warn" (click)="closeDialog()">
     <mat-icon>close</mat-icon>
   </button>
 </div>
 <form [formGroup]="employeeFormGroup">
-  <div style="display: flex; margin-bottom: 20px;">
+  <div class="form display-flex">
     <h2>Employee Form</h2>
     <div style="flex: 1"></div>
-    <mat-slide-toggle formControlName="isActiveControl" style="margin-top: 10px;">Active</mat-slide-toggle>
+    <mat-slide-toggle formControlName="isActiveControl" class="toggle-space">Active</mat-slide-toggle>
   </div>
   <mat-form-field appearance="fill">
     <mat-label>First Name</mat-label>
@@ -48,8 +48,8 @@
   </mat-form-field>
 </form>
 
-<div style="display: flex">
-  <div style="flex: 1"></div>
+<div class="display-flex">
+  <div class="flex-align"></div>
   <button mat-raised-button color="warn" (click)="deleteEmployee()">Delete</button>
   <button mat-raised-button color="accent" (click)="newEmployee()" [disabled]="!employeeFormGroup.valid">New</button>
   <button mat-raised-button color="primary" (click)="saveEmployee()" [disabled]="!employeeFormGroup.valid || !employeeFormGroup.dirty">Save</button>

@@ -14,30 +14,31 @@ export class TableComponent implements OnInit {
   @Input() dataSource: any = new MatTableDataSource();
   @Input() columns: ColumnDescription[] = [];
   @Output() rowClickEvent = new EventEmitter<string>();
+
   datePipe: DatePipe = new DatePipe('en-US');
   displayedColumns: string[] = [];
   isFirstLoad = true;
-  rowIdentifier = '';
+  rowID = '';
   selectedRowIndex = -1;
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.displayedColumns = this.columns.map((column: ColumnDescription) => column.name);
-    this.columns.forEach(data => {
-      if (data.columnType === 'id') {
-        this.rowIdentifier = data.name;
+    this.columns.forEach(column => {
+      if (column.columnType === 'id') {
+        this.rowID = column.name;
         return;
       }
     });
   }
 
-  outputRow(row) {
+  outputRow(row): void {
     this.rowClickEvent.emit(row);
   }
 
-  highlight(row) {
-    const rowID = row[this.rowIdentifier];
+  highlight(row): void {
+    const rowID = row[this.rowID];
     if (this.selectedRowIndex != rowID) {
       this.selectedRowIndex = rowID;
     }

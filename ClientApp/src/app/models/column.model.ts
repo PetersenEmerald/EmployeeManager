@@ -1,5 +1,5 @@
 export class ColumnDescription {
-    name: string;
-    displayName: string;
-    columnType: string;
+  name: string;
+  displayName: string;
+  columnType: string;
 }
