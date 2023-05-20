@@ -1,26 +1,25 @@
 export class Field<T> {
-    fieldType: string;
-    name?: string;
-    class?: string;
-    parentClass?: string;
-    placeHolder?: string;
-    required: boolean = false;
-    disabled: boolean = false;
-    priority?: number;
-    value: T;
-    label: string;
-    type: string;
-  
-    constructor(data?: Partial<Field<any>>) {
-      this.name = data?.name;
-      this.fieldType = data?.fieldType;
-      this.class = data?.class;
-      this.parentClass = data?.parentClass;
-      this.placeHolder = data?.placeHolder;
-      this.required = data?.required;
-      this.priority = data?.priority;
-      this.label = data?.label;
-      this.type = data?.type;
-    }
+  class?: string;
+  disabled: boolean = false;
+  fieldType: string;
+  label: string;
+  name?: string;
+  parentClass?: string;
+  placeHolder?: string;
+  required: boolean = false;
+  priority?: number;
+  type: string;
+  value: T;
+
+  constructor(data?: Partial<Field<any>>) {
+    this.class = data ?.class;
+    this.fieldType = data ?.fieldType;
+    this.label = data ?.label;
+    this.name = data ?.name;
+    this.parentClass = data ?.parentClass;
+    this.placeHolder = data ?.placeHolder;
+    this.required = data ?.required;
+    this.priority = data ?.priority;
+    this.type = data ?.type;
   }
-  
+}

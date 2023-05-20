@@ -10,12 +10,10 @@ export class BaseFormDirective {
   @Output() valueChange = new EventEmitter<any>();
 
   get inputValue(): any {
-    console.log('getting');
     return this.value;
   }
 
   set inputValue(newValue: any) {
-    console.log('setting');
     this.value = newValue;
     this.valueChange.emit(this.value);
   }
