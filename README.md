@@ -1,11 +1,12 @@
 # Employee Viewer
+The purpose of this project to be a dynamically generated website. At this time, the form used to modify the employees and projects and the table displaying each is created using a generic table and form creator.
 
 # Technology
-- Angular v13.2.5
+- Angular v14.3
 - Typescript
 - CSS
 - HTML
-- C# with .NET Core v5
+- C# with .NET Core v6
 
 # Instructions
 - Clone repo.
@@ -14,7 +15,7 @@
 - On a command line, navigate to the angular project at ClientApp/src. Run npm install --force.
 - Rebuild solution in Visual Studio.
 - Set run project to EmployeeViewer.
-Click Run.
+- Click Run.
 
 # Website Directions
 - To view employees, click the Employee tab. This is the default tab on website load.
