@@ -12,7 +12,7 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrls: ['./employee-dialog.component.css']
 })
 export class EmployeeDialogComponent implements OnInit {
-  employee: EmployeeModel;
+    employee: EmployeeModel;
   // employeeFormGroup = new FormGroup({
   //   cellNumberControl: new FormControl(),
   //   defaultPhoneNumberControl: new FormControl(),
@@ -37,54 +37,71 @@ export class EmployeeDialogComponent implements OnInit {
     title: string;
   }
 
-  fields: Field<any>[] = [
-    new ShortText({
+  fields: Field[] = [
+    {
       placeHolder: 'Default Phone Number',
       label: 'Default Phone Number',
       name: 'defaultPhoneNumber',
       priority: 2,
-    }),
-    new ShortText({
+      type: 'short-text',
+      value: ''
+    },
+    {
       placeHolder: 'Email',
       label: 'Email',
       name: 'email',
       priority: 1,
-    }),
-    new ShortText({
+      type: 'short-text',
+      value: ''
+    },
+    {
       placeHolder: 'Employee ID',
       label: 'Employee ID',
       name: 'employeeID',
       priority: 0,
-    }), new ShortText({
+      type: 'short-text',
+      value: ''
+    }, 
+    {
       placeHolder: 'Fax',
       label: 'Fax',
       name: 'fax',
       priority: 0,
-    }),
-    new ShortText({
+      type: 'short-text',
+      value: ''
+    },
+    {
       placeHolder: 'First Name',
       label: 'First Name',
       name: 'firstName',
       priority: 0,
-    }),
-    new ShortText({
+      type: 'short-text',
+      value: ''
+    },
+    {
       placeHolder: 'Is Active',
       label: 'Is Active',
       name: 'isActive',
       priority: 0,
-    }),
-    new ShortText({
+      type: 'short-text',
+      value: ''
+    },
+    {
       placeHolder: 'Last Name',
       label: 'Last Name',
       name: 'lastName',
       priority: 0,
-    }),
-    new ShortText({
+      type: 'short-text',
+      value: ''
+    },
+    {
       placeHolder: 'Title',
       label: 'Title',
       name: 'title',
       priority: 0,
-    }),
+      type: 'short-text',
+      value: ''
+    },
   ];
 
   constructor(public dialogRef: MatDialogRef<EmployeeDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any,

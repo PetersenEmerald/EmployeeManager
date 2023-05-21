@@ -14,6 +14,7 @@ import { EmployeeService } from '../../services/employee.service';
 export class DialogFormComponent{
   @Input() fields: any;
   @Input() data: any;
+  @Input() model: any;
 
   constructor(public dialogRef: MatDialogRef<DialogFormComponent>) {
   }

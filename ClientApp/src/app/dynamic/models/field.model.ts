@@ -1,17 +1,17 @@
-export class Field<T> {
+export class Field {
   class?: string;
-  disabled: boolean = false;
-  fieldType: string;
+  disabled?: boolean = false;
+  fieldType?: string;
   label: string;
   name?: string;
   parentClass?: string;
   placeHolder?: string;
-  required: boolean = false;
+  required?: boolean = false;
   priority?: number;
   type: string;
-  value: T;
+  value: string;
 
-  constructor(data?: Partial<Field<any>>) {
+  constructor(data?: Partial<Field>) {
     this.class = data ?.class;
     this.fieldType = data ?.fieldType;
     this.label = data ?.label;

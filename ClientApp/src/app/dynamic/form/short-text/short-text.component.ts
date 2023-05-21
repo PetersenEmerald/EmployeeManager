@@ -7,8 +7,8 @@ import { BaseFormDirective } from '../../base-form.directive';
   templateUrl: './short-text.component.html',
   styleUrls: ['./short-text.component.css']
 })
-export class ShortTextComponent extends BaseFormDirective {
+export class ShortTextComponent {
     constructor(public ngForm: NgForm) {
-      super();
+      // super();
     }
 }
