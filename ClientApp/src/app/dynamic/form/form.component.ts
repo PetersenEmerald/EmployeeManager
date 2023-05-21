@@ -1,20 +1,77 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Field } from '../models/field.model';
+import { FieldModel } from '../models/field.model';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  providers: [FormGroupDirective]
 })
 export class FormComponent {
-  @Input() fields: Field<any>[];
-  @Input() data: any;
-  @Output() valueChanged = new EventEmitter<any>();
+  @Input() fields: FieldModel[];
+  @Input() formTitle: string;
+  @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
+  @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
+  @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();
+  @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
 
-  clear(field: any) {
-    this.data[field.fieldName] = null;
+  dynamicFormGroup: FormGroup;
+  formControls: any[];
+
+  constructor() { }
+
+  ngOnInit() {
+    this.buildForm();
+    this.dynamicFormGroup.valueChanges.subscribe(value => {
+        if (this.dynamicFormGroup.dirty) {          
+          this.updateFieldsEvent.emit(this.dynamicFormGroup.value);
+        }
+      });
   }
-  valueChange(field: any, value: any) {
-    this.valueChanged.emit({ field, value });
+
+  private buildForm() {
+    const formGroupFields = this.getFormControlsFields();
+    this.dynamicFormGroup = new FormGroup(formGroupFields);
+  }
+
+  private getFormControlsFields() {
+    const formGroupFields = {};
+    for (const field of this.fields) {
+      const validators = this.addValidator(field);
+      formGroupFields[field.name] = new FormControl(field.value, validators);
+    }
+
+    return formGroupFields;
+  }
+
+  private addValidator(field) {
+    if (!field.validationRules) {
+      return [];
+    }
+
+    const validators = field.validationRules.map((validator) => {
+      switch (validator) {
+        case "email":
+          return Validators.email;
+        case "pattern":
+          return Validators.pattern(field.validatorPattern);
+        case "required":
+          return Validators.required;        
+      }
+    });
+    return validators;
+  }
+
+  newInstance(): void {
+    this.newInstanceEvent.emit();
+  }
+
+  saveInstance(): void {
+    this.saveInstanceEvent.emit();
+  }
+
+  deleteInstance(): void {
+    this.deleteInstanceEvent.emit();
   }
 }

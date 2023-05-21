@@ -29,7 +29,7 @@ export class EmployeeComponent implements OnInit {
 
   openEmployeeDialog(employee: any): void {
     this.dialog.open(EmployeeDialogComponent, {
-      width: '500px',
+      width: '750px',
       data: { employee: employee },
     });
   }

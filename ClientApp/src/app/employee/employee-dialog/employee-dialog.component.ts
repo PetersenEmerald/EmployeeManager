@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FieldModel } from '../../dynamic/models/field.model';
 import { EmployeeModel } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 
@@ -10,70 +10,105 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrls: ['./employee-dialog.component.css']
 })
 export class EmployeeDialogComponent implements OnInit {
-  employeeFormGroup = new FormGroup({
-    cellNumberControl: new FormControl(),
-    defaultPhoneNumberControl: new FormControl(),
-    emailControl: new FormControl('', [Validators.required, Validators.email]),
-    faxControl: new FormControl(),
-    firstNameControl: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9\-\_]+')]),
-    homeFaxControl: new FormControl(),
-    homePhoneNumberControl: new FormControl('', Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')),
-    isActiveControl: new FormControl(),
-    lastNameControl: new FormControl('', Validators.required),
-    titleControl: new FormControl(),
-  })
+  employee: EmployeeModel;
+  fields: FieldModel[];
 
   constructor(public dialogRef: MatDialogRef<EmployeeDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private employeeService: EmployeeService) {
-  }
+    @Inject(MAT_DIALOG_DATA) public data: any, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.employee = this.data.employee;
     this.initializeEmployeeForm();
   }
 
   initializeEmployeeForm(): void {
-    if (this.data?.employee) {
-      this.employeeFormGroup.controls.cellNumberControl.setValue(this.data.employee.cellNumber);
-      this.employeeFormGroup.controls.defaultPhoneNumberControl.setValue(this.data.employee.defaultPhoneNumber);
-      this.employeeFormGroup.controls.emailControl.setValue(this.data.employee.email);
-      this.employeeFormGroup.controls.faxControl.setValue(this.data.employee.fax);
-      this.employeeFormGroup.controls.firstNameControl.setValue(this.data.employee.firstName);
-      this.employeeFormGroup.controls.homeFaxControl.setValue(this.data.employee.homeFax);
-      this.employeeFormGroup.controls.homePhoneNumberControl.setValue(this.data.employee.homePhoneNumber);
-      this.employeeFormGroup.controls.isActiveControl.setValue(this.data.employee.isActive);
-      this.employeeFormGroup.controls.lastNameControl.setValue(this.data.employee.lastName);
-      this.employeeFormGroup.controls.titleControl.setValue(this.data.employee.title);
-    }
+    this.fields = [
+      {
+        name: 'employeeID',
+        priority: 2,
+        type: '',
+        value: this.employee.employeeID
+      },
+      {
+        placeHolder: 'Default Phone Number',
+        label: 'Default Phone Number',
+        name: 'defaultPhoneNumber',
+        priority: 2,
+        type: 'short-text',
+        validationRules: ['required', 'pattern'],
+        validatorPattern: '[- +()0-9]+',
+        value: this.employee.defaultPhoneNumber
+      },
+      {
+        placeHolder: 'Email',
+        label: 'Email',
+        name: 'email',
+        priority: 1,
+        type: 'short-text',
+        validationRules: ['required', 'email'],
+        value: this.employee.email
+      },
+      {
+        placeHolder: 'Fax',
+        label: 'Fax',
+        name: 'fax',
+        priority: 0,
+        type: 'short-text',
+        value: this.employee.fax
+      },
+      {
+        placeHolder: 'First Name',
+        label: 'First Name',
+        name: 'firstName',
+        priority: 0,
+        type: 'short-text',
+        value: this.employee.firstName,
+        validationRules: ['required', 'pattern'],
+        validatorPattern: '[A-Za-z0-9\-\_]+'
+      },
+      {
+        placeHolder: 'Is Active',
+        label: 'Is Active',
+        name: 'isActive',
+        priority: 0,
+        type: '',
+        value: this.employee.isActive
+      },
+      {
+        placeHolder: 'Last Name',
+        label: 'Last Name',
+        name: 'lastName',
+        priority: 0,
+        type: 'short-text',
+        validationRules: ['required', 'pattern'],
+        validatorPattern: '[A-Za-z0-9\-\_]+',
+        value: this.employee.lastName
+      },
+      {
+        placeHolder: 'Title',
+        label: 'Title',
+        name: 'title',
+        priority: 0,
+        type: 'short-text',
+        value: this.employee.title
+      },
+    ];
   }
 
-  prepareEmployee(): EmployeeModel {
-    const employee: EmployeeModel = {
-      cellNumber: this.employeeFormGroup.controls.cellNumberControl.value,
-      defaultPhoneNumber: this.employeeFormGroup.controls.defaultPhoneNumberControl.value,
-      email: this.employeeFormGroup.controls.emailControl.value,
-      employeeID: this.data.employee.employeeID,
-      fax: this.employeeFormGroup.controls.faxControl.value,
-      firstName: this.employeeFormGroup.controls.firstNameControl.value,
-      homeFax: this.employeeFormGroup.controls.homeFaxControl.value,
-      homePhoneNumber: this.employeeFormGroup.controls.homePhoneNumberControl.value,
-      isActive: this.employeeFormGroup.controls.isActiveControl.value,
-      lastName: this.employeeFormGroup.controls.lastNameControl.value,
-      title: this.employeeFormGroup.controls.titleControl.value,
-    }
-
-    return employee;
+  updateValues(event: any): void {
+    this.employee = event;
   }
 
   newEmployee(): void {
-    this.employeeService.newEmployee(this.prepareEmployee());
+    this.employeeService.newEmployee(this.employee);
   }
 
   saveEmployee(): void {
-    this.employeeService.saveEmployee(this.prepareEmployee());
+    this.employeeService.saveEmployee(this.employee);
   }
 
   deleteEmployee(): void {
-    this.employeeService.deleteEmployee(this.data.employee.employeeID);
+    this.employeeService.deleteEmployee(this.employee.employeeID);
     this.closeDialog();
   }
 

@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DialogFormComponent } from './dialog-form.component';
 
-import { ShortTextComponent } from './short-text.component';
-
-describe('ShortTextComponent', () => {
-  let component: ShortTextComponent;
-  let fixture: ComponentFixture<ShortTextComponent>;
+describe('DialogFormComponent', () => {
+  let component: DialogFormComponent;
+  let fixture: ComponentFixture<DialogFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShortTextComponent ]
+      declarations: [ DialogFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ShortTextComponent);
+    fixture = TestBed.createComponent(DialogFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

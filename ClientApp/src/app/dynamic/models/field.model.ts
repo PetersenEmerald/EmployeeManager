@@ -1,26 +1,17 @@
-export class Field<T> {
-    fieldType: string;
-    name?: string;
-    class?: string;
-    parentClass?: string;
-    placeHolder?: string;
-    required: boolean = false;
-    disabled: boolean = false;
-    priority?: number;
-    value: T;
-    label: string;
-    type: string;
-  
-    constructor(data?: Partial<Field<any>>) {
-      this.name = data?.name;
-      this.fieldType = data?.fieldType;
-      this.class = data?.class;
-      this.parentClass = data?.parentClass;
-      this.placeHolder = data?.placeHolder;
-      this.required = data?.required;
-      this.priority = data?.priority;
-      this.label = data?.label;
-      this.type = data?.type;
-    }
-  }
-  
+export class FieldModel {
+  fieldData?: FieldDataModel[];
+  label?: string;
+  name?: string;
+  placeHolder?: string;
+  required?: boolean = false;
+  priority?: number;
+  type?: string;
+  validationRules?: string[];
+  validatorPattern?: string;
+  value: any;
+}
+
+export class FieldDataModel {
+  displayName: string;
+  value: any;
+}

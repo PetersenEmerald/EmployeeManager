@@ -1,0 +1,14 @@
+<div class="display-flex">
+    <div class="flex-align"></div>
+    <button mat-raised-button color="warn" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="container">
+    <form>
+        <app-form [fields]="fields" [formTitle]="formTitle" 
+        (updateFieldsEvent)="updateValues($event)" (newInstanceEvent)="newInstance()" 
+        (saveInstanceEvent)="saveInstance()" (deleteInstanceEvent)="deleteInstance()"></app-form>
+    </form>
+</mat-dialog-content>
