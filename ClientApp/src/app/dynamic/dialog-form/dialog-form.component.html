@@ -8,8 +8,6 @@
 <div class="container">
     <form name="dynamicForm" #ngForm="ngForm" (ngSubmit)="ngForm.valid && onSubmit($event)">
         <app-form [fields]="fields" [data]="data"></app-form>
-        <button class="btn btn-primary mt-2">Submit</button>
-        <pre>{{ data | json }}</pre>
     </form>
 </div>
 

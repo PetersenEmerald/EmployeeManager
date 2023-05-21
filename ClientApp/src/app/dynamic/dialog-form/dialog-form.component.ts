@@ -1,10 +1,5 @@
-import { Component, Inject, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { EmployeeModel } from '../../models/employee.model';
-import { Field } from '../models/field.model';
-import { ShortText } from '../models/short-text.model';
-import { EmployeeService } from '../../services/employee.service';
+import { Component, Input } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-form',

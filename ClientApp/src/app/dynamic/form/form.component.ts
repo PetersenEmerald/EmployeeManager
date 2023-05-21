@@ -1,13 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Field } from '../models/field.model';
-import {FormControl, FormGroup, FormGroupDirective, Validators} from "@angular/forms";
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  ViewChild,
-  ViewContainerRef
-} from "@angular/core";
-import { ShortTextComponent } from './short-text/short-text.component';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-form',
@@ -16,15 +9,13 @@ import { ShortTextComponent } from './short-text/short-text.component';
   providers: [FormGroupDirective]
 })
 export class FormComponent {
-  // @Input() model: {};
-  // @Input() fields: Field<any>[];
   @Input() data: any;
-  public dynamicFormGroup: FormGroup;
-  @Input() fields;
+  @Input() fields: Field[];
+
+  dynamicFormGroup: FormGroup;
   formControls: any[];
 
-
-  constructor(private formgroupDirective: FormGroupDirective, private cd: ChangeDetectorRef) { }
+  constructor() { }
 
   ngOnInit() {
     this.buildForm();
@@ -37,19 +28,13 @@ export class FormComponent {
 
   private getFormControlsFields() {
     const formGroupFields = {};
-    console.log(this.fields);
     for (const field of this.fields) {
-      console.log({field});
-      const fieldProps = this.fields[field.value];
       // const validators = this.addValidator(fieldProps.rules);
       const validators = null;
-
-      formGroupFields[field.name] = new FormControl(fieldProps, validators);
-      // this.formControls.push(field.name);
-      // this.fields.push({...fieldProps, fieldName: field.label});
+      formGroupFields[field.name] = new FormControl(field.value, validators);
     }
 
-    console.log({formGroupFields});
+    console.log({ formGroupFields });
     return formGroupFields;
   }
 
@@ -62,17 +47,11 @@ export class FormComponent {
       switch (rule) {
         case "required":
           return Validators.required;
-          //add more case for future.
+        //add more case for future.
       }
     });
     return validators;
   }
-
-
-
-
-  
-  
 
   // @Input() fields: Field<any>[];
   // @Input() data: any;
