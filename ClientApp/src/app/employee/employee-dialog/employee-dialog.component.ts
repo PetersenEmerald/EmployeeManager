@@ -29,6 +29,8 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'defaultPhoneNumber',
         priority: 2,
         type: 'short-text',
+        validationRules: ['required', 'pattern'],
+        validatorPattern: '[- +()0-9]+',
         value: this.employee.defaultPhoneNumber
       },
       {
@@ -37,6 +39,7 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'email',
         priority: 1,
         type: 'short-text',
+        validationRules: ['required', 'email'],
         value: this.employee.email
       },
       {
@@ -61,7 +64,9 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'firstName',
         priority: 0,
         type: 'short-text',
-        value: this.data.employee.firstName
+        value: this.employee.firstName,
+        validationRules: ['required', 'pattern'],
+        validatorPattern: '[A-Za-z0-9\-\_]+'
       },
       {
         placeHolder: 'Is Active',
@@ -77,6 +82,8 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'lastName',
         priority: 0,
         type: 'short-text',
+        validationRules: ['required', 'pattern'],
+        validatorPattern: '[A-Za-z0-9\-\_]+',
         value: this.employee.lastName
       },
       {

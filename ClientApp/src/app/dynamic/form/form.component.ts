@@ -38,24 +38,26 @@ export class FormComponent {
   private getFormControlsFields() {
     const formGroupFields = {};
     for (const field of this.fields) {
-      // const validators = this.addValidator(fieldProps.rules);
-      const validators = null;
+      const validators = this.addValidator(field);
       formGroupFields[field.name] = new FormControl(field.value, validators);
     }
 
     return formGroupFields;
   }
 
-  private addValidator(rules) {
-    if (!rules) {
+  private addValidator(field) {
+    if (!field.validationRules) {
       return [];
     }
 
-    const validators = Object.keys(rules).map((rule) => {
-      switch (rule) {
+    const validators = field.validationRules.map((validator) => {
+      switch (validator) {
+        case "email":
+          return Validators.email;
+        case "pattern":
+          return Validators.pattern(field.validatorPattern);
         case "required":
-          return Validators.required;
-        //add more case for future.
+          return Validators.required;        
       }
     });
     return validators;
