@@ -8,8 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogFormComponent{
   @Input() fields: any;
-  @Input() data: any;
-  @Input() model: any;
+  @Input() formTitle: string;
   @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
   @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();

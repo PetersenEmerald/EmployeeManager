@@ -7,8 +7,8 @@
 
 <div class="container">
     <form>
-        <app-form [fields]="fields" [data]="data" (updateFieldsEvent)="updateValues($event)" 
-        (newInstanceEvent)="newInstance()" (saveInstanceEvent)="saveInstance()" 
-        (deleteInstanceEvent)="deleteInstance()"></app-form>
+        <app-form [fields]="fields" [formTitle]="formTitle" 
+        (updateFieldsEvent)="updateValues($event)" (newInstanceEvent)="newInstance()" 
+        (saveInstanceEvent)="saveInstance()" (deleteInstanceEvent)="deleteInstance()"></app-form>
     </form>
 </div>

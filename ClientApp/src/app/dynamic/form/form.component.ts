@@ -9,8 +9,8 @@ import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular
   providers: [FormGroupDirective]
 })
 export class FormComponent {
-  @Input() data: any;
   @Input() fields: Field[];
+  @Input() formTitle: string;
   @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
   @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();

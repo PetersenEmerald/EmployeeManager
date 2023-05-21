@@ -1,4 +1,4 @@
-<app-dialog-form [fields]="fields" (updateFieldsEvent)="updateValues($event)" 
-  (newInstanceEvent)="newEmployee()" (saveInstanceEvent)="saveEmployee()"
-  (deleteInstanceEvent)="deleteEmployee()">
+<app-dialog-form [fields]="fields" [formTitle]="'Employee Form'"
+  (updateFieldsEvent)="updateValues($event)" (newInstanceEvent)="newEmployee()" 
+  (saveInstanceEvent)="saveEmployee()" (deleteInstanceEvent)="deleteEmployee()">
 </app-dialog-form>
