@@ -5,7 +5,23 @@
     <mat-slide-toggle formControlName="isActive" class="toggle-space">Active</mat-slide-toggle>
   </div>
   <ng-container *ngFor="let field of fields">
-    <mat-form-field appearance="fill" *ngIf="field.type == 'short-text'" style="margin-right: 10px">
+    <mat-form-field *ngIf="field.type == 'date'" appearance="fill">
+      <mat-label>{{field.label}}</mat-label>
+      <input matInput [matDatepicker]="picker" [formControlName]="field.name"/>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field *ngIf="field.type == 'select'" appearance="fill">
+      <mat-label>{{field.label}}</mat-label>
+      <mat-select [formControlName]="field.name">
+        <ng-containter *ngIf="field.fieldData">
+          <mat-option *ngFor="let fieldData of field.fieldData" [value]="fieldData.value">
+            {{fieldData.displayName}}
+          </mat-option>
+        </ng-containter>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="field.type == 'short-text'" appearance="fill" style="margin-right: 10px">
       <mat-label>{{field.label}}</mat-label>
       <input matInput [placeholder]="field.placeholder" [formControlName]="field.name">
     </mat-form-field>
@@ -15,8 +31,6 @@
 <div class="display-flex">
   <div class="flex-align"></div>
   <button mat-raised-button color="warn" (click)="deleteInstance()">Delete</button>
-  <button mat-raised-button color="accent" (click)="newInstance()" 
-    [disabled]="!dynamicFormGroup.valid">New</button>
-  <button mat-raised-button color="primary" (click)="saveInstance()" 
-    [disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">Save</button>
+  <button mat-raised-button color="accent" (click)="newInstance()" [disabled]="!dynamicFormGroup.valid">New</button>
+  <button mat-raised-button color="primary" (click)="saveInstance()" [disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">Save</button>
 </div>

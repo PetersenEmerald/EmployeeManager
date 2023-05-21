@@ -6,6 +6,8 @@ namespace EmployeeViewer.Models
      {
           public int contactEmployeeID { get; set; }
 
+          public bool isActive { get; set; }
+
           public string projectName { get; set; }
 
           public DateTime projectDate { get; set; }

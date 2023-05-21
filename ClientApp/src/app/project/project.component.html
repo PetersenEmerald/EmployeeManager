@@ -1,3 +1,1 @@
-<div *ngIf="(projectService.projects$ | async) as projects">
-  <app-table [dataSource]="projects" [columns]="columns" (rowClickEvent)="openProjectDialog($event)"></app-table>
-</div>
+<app-table [dataSource]="projects" [columns]="columns" (rowClickEvent)="openProjectDialog($event)"></app-table>

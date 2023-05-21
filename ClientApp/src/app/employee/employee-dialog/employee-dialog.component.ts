@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FieldModel } from '../../dynamic/models/field.model';
 import { EmployeeModel } from '../../models/employee.model';
-import { Field } from '../../dynamic/models/field.model';
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class EmployeeDialogComponent implements OnInit {
   employee: EmployeeModel;
-  fields: Field[];
+  fields: FieldModel[];
 
   constructor(public dialogRef: MatDialogRef<EmployeeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private employeeService: EmployeeService) { }
@@ -23,6 +23,12 @@ export class EmployeeDialogComponent implements OnInit {
 
   initializeEmployeeForm(): void {
     this.fields = [
+      {
+        name: 'employeeID',
+        priority: 2,
+        type: '',
+        value: this.employee.employeeID
+      },
       {
         placeHolder: 'Default Phone Number',
         label: 'Default Phone Number',
@@ -41,14 +47,6 @@ export class EmployeeDialogComponent implements OnInit {
         type: 'short-text',
         validationRules: ['required', 'email'],
         value: this.employee.email
-      },
-      {
-        placeHolder: 'Employee ID',
-        label: 'Employee ID',
-        name: 'employeeID',
-        priority: 0,
-        type: 'short-text',
-        value: this.employee.employeeID
       },
       {
         placeHolder: 'Fax',

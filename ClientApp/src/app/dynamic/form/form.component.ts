@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Field } from '../models/field.model';
+import { FieldModel } from '../models/field.model';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
 
 @Component({
@@ -9,7 +9,7 @@ import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular
   providers: [FormGroupDirective]
 })
 export class FormComponent {
-  @Input() fields: Field[];
+  @Input() fields: FieldModel[];
   @Input() formTitle: string;
   @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
   @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();

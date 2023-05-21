@@ -1,15 +1,17 @@
-export class Field {
-  class?: string;
-  disabled?: boolean = false;
-  fieldType?: string;
-  label: string;
+export class FieldModel {
+  fieldData?: FieldDataModel[];
+  label?: string;
   name?: string;
-  parentClass?: string;
   placeHolder?: string;
   required?: boolean = false;
   priority?: number;
-  type: string;
+  type?: string;
   validationRules?: string[];
   validatorPattern?: string;
+  value: any;
+}
+
+export class FieldDataModel {
+  displayName: string;
   value: any;
 }
