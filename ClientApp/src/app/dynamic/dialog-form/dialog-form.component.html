@@ -6,18 +6,9 @@
 </div>
 
 <div class="container">
-    <form name="dynamicForm" #ngForm="ngForm" (ngSubmit)="ngForm.valid && onSubmit($event)">
-        <app-form [fields]="fields" [data]="data"></app-form>
+    <form>
+        <app-form [fields]="fields" [data]="data" (updateFieldsEvent)="updateValues($event)" 
+        (newInstanceEvent)="newInstance()" (saveInstanceEvent)="saveInstance()" 
+        (deleteInstanceEvent)="deleteInstance()"></app-form>
     </form>
-</div>
-
-<div class="display-flex">
-    <div class="flex-align"></div>
-    <button mat-raised-button color="warn" (click)="deleteEmployee()">Delete</button>
-    <button mat-raised-button color="accent" (click)="newEmployee()">New</button>
-    <button mat-raised-button color="primary" (click)="saveEmployee()">Save</button>
-
-    <!-- <button mat-raised-button color="warn" (click)="deleteEmployee()">Delete</button>
-    <button mat-raised-button color="accent" (click)="newEmployee()" [disabled]="!employeeFormGroup.valid">New</button>
-    <button mat-raised-button color="primary" (click)="saveEmployee()" [disabled]="!employeeFormGroup.valid || !employeeFormGroup.dirty">Save</button> -->
 </div>

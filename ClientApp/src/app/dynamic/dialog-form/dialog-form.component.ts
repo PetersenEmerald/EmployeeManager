@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -10,25 +10,27 @@ export class DialogFormComponent{
   @Input() fields: any;
   @Input() data: any;
   @Input() model: any;
+  @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
+  @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
+  @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();
+  @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dialogRef: MatDialogRef<DialogFormComponent>) {
+  constructor(public dialogRef: MatDialogRef<DialogFormComponent>) { }
+
+  updateValues(event: any): void {
+    this.updateFieldsEvent.emit(event);
   }
 
-  onSubmit(event: any): void {
-    event.preventDefault();
-    console.log('got data', this.data);
+  newInstance(): void {
+    this.newInstanceEvent.emit();
   }
 
-  newEmployee(): void {
-    // this.employeeService.newEmployee(this.prepareEmployee());
+  saveInstance(): void {
+    this.saveInstanceEvent.emit();
   }
 
-  saveEmployee(): void {
-    // this.employeeService.saveEmployee(this.prepareEmployee());
-  }
-
-  deleteEmployee(): void {
-    // this.employeeService.deleteEmployee(this.data.employee.employeeID);
+  deleteInstance(): void {
+    this.deleteInstanceEvent.emit();
     this.closeDialog();
   }
 

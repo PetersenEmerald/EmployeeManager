@@ -11,6 +11,10 @@ import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular
 export class FormComponent {
   @Input() data: any;
   @Input() fields: Field[];
+  @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
+  @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
+  @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();
+  @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
 
   dynamicFormGroup: FormGroup;
   formControls: any[];
@@ -19,6 +23,11 @@ export class FormComponent {
 
   ngOnInit() {
     this.buildForm();
+    this.dynamicFormGroup.valueChanges.subscribe(value => {
+        if (this.dynamicFormGroup.dirty) {          
+          this.updateFieldsEvent.emit(this.dynamicFormGroup.value);
+        }
+      });
   }
 
   private buildForm() {
@@ -34,7 +43,6 @@ export class FormComponent {
       formGroupFields[field.name] = new FormControl(field.value, validators);
     }
 
-    console.log({ formGroupFields });
     return formGroupFields;
   }
 
@@ -53,14 +61,15 @@ export class FormComponent {
     return validators;
   }
 
-  // @Input() fields: Field<any>[];
-  // @Input() data: any;
-  // @Output() valueChanged = new EventEmitter<any>();
+  newInstance(): void {
+    this.newInstanceEvent.emit();
+  }
 
-  // clear(field: any) {
-  //   this.data[field.fieldName] = null;
-  // }
-  // valueChange(field: any, value: any) {
-  //   this.valueChanged.emit({ field, value });
-  // }
+  saveInstance(): void {
+    this.saveInstanceEvent.emit();
+  }
+
+  deleteInstance(): void {
+    this.deleteInstanceEvent.emit();
+  }
 }

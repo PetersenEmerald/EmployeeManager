@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmployeeModel } from '../../models/employee.model';
 import { Field } from '../../dynamic/models/field.model';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-employee-dialog',
@@ -12,9 +13,11 @@ export class EmployeeDialogComponent implements OnInit {
   employee: EmployeeModel;
   fields: Field[];
 
-  constructor(public dialogRef: MatDialogRef<EmployeeDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<EmployeeDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.employee = this.data.employee;
     this.initializeEmployeeForm();
   }
 
@@ -26,7 +29,7 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'defaultPhoneNumber',
         priority: 2,
         type: 'short-text',
-        value: this.data.employee.defaultPhoneNumber
+        value: this.employee.defaultPhoneNumber
       },
       {
         placeHolder: 'Email',
@@ -34,7 +37,7 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'email',
         priority: 1,
         type: 'short-text',
-        value: this.data.employee.email
+        value: this.employee.email
       },
       {
         placeHolder: 'Employee ID',
@@ -42,7 +45,7 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'employeeID',
         priority: 0,
         type: 'short-text',
-        value: this.data.employee.employeeID
+        value: this.employee.employeeID
       },
       {
         placeHolder: 'Fax',
@@ -50,7 +53,7 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'fax',
         priority: 0,
         type: 'short-text',
-        value: this.data.employee.fax
+        value: this.employee.fax
       },
       {
         placeHolder: 'First Name',
@@ -65,8 +68,8 @@ export class EmployeeDialogComponent implements OnInit {
         label: 'Is Active',
         name: 'isActive',
         priority: 0,
-        type: 'short-text',
-        value: this.data.employee.isActive
+        type: '',
+        value: this.employee.isActive
       },
       {
         placeHolder: 'Last Name',
@@ -74,7 +77,7 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'lastName',
         priority: 0,
         type: 'short-text',
-        value: this.data.employee.lastName
+        value: this.employee.lastName
       },
       {
         placeHolder: 'Title',
@@ -82,21 +85,25 @@ export class EmployeeDialogComponent implements OnInit {
         name: 'title',
         priority: 0,
         type: 'short-text',
-        value: this.data.employee.title
+        value: this.employee.title
       },
     ];
   }
 
+  updateValues(event: any): void {
+    this.employee = event;
+  }
+
   newEmployee(): void {
-    // this.employeeService.newEmployee(this.prepareEmployee());
+    this.employeeService.newEmployee(this.employee);
   }
 
   saveEmployee(): void {
-    //this.employeeService.saveEmployee(this.prepareEmployee());
+    this.employeeService.saveEmployee(this.employee);
   }
 
   deleteEmployee(): void {
-    // this.employeeService.deleteEmployee(this.data.employee.employeeID);
+    this.employeeService.deleteEmployee(this.employee.employeeID);
     this.closeDialog();
   }
 
