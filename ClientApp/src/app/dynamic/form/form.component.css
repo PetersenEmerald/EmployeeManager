@@ -1,12 +1,15 @@
 .action-header {
-    margin-bottom: 20px;
-  }
-  
-  .form {
-    margin-bottom: 20px;
-  }
-  
-  .toggle-space {
-    margin-top: 10px;
-  }
-  
+  margin-bottom: 20px;
+}
+
+.field-space {
+  margin-right: 10px;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.toggle-space {
+  margin-top: 10px;
+}

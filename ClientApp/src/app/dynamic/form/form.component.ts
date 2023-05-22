@@ -11,10 +11,10 @@ import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular
 export class FormComponent {
   @Input() fields: FieldModel[];
   @Input() formTitle: string;
-  @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
+  @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();
-  @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
+  @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
 
   dynamicFormGroup: FormGroup;
   formControls: any[];
@@ -37,6 +37,7 @@ export class FormComponent {
 
   private getFormControlsFields() {
     const formGroupFields = {};
+    this.fields.sort(function(a, b) { return a.priority - b.priority; })
     for (const field of this.fields) {
       const validators = this.addValidator(field);
       formGroupFields[field.name] = new FormControl(field.value, validators);

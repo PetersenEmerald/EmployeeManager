@@ -11,8 +11,8 @@ import { ColumnDescription } from 'app/models/column.model';
 })
 
 export class TableComponent implements OnInit {
-  @Input() dataSource: any = new MatTableDataSource();
   @Input() columns: ColumnDescription[] = [];
+  @Input() dataSource: any = new MatTableDataSource();
   @Output() rowClickEvent = new EventEmitter<string>();
 
   datePipe: DatePipe = new DatePipe('en-US');

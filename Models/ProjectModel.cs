@@ -10,7 +10,7 @@ namespace EmployeeViewer.Models
 
           public string projectName { get; set; }
 
-          public DateTime projectDate { get; set; }
+          public string projectDate { get; set; }
 
           public int projectID { get; set; }
      }

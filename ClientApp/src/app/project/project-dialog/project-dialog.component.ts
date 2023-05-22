@@ -1,4 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, Inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FieldModel, FieldDataModel } from '../../dynamic/models/field.model';
 import { EmployeeModel } from '../../models/employee.model';
@@ -13,10 +14,10 @@ import { ProjectService } from '../../services/project.service';
 })
 export class ProjectDialogComponent implements OnInit {
   fields: FieldModel[];
-  project: ProjectModel;   
+  project: ProjectModel;
 
-  constructor(public dialogRef: MatDialogRef<ProjectDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+  constructor(private cdr: ChangeDetectorRef, public dialogRef: MatDialogRef<ProjectDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private datePipe: DatePipe,
     private projectService: ProjectService, public employeeService: EmployeeService) {
   }
 
@@ -51,7 +52,7 @@ export class ProjectDialogComponent implements OnInit {
           priority: 1,
           type: 'date',
           validationRules: ['required'],
-          value: this.project.projectDate
+          value: new Date(this.project.projectDate)
         },
         {
           label: 'Is Active',
@@ -72,21 +73,25 @@ export class ProjectDialogComponent implements OnInit {
         }
       ];
     });
+    this.cdr.detectChanges();
   }
 
   setEmployeeFieldData(employees: EmployeeModel[]): FieldDataModel[] {
     const employeeFieldData: FieldDataModel[] = [];
 
-    if (employees?.length > 0) {
+    if (employees ?.length > 0) {
       employees.forEach((employee) => {
-        employeeFieldData.push({displayName: employee.firstName + ' ' + employee.lastName, 
-          value: employee.employeeID})
+        employeeFieldData.push({
+          displayName: employee.firstName + ' ' + employee.lastName,
+          value: employee.employeeID
+        })
       })
     }
     return employeeFieldData;
   }
 
   updateValues(event: any): void {
+    event.projectDate = this.datePipe.transform(event.date, 'MM/dd/YYYY');
     this.project = event;
   }
 

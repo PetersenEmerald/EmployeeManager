@@ -25,7 +25,7 @@ export class EmployeeDialogComponent implements OnInit {
     this.fields = [
       {
         name: 'employeeID',
-        priority: 2,
+        priority: 0,
         type: '',
         value: this.employee.employeeID
       },
@@ -33,7 +33,7 @@ export class EmployeeDialogComponent implements OnInit {
         placeHolder: 'Default Phone Number',
         label: 'Default Phone Number',
         name: 'defaultPhoneNumber',
-        priority: 2,
+        priority: 1,
         type: 'short-text',
         validationRules: ['required', 'pattern'],
         validatorPattern: '[- +()0-9]+',
@@ -43,7 +43,7 @@ export class EmployeeDialogComponent implements OnInit {
         placeHolder: 'Email',
         label: 'Email',
         name: 'email',
-        priority: 1,
+        priority: 2,
         type: 'short-text',
         validationRules: ['required', 'email'],
         value: this.employee.email
@@ -52,7 +52,7 @@ export class EmployeeDialogComponent implements OnInit {
         placeHolder: 'Fax',
         label: 'Fax',
         name: 'fax',
-        priority: 0,
+        priority: 7,
         type: 'short-text',
         value: this.employee.fax
       },
@@ -60,7 +60,7 @@ export class EmployeeDialogComponent implements OnInit {
         placeHolder: 'First Name',
         label: 'First Name',
         name: 'firstName',
-        priority: 0,
+        priority: 3,
         type: 'short-text',
         value: this.employee.firstName,
         validationRules: ['required', 'pattern'],
@@ -70,7 +70,7 @@ export class EmployeeDialogComponent implements OnInit {
         placeHolder: 'Is Active',
         label: 'Is Active',
         name: 'isActive',
-        priority: 0,
+        priority: 8,
         type: '',
         value: this.employee.isActive
       },
@@ -78,7 +78,7 @@ export class EmployeeDialogComponent implements OnInit {
         placeHolder: 'Last Name',
         label: 'Last Name',
         name: 'lastName',
-        priority: 0,
+        priority: 4,
         type: 'short-text',
         validationRules: ['required', 'pattern'],
         validatorPattern: '[A-Za-z0-9\-\_]+',
@@ -88,7 +88,7 @@ export class EmployeeDialogComponent implements OnInit {
         placeHolder: 'Title',
         label: 'Title',
         name: 'title',
-        priority: 0,
+        priority: 5,
         type: 'short-text',
         value: this.employee.title
       },
