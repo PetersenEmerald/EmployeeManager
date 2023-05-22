@@ -3,6 +3,6 @@ export class ProjectModel {
   employeeDisplayName?: string;
   isActive?: boolean;
   projectName: string;
-  projectDate: Date;
+  projectDate: string;
   projectID: number;
 }
