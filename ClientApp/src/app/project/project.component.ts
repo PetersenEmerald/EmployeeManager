@@ -25,7 +25,7 @@ export class ProjectComponent implements OnInit {
   projects: ProjectModel[];
   selectedRowIndex = -1;
 
-  constructor(private dialog: MatDialog, 
+  constructor(private dialog: MatDialog,
     private employeeService: EmployeeService, private projectService: ProjectService) { }
 
   ngOnInit(): void {

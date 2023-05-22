@@ -14,7 +14,7 @@ import { ProjectService } from '../../services/project.service';
 })
 export class ProjectDialogComponent implements OnInit {
   fields: FieldModel[];
-  project: ProjectModel;   
+  project: ProjectModel;
 
   constructor(private cdr: ChangeDetectorRef, public dialogRef: MatDialogRef<ProjectDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private datePipe: DatePipe,
@@ -79,10 +79,12 @@ export class ProjectDialogComponent implements OnInit {
   setEmployeeFieldData(employees: EmployeeModel[]): FieldDataModel[] {
     const employeeFieldData: FieldDataModel[] = [];
 
-    if (employees?.length > 0) {
+    if (employees ?.length > 0) {
       employees.forEach((employee) => {
-        employeeFieldData.push({displayName: employee.firstName + ' ' + employee.lastName, 
-          value: employee.employeeID})
+        employeeFieldData.push({
+          displayName: employee.firstName + ' ' + employee.lastName,
+          value: employee.employeeID
+        })
       })
     }
     return employeeFieldData;
