@@ -12,12 +12,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { DateComponent } from './input/date/date.component';
 import { DialogFormComponent } from './dialog-form/dialog-form.component';
 import { FormComponent } from './form/form.component';
 import { TableComponent } from './table/table.component';
 
 @NgModule({
-  declarations: [DialogFormComponent, FormComponent, TableComponent],
+  declarations: [DateComponent, DialogFormComponent, FormComponent, TableComponent],
   imports: [
     BrowserAnimationsModule,
     CommonModule,

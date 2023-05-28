@@ -5,12 +5,13 @@
     <mat-slide-toggle formControlName="isActive" class="toggle-space">Active</mat-slide-toggle>
   </div>
   <ng-container *ngFor="let field of fields">
-    <mat-form-field *ngIf="field.type == 'date'" class="field-space" appearance="fill">
+    <!-- <mat-form-field *ngIf="field.type == 'date'" class="field-space" appearance="fill">
       <mat-label>{{field.label}}</mat-label>
       <input matInput [matDatepicker]="picker" [formControlName]="field.name"/>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    </mat-form-field> -->
+    <app-date *ngIf="field.type == 'date'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-date>
     <mat-form-field *ngIf="field.type == 'select'" class="field-space" appearance="fill">
       <mat-label>{{field.label}}</mat-label>
       <mat-select [formControlName]="field.name">
