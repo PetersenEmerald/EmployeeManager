@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using EmployeeViewer.Data;
-using EmployeeViewer.Models;
+﻿using EmployeeViewer.Models;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace EmployeeViewer.Controllers
@@ -9,13 +9,16 @@ namespace EmployeeViewer.Controllers
      [Route("[controller]")]
      public class EmployeeController : ControllerBase
      {
-          private static readonly List<EmployeeModel> _employees = EmployeeData.SetUpEmployeeData();
-          private static int latestEmployeeID = 9;
+          private static string fileName = "employees";
+          private static int latestEmployeeID = 0;
+          private static List<EmployeeModel> employees;
 
           [HttpGet]
           public List<EmployeeModel> GetEmployees()
           {
-               return _employees;
+               employees = JsonConvert.DeserializeObject<List<EmployeeModel>>(DataManager.GetData(fileName));
+               latestEmployeeID = employees[employees.Count - 1].employeeID;
+               return employees;
           }
 
           [HttpPost]
@@ -24,34 +27,42 @@ namespace EmployeeViewer.Controllers
           {
                latestEmployeeID++;
                employee.employeeID = latestEmployeeID;
+               employees.Add(employee);
+               Save();
 
-               _employees.Add(employee);
-
-               return _employees;
+               latestEmployeeID = employee.employeeID;
+               return employees;
           }
 
           [HttpPost]
           [Route("saveEmployee")]
           public List<EmployeeModel> SaveEmployee(EmployeeModel employee)
           {
-               int employeeIndex = _employees.FindIndex((emp) => emp.employeeID == employee.employeeID);
+               int employeeIndex = employees.FindIndex((emp) => emp.employeeID == employee.employeeID);
                if (employeeIndex != -1)
                {
-                    _employees[employeeIndex] = employee;
+                    employees[employeeIndex] = employee;
                }
 
-               return _employees;
+               Save();
+               return employees;
           }
 
           [HttpDelete("{employeeID}")]
           public List<EmployeeModel> DeleteEmployee(int employeeID)
           {
-               int employeeIndex = _employees.FindIndex((emp) => emp.employeeID == employeeID);
+               int employeeIndex = employees.FindIndex((emp) => emp.employeeID == employeeID);
                if (employeeIndex != -1)
                {
-                    _employees.RemoveAt(employeeIndex);
+                    employees.RemoveAt(employeeIndex);
                }
-               return _employees;
+
+               Save();
+               return employees;
+          }
+
+          private void Save() {
+               DataManager.SaveData(fileName, employees);
           }
      }
 }

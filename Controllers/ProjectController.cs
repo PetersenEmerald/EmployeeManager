@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using EmployeeViewer.Data;
-using EmployeeViewer.Models;
+﻿using EmployeeViewer.Models;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace EmployeeViewer.Controllers
@@ -9,13 +9,16 @@ namespace EmployeeViewer.Controllers
      [Route("[controller]")]
      public class ProjectController : ControllerBase
      {
-          private static readonly List<ProjectModel> _projects = ProjectData.SetUpProjectData();
-          private static int latestProjectID = 6;
+          private static string fileName = "projects";
+          private static int latestProjectID = 0;
+          private static List<ProjectModel> projects;
 
           [HttpGet]
           public List<ProjectModel> GetProjects()
           {
-               return _projects;
+               projects = JsonConvert.DeserializeObject<List<ProjectModel>>(DataManager.GetData(fileName));
+               latestProjectID = projects[projects.Count - 1].projectID;
+               return projects;
           }
 
           [HttpPost]
@@ -24,34 +27,43 @@ namespace EmployeeViewer.Controllers
           {
                latestProjectID++;
                project.projectID = latestProjectID;
+               projects.Add(project);
+               Save();
 
-               _projects.Add(project);
-
-               return _projects;
+               latestProjectID = project.projectID;
+               return projects;
           }
 
           [HttpPost]
           [Route("saveProject")]
           public List<ProjectModel> SaveProject(ProjectModel project)
           {
-               int projectIndex = _projects.FindIndex((proj) => proj.projectID == project.projectID);
+               int projectIndex = projects.FindIndex((proj) => proj.projectID == project.projectID);
                if (projectIndex != -1)
                {
-                    _projects[projectIndex] = project;
+                    projects[projectIndex] = project;
                }
 
-               return _projects;
+               Save();
+               return projects;
           }
 
           [HttpDelete("{projectID}")]
           public List<ProjectModel> DeleteEmployee(int projectID)
           {
-               int projectIndex = _projects.FindIndex((proj) => proj.projectID == projectID);
+               int projectIndex = projects.FindIndex((proj) => proj.projectID == projectID);
                if (projectIndex != -1)
                {
-                    _projects.RemoveAt(projectIndex);
+                    projects.RemoveAt(projectIndex);
                }
-               return _projects;
+
+               Save();
+               return projects;
+          }
+
+          private void Save()
+          {
+               DataManager.SaveData(fileName, projects);
           }
      }
 }

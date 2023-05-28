@@ -1,0 +1,51 @@
+[
+  {
+    "contactEmployeeID": 4,
+    "isActive": false,
+    "projectName": "Alan Parsons Project",
+    "projectDate": "1/23/1970",
+    "projectID": 0
+  },
+  {
+    "contactEmployeeID": 6,
+    "isActive": true,
+    "projectName": "Project Tester",
+    "projectDate": "11/17/2010",
+    "projectID": 1
+  },
+  {
+    "contactEmployeeID": 8,
+    "isActive": false,
+    "projectName": "G2002.0100",
+    "projectDate": "2/2/2017",
+    "projectID": 2
+  },
+  {
+    "contactEmployeeID": 5,
+    "isActive": true,
+    "projectName": "G2003.0100",
+    "projectDate": "03/03/2018",
+    "projectID": 3
+  },
+  {
+    "contactEmployeeID": 9,
+    "isActive": false,
+    "projectName": "G2004.0100",
+    "projectDate": "4/4/2019",
+    "projectID": 4
+  },
+  {
+    "contactEmployeeID": 7,
+    "isActive": true,
+    "projectName": "G2005.0100",
+    "projectDate": "05/05/2020",
+    "projectID": 5
+  },
+  {
+    "contactEmployeeID": 2,
+    "isActive": false,
+    "projectName": "S2000.0200",
+    "projectDate": "6/6/2010",
+    "projectID": 6
+  }
+]
