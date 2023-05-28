@@ -2,7 +2,7 @@ export class FieldModel {
   fieldData?: FieldDataModel[];
   label?: string;
   name?: string;
-  placeHolder?: string;
+  placeholder?: string;
   required?: boolean = false;
   priority?: number;
   type?: string;

@@ -3,14 +3,14 @@ import { FormGroup } from '@angular/forms';
 import { FieldModel } from 'app/dynamic/models/field.model';
 
 @Component({
-  selector: 'app-date',
-  templateUrl: './date.component.html',
-  styleUrls: ['./date.component.css']
+  selector: 'app-slide-toggle',
+  templateUrl: './slide-toggle.component.html',
+  styleUrls: ['./slide-toggle.component.css']
 })
-export class DateComponent implements OnInit {
+export class SlideToggleComponent implements OnInit {
   @Input() dynamicFormGroup: FormGroup;
   @Input() field: FieldModel;
-
+  
   constructor() { }
 
   ngOnInit(): void {

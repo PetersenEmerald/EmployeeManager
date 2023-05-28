@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -15,10 +16,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DateComponent } from './input/date/date.component';
 import { DialogFormComponent } from './dialog-form/dialog-form.component';
 import { FormComponent } from './form/form.component';
+import { SelectComponent } from './input/select/select.component';
+import { ShortTextComponent } from './input/short-text/short-text.component';
+import { SlideToggleComponent } from './input/slide-toggle/slide-toggle.component';
 import { TableComponent } from './table/table.component';
 
 @NgModule({
-  declarations: [DateComponent, DialogFormComponent, FormComponent, TableComponent],
+  declarations: [
+    DateComponent,
+    DialogFormComponent,
+    FormComponent,
+    SelectComponent,
+    ShortTextComponent,
+    SlideToggleComponent,
+    TableComponent,
+  ],
   imports: [
     BrowserAnimationsModule,
     CommonModule,
@@ -27,6 +39,7 @@ import { TableComponent } from './table/table.component';
     MatDatepickerModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatSelectModule,
