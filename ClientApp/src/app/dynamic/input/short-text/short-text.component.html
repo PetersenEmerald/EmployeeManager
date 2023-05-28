@@ -1,0 +1,6 @@
+<div [formGroup]="dynamicFormGroup">
+    <mat-form-field class="field-space" appearance="fill">
+        <mat-label>{{field.label}}</mat-label>
+        <input matInput [placeholder]="field.placeholder" [formControlName]="field.name">
+    </mat-form-field>
+</div>

@@ -4,37 +4,22 @@
     <div style="flex: 1"></div>
     <mat-slide-toggle formControlName="isActive" class="toggle-space">Active</mat-slide-toggle>
   </div>
-  <ng-container *ngFor="let field of fields">
-    <mat-form-field *ngIf="field.type == 'date'" class="field-space" appearance="fill">
-      <mat-label>{{field.label}}</mat-label>
-      <input matInput [matDatepicker]="picker" [formControlName]="field.name"/>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field *ngIf="field.type == 'select'" class="field-space" appearance="fill">
-      <mat-label>{{field.label}}</mat-label>
-      <mat-select [formControlName]="field.name">
-        <ng-containter *ngIf="field.fieldData">
-          <mat-option *ngFor="let fieldData of field.fieldData" [value]="fieldData.value">
-            {{fieldData.displayName}}
-          </mat-option>
-        </ng-containter>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field *ngIf="field.type == 'short-text'" class="field-space" appearance="fill">
-      <mat-label>{{field.label}}</mat-label>
-      <input matInput [placeholder]="field.placeholder" [formControlName]="field.name">
-    </mat-form-field>
-  </ng-container>
+  <mat-grid-list cols="2" rowHeight="3:1">
+    <ng-container *ngFor="let field of fields">
+      <mat-grid-tile *ngIf="field.type != 'id' && field.name != 'isActive'">
+        <app-date *ngIf="field.type == 'date'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-date>
+        <app-select *ngIf="field.type == 'select'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-select>
+        <app-short-text *ngIf="field.type == 'short-text'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-short-text>
+      </mat-grid-tile>
+    </ng-container>
+  </mat-grid-list>
 </form>
 
 <div class="display-flex">
   <div class="flex-align"></div>
   <button mat-raised-button color="warn" (click)="deleteInstance()">Delete</button>
-  <button mat-raised-button color="accent" (click)="newInstance()" 
-    [disabled]="!dynamicFormGroup.valid">New
-  </button>
-  <button mat-raised-button color="primary" (click)="saveInstance()" 
-    [disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">Save
+  <button mat-raised-button color="accent" (click)="newInstance()" [disabled]="!dynamicFormGroup.valid">New</button>
+  <button mat-raised-button color="primary" (click)="saveInstance()"[disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">
+    Save
   </button>
 </div>

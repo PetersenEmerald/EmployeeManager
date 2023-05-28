@@ -16,8 +16,9 @@ export class ProjectDialogComponent implements OnInit {
   fields: FieldModel[];
   project: ProjectModel;
 
-  constructor(private cdr: ChangeDetectorRef, public dialogRef: MatDialogRef<ProjectDialogComponent>,
+  constructor(private cdr: ChangeDetectorRef, 
     @Inject(MAT_DIALOG_DATA) public data: any, private datePipe: DatePipe,
+    public dialogRef: MatDialogRef<ProjectDialogComponent>,
     private projectService: ProjectService, public employeeService: EmployeeService) {
   }
 
@@ -32,13 +33,13 @@ export class ProjectDialogComponent implements OnInit {
         {
           name: 'projectID',
           priority: 2,
-          type: '',
+          type: 'id',
           value: this.project.projectID
         },
         {
           label: 'Project Name',
           name: 'projectName',
-          placeHolder: 'Project Name',
+          placeholder: 'Project Name',
           priority: 2,
           type: 'short-text',
           validationRules: ['pattern', 'required'],
@@ -48,7 +49,7 @@ export class ProjectDialogComponent implements OnInit {
         {
           label: 'Date',
           name: 'date',
-          placeHolder: 'Date',
+          placeholder: 'Date',
           priority: 1,
           type: 'date',
           validationRules: ['required'],
@@ -57,16 +58,16 @@ export class ProjectDialogComponent implements OnInit {
         {
           label: 'Is Active',
           name: 'isActive',
-          placeHolder: 'Is Active',
+          placeholder: 'Is Active',
           priority: 0,
-          type: '',
+          type: 'slide-toggle',
           value: this.project.isActive
         },
         {
           fieldData: this.setEmployeeFieldData(employees),
           label: 'Employee Contact',
           name: 'contactEmployeeID',
-          placeHolder: 'Employee Contact',
+          placeholder: 'Employee Contact',
           priority: 0,
           type: 'select',
           value: this.project.contactEmployeeID
@@ -112,5 +113,4 @@ export class ProjectDialogComponent implements OnInit {
   closeDialog(): void {
     this.dialogRef.close();
   }
-
 }

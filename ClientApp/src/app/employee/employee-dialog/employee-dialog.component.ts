@@ -26,11 +26,11 @@ export class EmployeeDialogComponent implements OnInit {
       {
         name: 'employeeID',
         priority: 0,
-        type: '',
+        type: 'id',
         value: this.employee.employeeID
       },
       {
-        placeHolder: 'Default Phone Number',
+        placeholder: 'Default Phone Number',
         label: 'Default Phone Number',
         name: 'defaultPhoneNumber',
         priority: 1,
@@ -40,7 +40,7 @@ export class EmployeeDialogComponent implements OnInit {
         value: this.employee.defaultPhoneNumber
       },
       {
-        placeHolder: 'Email',
+        placeholder: 'Email',
         label: 'Email',
         name: 'email',
         priority: 2,
@@ -49,7 +49,7 @@ export class EmployeeDialogComponent implements OnInit {
         value: this.employee.email
       },
       {
-        placeHolder: 'Fax',
+        placeholder: 'Fax',
         label: 'Fax',
         name: 'fax',
         priority: 7,
@@ -57,7 +57,7 @@ export class EmployeeDialogComponent implements OnInit {
         value: this.employee.fax
       },
       {
-        placeHolder: 'First Name',
+        placeholder: 'First Name',
         label: 'First Name',
         name: 'firstName',
         priority: 3,
@@ -67,15 +67,15 @@ export class EmployeeDialogComponent implements OnInit {
         validatorPattern: '[A-Za-z0-9\-\_]+'
       },
       {
-        placeHolder: 'Is Active',
+        placeholder: 'Is Active',
         label: 'Is Active',
         name: 'isActive',
         priority: 8,
-        type: '',
+        type: 'slide-toggle',
         value: this.employee.isActive
       },
       {
-        placeHolder: 'Last Name',
+        placeholder: 'Last Name',
         label: 'Last Name',
         name: 'lastName',
         priority: 4,
@@ -85,7 +85,7 @@ export class EmployeeDialogComponent implements OnInit {
         value: this.employee.lastName
       },
       {
-        placeHolder: 'Title',
+        placeholder: 'Title',
         label: 'Title',
         name: 'title',
         priority: 5,

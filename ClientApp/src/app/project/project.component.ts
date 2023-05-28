@@ -55,7 +55,7 @@ export class ProjectComponent implements OnInit {
 
   openProjectDialog(project: any): void {
     this.dialog.open(ProjectDialogComponent, {
-      width: '500px',
+      width: '750px',
       data: { project: project },
     });
   }
