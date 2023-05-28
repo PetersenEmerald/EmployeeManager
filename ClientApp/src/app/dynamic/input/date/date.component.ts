@@ -15,5 +15,4 @@ export class DateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -6,9 +6,7 @@
 </div>
 
 <mat-dialog-content class="container">
-    <form>
-        <app-form [fields]="fields" [formTitle]="formTitle" 
-        (updateFieldsEvent)="updateValues($event)" (newInstanceEvent)="newInstance()" 
-        (saveInstanceEvent)="saveInstance()" (deleteInstanceEvent)="deleteInstance()"></app-form>
-    </form>
+    <app-form [fields]="fields" [formTitle]="formTitle" (updateFieldsEvent)="updateValues($event)"
+        (newInstanceEvent)="newInstance()" (saveInstanceEvent)="saveInstance()"
+        (deleteInstanceEvent)="deleteInstance()"></app-form>
 </mat-dialog-content>

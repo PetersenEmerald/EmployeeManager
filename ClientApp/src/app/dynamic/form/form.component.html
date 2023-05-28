@@ -19,7 +19,7 @@
   <div class="flex-align"></div>
   <button mat-raised-button color="warn" (click)="deleteInstance()">Delete</button>
   <button mat-raised-button color="accent" (click)="newInstance()" [disabled]="!dynamicFormGroup.valid">New</button>
-  <button mat-raised-button color="primary" (click)="saveInstance()"
-    [disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">Save
+  <button mat-raised-button color="primary" (click)="saveInstance()"[disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">
+    Save
   </button>
 </div>

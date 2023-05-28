@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DateComponent } from './date.component';
 
 describe('DateComponent', () => {

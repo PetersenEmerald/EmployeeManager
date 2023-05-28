@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using EmployeeViewer.Data;
 using EmployeeViewer.Models;
 using System.Collections.Generic;
-using EmployeeViewer.Data;
 
 namespace EmployeeViewer.Controllers
 {

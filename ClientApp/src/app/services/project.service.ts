@@ -34,10 +34,4 @@ export class ProjectService {
       this.projects$.next(result);
     }, error => console.error(error));
   }
-
-  purgeProjects(): void {
-    this.projectHttpService.purgeProjects().subscribe(result => {
-      this.projects$.next(result);
-    }, error => console.error(error));
-  }
 }

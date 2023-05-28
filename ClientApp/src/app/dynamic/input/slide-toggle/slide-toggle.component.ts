@@ -15,5 +15,4 @@ export class SlideToggleComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

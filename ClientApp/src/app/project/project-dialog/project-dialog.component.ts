@@ -16,8 +16,9 @@ export class ProjectDialogComponent implements OnInit {
   fields: FieldModel[];
   project: ProjectModel;
 
-  constructor(private cdr: ChangeDetectorRef, public dialogRef: MatDialogRef<ProjectDialogComponent>,
+  constructor(private cdr: ChangeDetectorRef, 
     @Inject(MAT_DIALOG_DATA) public data: any, private datePipe: DatePipe,
+    public dialogRef: MatDialogRef<ProjectDialogComponent>,
     private projectService: ProjectService, public employeeService: EmployeeService) {
   }
 
@@ -112,5 +113,4 @@ export class ProjectDialogComponent implements OnInit {
   closeDialog(): void {
     this.dialogRef.close();
   }
-
 }

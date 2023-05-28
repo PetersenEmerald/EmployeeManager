@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ShortTextComponent } from './short-text.component';
 
 describe('ShortTextComponent', () => {

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FieldModel } from '../models/field.model';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
+import { FieldModel } from '../models/field.model';
 
 @Component({
   selector: 'app-form',
