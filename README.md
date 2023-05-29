@@ -22,7 +22,7 @@ The purpose of this project to be a dynamically generated website. At this time,
 - If you receive an error similar to the screenshot below, you will need to enable allow insecure localhost.
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/0e42eff0-76ce-4b86-babf-ccd8c8ae4d42)
   
-  Fix Instructions
+  Fix Instructions to Enable Insecure Localhost
   - To enable, go to chrome://flags/#allow-insecure-localhost.
   - Set "Allow invalid certificates for resources loaded from localhost." to Enabled.
     ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/63f0fb92-f0a5-4937-a7e1-9ca21498b55a)
