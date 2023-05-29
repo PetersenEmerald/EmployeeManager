@@ -8,5 +8,6 @@ namespace EmployeeViewer.Models
           public string displayName { get; set; }
           public string name { get; set; }
           public List<FieldModel> fields { get; set; }
+          public object data { get; set; }
      }
 }

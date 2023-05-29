@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 
 namespace EmployeeViewer.Controllers
@@ -30,6 +31,7 @@ namespace EmployeeViewer.Controllers
                     }
 
                     tabs[i].fields = tabs[i].fields.OrderBy(field => field.priority).ToList();
+                    tabs[i].data = JsonConvert.DeserializeObject<List<ExpandoObject>>(DataManager.GetData(tabs[i].name));
                }
                return tabs;
           }
