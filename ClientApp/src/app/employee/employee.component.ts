@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnDescription } from 'app/models/column.model';
@@ -10,22 +10,28 @@ import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.compo
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  columns: ColumnDescription[] = [
-    { name: 'employeeID', displayName: 'ID', columnType: 'id' },
-    { name: 'isActive', displayName: 'Active', columnType: 'activeIcon' },
-    { name: 'title', displayName: 'Title', columnType: 'column' },
-    { name: 'firstName', displayName: 'First Name', columnType: 'column' },
-    { name: 'lastName', displayName: 'Last Name', columnType: 'column' },
-    { name: 'defaultPhoneNumber', displayName: 'Phone Number', columnType: 'column' },
-    { name: 'email', displayName: 'Email', columnType: 'column' },    
-  ];
+  @Input() data: any;
+  columns: ColumnDescription[] = [];
   selectedRowIndex = -1;
 
   constructor(public dialog: MatDialog, public employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    this.employeeService.getData();
+    this.getTableColumns();
     this.employeeService.getEmployees();
+  }
+
+  getTableColumns(): void {
+    this.data.fields.forEach((field) => {
+      if (field.tableColumn) {
+        this.columns.push(
+          {
+            name: field.name,
+            displayName: field.displayName,
+            columnType: field.columnType
+          })
+      }
+    });
   }
 
   openEmployeeDialog(employee: any): void {

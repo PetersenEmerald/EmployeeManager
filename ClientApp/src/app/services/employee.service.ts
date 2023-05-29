@@ -8,6 +8,7 @@ import { EmployeeHttpService } from './employee-http.service';
 })
 export class EmployeeService {
   employees$: BehaviorSubject<EmployeeModel[]> = new BehaviorSubject([]);
+  viewData$: BehaviorSubject<any[]> = new BehaviorSubject([]);
 
   constructor(private employeeHttpService: EmployeeHttpService) { }
 
@@ -35,9 +36,10 @@ export class EmployeeService {
     }, error => console.error(error));
   }
 
-  getData(): void {
-    this.employeeHttpService.getData().subscribe((result) => {
+  getViewData(): void {
+    this.employeeHttpService.getViewData().subscribe((result) => {
       console.log({ result });
+      this.viewData$.next(result);
     })
   }
 }

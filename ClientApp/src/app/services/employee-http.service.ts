@@ -26,7 +26,7 @@ export class EmployeeHttpService {
     return this.http.delete<EmployeeModel[]>(this.baseUrl + 'employee/' + employeeID);
   }
 
-  getData(): Observable<any[]> {
+  getViewData(): Observable<any[]> {
     return this.http.get<any[]>(this.baseUrl + 'view/getData');
   }
 }
