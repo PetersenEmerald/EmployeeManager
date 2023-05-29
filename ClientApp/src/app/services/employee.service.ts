@@ -34,4 +34,10 @@ export class EmployeeService {
       this.employees$.next(result);
     }, error => console.error(error));
   }
+
+  getTabs(): void {
+    this.employeeHttpService.getTabs().subscribe((result) => {
+      console.log({ result });
+    })
+  }
 }

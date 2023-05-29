@@ -25,4 +25,8 @@ export class EmployeeHttpService {
   deleteEmployee(employeeID: number): Observable<EmployeeModel[]> {
     return this.http.delete<EmployeeModel[]>(this.baseUrl + 'employee/' + employeeID);
   }
+
+  getTabs(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl + 'view/getTabs');
+  }
 }

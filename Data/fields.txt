@@ -1,0 +1,71 @@
+[
+      {
+        "name": "employeeID",
+        "priority": 0,
+        "type": "id",
+        "value": this.employee.employeeID
+      },
+      {
+        "placeholder": "Default Phone Number",
+        "label": "Default Phone Number",
+        "name": "defaultPhoneNumber",
+        "priority": 1,
+        "type": "short-text",
+        "validationRules": ["required", "pattern"],
+        "validatorPattern": "[- +()0-9]+",
+        "value": this.employee.defaultPhoneNumber
+      },
+      {
+        "placeholder": "Email",
+        "label": "Email",
+        "name": "email",
+        "priority": 2,
+        "type": "short-text",
+        "validationRules": ["required", "email"],
+        "value": this.employee.email
+      },
+      {
+        "placeholder": "Fax",
+        "label": "Fax",
+        "name": "fax",
+        "priority": 7,
+        "type": "short-text",
+        "value": this.employee.fax
+      },
+      {
+        "placeholder": "First "name"",
+        "label": "First "name"",
+        "name": "first"name"",
+        "priority": 3,
+        "type": "short-text",
+        "value": this.employee.first"name",
+        "validationRules": ["required", "pattern"],
+        "validatorPattern": "[A-Za-z0-9\-\_]+"
+      },
+      {
+        "placeholder": "Is Active",
+        "label": "Is Active",
+        "name": "isActive",
+        "priority": 8,
+        "type": "slide-toggle",
+        "value": this.employee.isActive
+      },
+      {
+        "placeholder": "Last "name"",
+        "label": "Last "name"",
+        "name": "last"name"",
+        "priority": 4,
+        "type": "short-text",
+        "validationRules": ["required", "pattern"],
+        "validatorPattern": "[A-Za-z0-9\-\_]+",
+        "value": this.employee.last"name"
+      },
+      {
+        "placeholder": "Title",
+        "label": "Title",
+        "name": "title",
+        "priority": 5,
+        "type": "short-text",
+        "value": this.employee.title
+      },
+]

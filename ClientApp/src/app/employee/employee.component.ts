@@ -24,6 +24,7 @@ export class EmployeeComponent implements OnInit {
   constructor(public dialog: MatDialog, public employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.employeeService.getTabs();
     this.employeeService.getEmployees();
   }
 
