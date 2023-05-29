@@ -12,10 +12,17 @@ The purpose of this project to be a dynamically generated website. At this time,
 - Install latest from node.JS from https://nodejs.org/en/download.
 - Clone repo.
 - Open sln file in IDE. Recommended to use the 2022 Visual Studio Community if another version of Visual Studio is not installed.
-- Restore NuGet packages.
+- Right click on Solution and select Restore NuGet Packages.
+
+  ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/f67ff84a-4b42-4142-94f7-090e30a795cc)
 - On a command line, navigate to the angular project at ClientApp. Run npm install --force.
-- Rebuild solution in Visual Studio.
+
+  ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/6685bf1c-0d4a-4990-9bf5-4acd059d4edf)
+- Right click on Solution and select Rebuild Solution.
+
+  ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/e9512680-b82a-4be5-8340-8d7f1f7a077f)
 - Set run project to EmployeeViewer.
+
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/822493f7-671d-41b8-97ad-2bcd1a1f640b)
 - Click Run.
 - If prompted, accept certificate install.
@@ -26,6 +33,7 @@ The purpose of this project to be a dynamically generated website. At this time,
   - To enable, go to chrome://flags/#allow-insecure-localhost.
   - Set "Allow invalid certificates for resources loaded from localhost." to Enabled.
     ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/63f0fb92-f0a5-4937-a7e1-9ca21498b55a)
+  - Run EmployeeViewer.
 
 
 # Website Directions
