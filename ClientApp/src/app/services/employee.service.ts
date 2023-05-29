@@ -35,8 +35,8 @@ export class EmployeeService {
     }, error => console.error(error));
   }
 
-  getTabs(): void {
-    this.employeeHttpService.getTabs().subscribe((result) => {
+  getData(): void {
+    this.employeeHttpService.getData().subscribe((result) => {
       console.log({ result });
     })
   }

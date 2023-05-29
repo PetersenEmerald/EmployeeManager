@@ -1,71 +1,96 @@
 [
       {
+        "columnType": "id",
+        "displayName": "Employee ID",
+        "fieldID": 0,
         "name": "employeeID",
         "priority": 0,
+        "tabID": 0,
+        "tableColumn": true,
         "type": "id",
-        "value": this.employee.employeeID
       },
-      {
-        "placeholder": "Default Phone Number",
-        "label": "Default Phone Number",
+      {        
+        "columnType": "column",
+        "displayName": "Default Phone Number",
+        "fieldID": 1,        
         "name": "defaultPhoneNumber",
-        "priority": 1,
+        "placeholder": "Default Phone Number",
+        "priority": 5,
+        "tabID": 0,
+        "tableColumn": true,
         "type": "short-text",
         "validationRules": ["required", "pattern"],
         "validatorPattern": "[- +()0-9]+",
-        "value": this.employee.defaultPhoneNumber
       },
-      {
-        "placeholder": "Email",
-        "label": "Email",
+      {     
+        "columnType": "column",
+        "displayName": "Email",
+        "fieldID": 2,        
         "name": "email",
-        "priority": 2,
+        "placeholder": "Email",
+        "priority": 6,
+        "tabID": 0,
+        "tableColumn": true,
         "type": "short-text",
         "validationRules": ["required", "email"],
-        "value": this.employee.email
       },
-      {
-        "placeholder": "Fax",
-        "label": "Fax",
+      {        
+        "columnType": "column",
+        "displayName": "Fax",
+        "fieldID": 3,        
         "name": "fax",
+        "placeholder": "Fax",
         "priority": 7,
+        "tabID": 0,
+        "tableColumn": false,
         "type": "short-text",
-        "value": this.employee.fax
       },
-      {
-        "placeholder": "First "name"",
-        "label": "First "name"",
-        "name": "first"name"",
+      {        
+        "columnType": "column",
+        "displayName": "First Name",
+        "fieldID": 4,        
+        "name": "firstName",
+        "placeholder": "First Name",
         "priority": 3,
+        "tabID": 0,
+        "tableColumn": true,
         "type": "short-text",
-        "value": this.employee.first"name",
         "validationRules": ["required", "pattern"],
-        "validatorPattern": "[A-Za-z0-9\-\_]+"
+        "validatorPattern": "[A-Za-z0-9\\-\\_]+"
       },
-      {
-        "placeholder": "Is Active",
-        "label": "Is Active",
-        "name": "isActive",
-        "priority": 8,
-        "type": "slide-toggle",
-        "value": this.employee.isActive
-      },
-      {
-        "placeholder": "Last "name"",
-        "label": "Last "name"",
-        "name": "last"name"",
+      {        
+        "columnType": "column",
+        "displayName": "Last Name",
+        "fieldID": 5,        
+        "name": "lastMame",
+        "placeholder": "Last Name",
         "priority": 4,
+        "tabID": 0,
+        "tableColumn": true,
         "type": "short-text",
         "validationRules": ["required", "pattern"],
-        "validatorPattern": "[A-Za-z0-9\-\_]+",
-        "value": this.employee.last"name"
+        "validatorPattern": "[A-Za-z0-9\\-\\_]+",
+      },
+      {        
+        "columnType": "column",
+        "displayName": "Title",
+        "fieldID": 6,        
+        "name": "title",
+        "placeholder": "Title",
+        "priority": 2,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "short-text",
       },
       {
-        "placeholder": "Title",
-        "label": "Title",
-        "name": "title",
-        "priority": 5,
-        "type": "short-text",
-        "value": this.employee.title
-      },
+        "columnType": "activeIcon",
+        "displayName": "Is Active",
+        "fieldID": 7,        
+        "name": "isActive",
+        "placeholder": "Is Active",
+        "priority": 1,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "slide-toggle",
+      }
 ]
