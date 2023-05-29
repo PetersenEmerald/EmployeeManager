@@ -10,8 +10,9 @@ The purpose of this project to be a dynamically generated website. At this time,
 
 # Instructions
 - Install latest from node.JS from https://nodejs.org/en/download.
+- Recommended to use [2022 Visual Studio Community](https://visualstudio.microsoft.com/downloads/) if another version of Visual Studio is not installed.
 - Clone repo.
-- Open sln file in IDE. Recommended to use the 2022 Visual Studio Community if another version of Visual Studio is not installed.
+- Open sln file in IDE. 
 - Right click on Solution and select Restore NuGet Packages.
 
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/f67ff84a-4b42-4142-94f7-090e30a795cc)
