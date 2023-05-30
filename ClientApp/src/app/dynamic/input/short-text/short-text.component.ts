@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FieldModel } from 'app/dynamic/models/field.model';
 
@@ -7,12 +7,7 @@ import { FieldModel } from 'app/dynamic/models/field.model';
   templateUrl: './short-text.component.html',
   styleUrls: ['./short-text.component.css']
 })
-export class ShortTextComponent implements OnInit {
+export class ShortTextComponent {
   @Input() dynamicFormGroup: FormGroup;
   @Input() field: FieldModel;
-  
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 }

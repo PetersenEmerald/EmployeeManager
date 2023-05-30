@@ -7,7 +7,7 @@
         "priority": 0,
         "tabID": 0,
         "tableColumn": true,
-        "type": "id",
+        "type": "id"
       },
       {        
         "columnType": "column",
@@ -20,7 +20,7 @@
         "tableColumn": true,
         "type": "short-text",
         "validationRules": ["required", "pattern"],
-        "validatorPattern": "[- +()0-9]+",
+        "validatorPattern": "[- +()0-9]+"
       },
       {     
         "columnType": "column",
@@ -32,7 +32,7 @@
         "tabID": 0,
         "tableColumn": true,
         "type": "short-text",
-        "validationRules": ["required", "email"],
+        "validationRules": ["required", "email"]
       },
       {        
         "columnType": "column",
@@ -43,7 +43,7 @@
         "priority": 7,
         "tabID": 0,
         "tableColumn": false,
-        "type": "short-text",
+        "type": "short-text"
       },
       {        
         "columnType": "column",
@@ -69,7 +69,7 @@
         "tableColumn": true,
         "type": "short-text",
         "validationRules": ["required", "pattern"],
-        "validatorPattern": "[A-Za-z0-9\\-\\_]+",
+        "validatorPattern": "[A-Za-z0-9\\-\\_]+"
       },
       {        
         "columnType": "column",
@@ -80,7 +80,7 @@
         "priority": 2,
         "tabID": 0,
         "tableColumn": true,
-        "type": "short-text",
+        "type": "short-text"
       },
       {
         "columnType": "activeIcon",
@@ -91,7 +91,7 @@
         "priority": 1,
         "tabID": 0,
         "tableColumn": true,
-        "type": "slide-toggle",
+        "type": "slide-toggle"
       },
       {
         "columnType": "id",
@@ -101,7 +101,7 @@
         "priority": 0,
         "tabID": 1,
         "tableColumn": true,
-        "type": "id",
+        "type": "id"
       },
       {
         "columnType": "activeIcon",
@@ -112,7 +112,7 @@
         "priority": 1,
         "tabID": 1,
         "tableColumn": true,
-        "type": "slide-toggle",
+        "type": "slide-toggle"
       },
       {
         "columnType": "column",
@@ -123,9 +123,8 @@
         "priority": 2,
         "tabID": 1,
         "tableColumn": true,
-        "type": "short-text",
-      },      
-      {
+        "type": "short-text"
+      },      {
         "columnType": "column",
         "displayName": "Date",
         "fieldID": 11,        
@@ -135,18 +134,26 @@
         "tabID": 1,
         "tableColumn": true,
         "type": "date",
-        validationRules: ['required'],
+        validationRules: ['required']
       },
       {
         "columnType": "column",
         "displayName": "Employee Contact",
+        "fieldData": [{
+          "displayName": "1",
+          "fieldDataDisplayID": [4, 5],
+          "fieldValueID": 0,
+          "dataType": "property",
+          "tabID": 0,
+          "value": "1"
+        }],
         "fieldID": 7,        
         "name": "contactEmployeeID",
         "placeholder": "Employee Contacte",
         "priority": 4,
         "tabID": 1,
         "tableColumn": true,
-        "type": "select",
+        "type": "select"
       }
 ]
   

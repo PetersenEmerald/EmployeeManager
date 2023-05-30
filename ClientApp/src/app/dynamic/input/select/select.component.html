@@ -4,7 +4,7 @@
         <mat-select [formControlName]="field.name">
             <ng-containter *ngIf="field.fieldData">
                 <mat-option *ngFor="let fieldData of field.fieldData" [value]="fieldData.value">
-                    {{fieldData.displayName}}
+                    {{fieldData.data}}
                 </mat-option>
             </ng-containter>
         </mat-select>

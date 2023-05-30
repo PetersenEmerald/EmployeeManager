@@ -18,5 +18,9 @@ export class FieldModel {
 
 export class FieldDataModel {
   displayName: string;
+  fieldDataDisplayID: number[];
+  fieldValueID: number;
+  dataType: string;
+  tabID: number;
   value: any;
 }

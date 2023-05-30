@@ -23,7 +23,10 @@
      public class FieldDataModel
      {
           public string displayName { get; set; }
-          public dynamic value { get; set; }
+          public int[] fieldDataDisplayID { get; set; }
+          public int fieldValueID { get; set; }
+          public string dataType { get; set; }
+          public int tabID { get; set; }
      }
 
 }
