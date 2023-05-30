@@ -27,6 +27,8 @@ export class SelectComponent implements OnInit {
       let propertyNames: string[] = [];
       let valueName;
 
+      // Gets the property names associated with the fieldID.
+      // Gets the property for the value for the fieldData.
       fieldData.fieldDataDisplayID.forEach(fieldID => {
         viewData[fieldData.tabID].fields.forEach(field => {
           if (field.fieldID === fieldID) {
@@ -48,6 +50,7 @@ export class SelectComponent implements OnInit {
     viewData[fieldData.tabID].data.forEach(data => {
       let value;
 
+      // Combines property values to make a string. Example: First Name + Last Name.
       propertyNames.forEach(property => {
         if (value) {
           value.data = value.data + " " + data[property];

@@ -1,3 +1,4 @@
 <div [formGroup]="dynamicFormGroup">
-  <mat-slide-toggle [formControlName]="field.name" class="toggle-space">{{field.displayName}}</mat-slide-toggle>
+  <label class="label-space">{{field.displayName}}</label>
+  <mat-slide-toggle [formControlName]="field.name" class="toggle-space"></mat-slide-toggle>
 </div>

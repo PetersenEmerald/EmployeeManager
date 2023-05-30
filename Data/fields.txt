@@ -133,8 +133,7 @@
         "priority": 3,
         "tabID": 1,
         "tableColumn": true,
-        "type": "date",
-        validationRules: ['required']
+        "type": "date"
       },
       {
         "columnType": "column",
@@ -156,15 +155,3 @@
         "type": "select"
       }
 ]
-  
-
-      //  {
-      //    fieldData: this.setEmployeeFieldData(employees),
-      //    label: 'Employee Contact',
-      //    name: 'contactEmployeeID',
-      //    placeholder: 'Employee Contact',
-      //    priority: 0,
-      //    type: 'select',
-      //    value: this.project.contactEmployeeID
-      //  }
-      //]
