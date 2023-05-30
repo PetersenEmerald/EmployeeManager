@@ -1,5 +1,5 @@
 # Employee Viewer
-The purpose of this project to be a dynamically generated website. At this time, the form used to modify the employees and projects and the table displaying each is created using a generic table and form creator.
+The purpose of this project to be a dynamically generated website. At this time, the website uses a mock database to generate its tabs, table, and dialog-form.
 
 # Technology
 - Angular v14.3
