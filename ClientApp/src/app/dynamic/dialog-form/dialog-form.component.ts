@@ -14,9 +14,7 @@ export class DialogFormComponent {
   @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dialogRef: MatDialogRef<DialogFormComponent>) {
-    console.log(this.data);
-  }
+  constructor(public dialogRef: MatDialogRef<DialogFormComponent>) { }
 
   updateValues(event: any): void {
     this.updateFieldsEvent.emit(event);
