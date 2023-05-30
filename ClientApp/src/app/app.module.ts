@@ -22,21 +22,12 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeDialogComponent } from './employee/employee-dialog/employee-dialog.component';
-import { ProjectComponent } from './project/project.component';
-import { ProjectDialogComponent } from './project/project-dialog/project-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
-    EmployeeDialogComponent,
-    HomeComponent,
-    ProjectComponent,
-    ProjectDialogComponent
+    HomeComponent
   ],
-  entryComponents: [EmployeeDialogComponent, ProjectDialogComponent],
   exports: [DynamicModule, MatSortModule],
   imports: [
     BrowserAnimationsModule,

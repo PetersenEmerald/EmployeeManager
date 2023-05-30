@@ -1,27 +1,28 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EmployeeService } from '../services/employee.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnDescription } from 'app/models/column.model';
-import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.component';
-import { TabModel } from '../dynamic/models/tab.model';
+import { TabService } from '../services/tab.service';
+import { TabModel } from '../models/tab.model';
+import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  selector: 'app-tab',
+  templateUrl: './tab.component.html',
+  styleUrls: ['./tab.component.css']
 })
-export class EmployeeComponent implements OnInit {
+export class TabComponent implements OnInit {
   @Input() data: TabModel;
   columns: ColumnDescription[] = [];
   selectedRowIndex = -1;
 
-  constructor(public dialog: MatDialog, public employeeService: EmployeeService) { }
+  constructor(public dialog: MatDialog, public employeeService: TabService) { }
 
   ngOnInit(): void {
     this.getTableColumns();
   }
 
   getTableColumns(): void {
+    console.log('!!!');
     this.data.fields.forEach((field) => {
       if (field.tableColumn) {
         this.columns.push(
@@ -35,7 +36,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   openEmployeeDialog(selectedRow: any): void {
-    this.dialog.open(EmployeeDialogComponent, {
+    this.dialog.open(TabDialogComponent, {
       width: '750px',
       data: {
         data: { view: this.data, values: selectedRow }

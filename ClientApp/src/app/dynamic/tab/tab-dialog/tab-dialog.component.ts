@@ -1,25 +1,25 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FieldModel } from '../../dynamic/models/field.model';
-import { TabDataModel } from '../../dynamic/models/tab.model';
-import { EmployeeModel } from '../../models/employee.model';
-import { EmployeeService } from '../../services/employee.service';
+import { TabService } from '../../services/tab.service';
+import { FieldModel } from '../../models/field.model';
+import { TabDataModel } from '../../models/tab.model';
+
 
 @Component({
-  selector: 'app-employee-dialog',
-  templateUrl: './employee-dialog.component.html',
-  styleUrls: ['./employee-dialog.component.css']
+  selector: 'app-tab-dialog',
+  templateUrl: './tab-dialog.component.html',
+  styleUrls: ['./tab-dialog.component.css']
 })
-export class EmployeeDialogComponent implements OnInit {
+export class TabDialogComponent implements OnInit {
   tabData: TabDataModel;
-  employee: EmployeeModel;
   fields: FieldModel[];
 
-  constructor(public dialogRef: MatDialogRef<EmployeeDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private employeeService: EmployeeService) { }
+  constructor(public dialogRef: MatDialogRef<TabDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private employeeService: TabService) { }
 
   ngOnInit(): void {
     this.tabData = this.data.data;
+    console.log(this.tabData);
   }
 
   updateValues(event: any): void {

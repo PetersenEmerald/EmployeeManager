@@ -1,7 +1,7 @@
 <table [dataSource]="dataSource" mat-table class="mat-elevation-z8 table-style">
   <ng-container *ngFor="let column of columns">
     <ng-container matColumnDef="{{column.name}}" *ngIf="column.columnType == 'column' || column.columnType == 'id'">
-      <th *matHeaderCellDef mat-header-cell> {{column.displayName}}</th>
+      <th *matHeaderCellDef mat-header-cell>{{column.displayName}}</th>
       <td *matCellDef="let row" mat-cell>{{row[column.name] }} </td>
     </ng-container>
     <ng-container matColumnDef="{{column.name}}" *ngIf="column.columnType == 'activeIcon'">

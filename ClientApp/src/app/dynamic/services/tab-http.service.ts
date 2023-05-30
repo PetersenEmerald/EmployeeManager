@@ -1,13 +1,12 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataModel, TabModel } from '../dynamic/models/tab.model';
-import { EmployeeModel } from '../models/employee.model';
+import { DataModel, TabModel } from '../models/tab.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeHttpService {
+export class TabHttpService {
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 

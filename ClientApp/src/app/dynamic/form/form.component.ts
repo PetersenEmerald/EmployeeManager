@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
 import { FieldModel } from '../models/field.model';
 
@@ -8,7 +8,7 @@ import { FieldModel } from '../models/field.model';
   styleUrls: ['./form.component.css'],
   providers: [FormGroupDirective]
 })
-export class FormComponent {
+export class FormComponent implements AfterViewInit, OnInit {
   @Input() data: any;
   @Input() formTitle: string;
   @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
@@ -19,15 +19,19 @@ export class FormComponent {
   dynamicFormGroup: FormGroup;
   formControls: any[];
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.buildForm();
-    this.dynamicFormGroup.valueChanges.subscribe(value => {
-        if (this.dynamicFormGroup.dirty) {          
+    this.dynamicFormGroup.valueChanges.subscribe(() => {
+      if (this.dynamicFormGroup.dirty) {
           this.updateFieldsEvent.emit(this.dynamicFormGroup.value);
-        }
-      });
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
   }
 
   private buildForm() {

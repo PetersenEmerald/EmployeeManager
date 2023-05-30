@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../services/employee.service';
+import { TabService } from '../dynamic/services/tab.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +7,7 @@ import { EmployeeService } from '../services/employee.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(public employeeService: EmployeeService) { }
+  constructor(public employeeService: TabService) { }
 
   ngOnInit(): void {
     this.employeeService.getViewData();

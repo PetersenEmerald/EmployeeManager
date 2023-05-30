@@ -1,7 +1,7 @@
 <mat-tab-group mat-align-tabs="center" *ngIf="(employeeService.viewData$ | async) as viewData">
   <ng-container *ngFor="let data of viewData">
     <mat-tab [label]="data.displayName">
-      <app-employee [data]="data"></app-employee>
+      <app-tab [data]="data"></app-tab>
     </mat-tab>
   </ng-container>
 </mat-tab-group>
