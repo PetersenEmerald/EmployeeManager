@@ -17,9 +17,9 @@ The purpose of this project to be a dynamically generated website. At this time,
 
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/f67ff84a-4b42-4142-94f7-090e30a795cc)
 - On a command line, navigate to the angular project at ClientApp, run: npm install --force.
-- On a command line still on ClientApp, run: npm start.
 
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/6685bf1c-0d4a-4990-9bf5-4acd059d4edf)
+- On a command line still on ClientApp, run: npm start.
 - Right click on Solution and select Rebuild Solution.
 
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/e9512680-b82a-4be5-8340-8d7f1f7a077f)
