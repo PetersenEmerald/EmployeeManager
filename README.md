@@ -1,5 +1,5 @@
 # Employee Viewer
-The purpose of this project to be a dynamically generated website. At this time, the website uses a mock database to generate its tabs, table, and dialog-form.
+The purpose of this project to be a dynamically generated website. At this time, the website uses a mock database to generate its tabs, tables, and forms.
 
 # Technology
 - Angular v14.3
@@ -19,10 +19,10 @@ The purpose of this project to be a dynamically generated website. At this time,
 - On a command line, navigate to the angular project at ClientApp, run: npm install --force.
 
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/6685bf1c-0d4a-4990-9bf5-4acd059d4edf)
-- On a command line still on ClientApp, run: npm start.
 - Right click on Solution and select Rebuild Solution.
 
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/e9512680-b82a-4be5-8340-8d7f1f7a077f)
+- On a command line still on ClientApp, run: npm start.
 - Set run project to EmployeeViewer.
 
   ![image](https://github.com/PetersenEmerald/EmployeeViewer/assets/46093775/822493f7-671d-41b8-97ad-2bcd1a1f640b)
