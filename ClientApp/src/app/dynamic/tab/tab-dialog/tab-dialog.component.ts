@@ -1,9 +1,8 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TabService } from '../../services/tab.service';
 import { FieldModel } from '../../models/field.model';
 import { TabDataModel } from '../../models/tab.model';
-
 
 @Component({
   selector: 'app-tab-dialog',
@@ -11,8 +10,8 @@ import { TabDataModel } from '../../models/tab.model';
   styleUrls: ['./tab-dialog.component.css']
 })
 export class TabDialogComponent implements OnInit {
-  tabData: TabDataModel;
   fields: FieldModel[];
+  tabData: TabDataModel;
 
   constructor(public dialogRef: MatDialogRef<TabDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private employeeService: TabService) { }

@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ColumnDescription } from 'app/models/column.model';
-import { TabService } from '../services/tab.service';
-import { TabModel } from '../models/tab.model';
 import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
+import { TabModel } from '../models/tab.model';
+import { TabService } from '../services/tab.service';
+import { ColumnDescription } from 'app/models/column.model';
 
 @Component({
   selector: 'app-tab',

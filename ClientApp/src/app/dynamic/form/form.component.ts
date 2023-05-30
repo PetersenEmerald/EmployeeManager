@@ -1,6 +1,5 @@
 import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
-import { FieldModel } from '../models/field.model';
 
 @Component({
   selector: 'app-form',
@@ -25,7 +24,7 @@ export class FormComponent implements AfterViewInit, OnInit {
     this.buildForm();
     this.dynamicFormGroup.valueChanges.subscribe(() => {
       if (this.dynamicFormGroup.dirty) {
-          this.updateFieldsEvent.emit(this.dynamicFormGroup.value);
+        this.updateFieldsEvent.emit(this.dynamicFormGroup.value);
       }
     });
   }
@@ -61,7 +60,7 @@ export class FormComponent implements AfterViewInit, OnInit {
         case "pattern":
           return Validators.pattern(field.validatorPattern);
         case "required":
-          return Validators.required;        
+          return Validators.required;
       }
     });
     return validators;

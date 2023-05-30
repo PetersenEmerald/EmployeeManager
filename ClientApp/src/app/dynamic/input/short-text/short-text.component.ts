@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FieldModel } from 'app/dynamic/models/field.model';
+import { FieldModel } from '../../models/field.model';
 
 @Component({
   selector: 'app-short-text',

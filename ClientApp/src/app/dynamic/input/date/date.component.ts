@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FieldModel } from 'app/dynamic/models/field.model';
+import { FieldModel } from '../../models/field.model';
 
 @Component({
   selector: 'app-date',
@@ -12,7 +12,7 @@ export class DateComponent implements OnInit {
   @Input() dynamicFormGroup: FormGroup;
   @Input() field: FieldModel;
 
-  constructor(private cdr: ChangeDetectorRef, private datepipe: DatePipe) { }
+  constructor(private datepipe: DatePipe) { }
 
   ngOnInit(): void {
     var dateValue = new Date(this.dynamicFormGroup.value[this.field.name]);

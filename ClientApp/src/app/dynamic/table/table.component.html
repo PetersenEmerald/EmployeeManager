@@ -13,7 +13,7 @@
     </ng-container>
   </ng-container>
   <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-  <tr *matRowDef="let row; columns: displayedColumns;" mat-row
-      [ngClass]="{'highlight': selectedRowIndex == row[rowID]}" (click)="outputRow(row); highlight(row)">
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row [ngClass]="{'highlight': selectedRowIndex == row[rowID]}"
+    (click)="outputRow(row); highlight(row)">
   </tr>
 </table>

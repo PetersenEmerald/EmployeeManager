@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FieldDataModel, FieldModel } from 'app/dynamic/models/field.model';
+import { FieldDataModel, FieldModel } from '../../models/field.model';
 import { TabModel } from '../../models/tab.model';
 import { TabService } from '../../services/tab.service';
 
@@ -38,7 +38,7 @@ export class SelectComponent implements OnInit {
         })
       })
 
-      this.setFieldData(viewData, fieldData, propertyNames, valueName);      
+      this.setFieldData(viewData, fieldData, propertyNames, valueName);
     })
   }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { DataModel, TabModel } from '../models/tab.model';
 import { TabHttpService } from './tab-http.service';
+import { DataModel, TabModel } from '../models/tab.model';
 
 @Injectable({
   providedIn: 'root'
