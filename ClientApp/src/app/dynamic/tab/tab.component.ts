@@ -22,7 +22,6 @@ export class TabComponent implements OnInit {
   }
 
   getTableColumns(): void {
-    console.log('!!!');
     this.data.fields.forEach((field) => {
       if (field.tableColumn) {
         this.columns.push(

@@ -19,12 +19,10 @@ export class TabDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.tabData = this.data.data;
-    console.log(this.tabData);
   }
 
   updateValues(event: any): void {
     this.tabData.values = event;
-    console.log(this.tabData);
   }
 
   newData(): void {

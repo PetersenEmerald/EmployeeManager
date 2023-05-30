@@ -23,7 +23,6 @@ export class TabService {
 
   getViewData(): void {
     this.tabHttpService.getViewData().subscribe((result) => {
-      console.log({ result });
       this.viewData$.next(result);
     })
   }
