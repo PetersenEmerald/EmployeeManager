@@ -1,6 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FieldModel } from 'app/dynamic/models/field.model';
+import { FieldModel } from '../../models/field.model';
 
 @Component({
   selector: 'app-date',
@@ -11,8 +12,15 @@ export class DateComponent implements OnInit {
   @Input() dynamicFormGroup: FormGroup;
   @Input() field: FieldModel;
 
-  constructor() { }
+  constructor(private datepipe: DatePipe) { }
 
   ngOnInit(): void {
+    var dateValue = new Date(this.dynamicFormGroup.value[this.field.name]);
+    this.dynamicFormGroup.value[this.field.name] = new Date(dateValue);
+  }
+
+  changeDatePicker(): any {
+    var dateValue = this.dynamicFormGroup.value[this.field.name];
+    this.dynamicFormGroup.value[this.field.name] = this.datepipe.transform(dateValue, 'MM/dd/YYYY');
   }
 }

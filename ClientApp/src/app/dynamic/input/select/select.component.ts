@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FieldModel } from 'app/dynamic/models/field.model';
+import { FieldDataModel, FieldModel } from '../../models/field.model';
+import { TabModel } from '../../models/tab.model';
+import { TabService } from '../../services/tab.service';
 
 @Component({
   selector: 'app-select',
@@ -10,9 +12,54 @@ import { FieldModel } from 'app/dynamic/models/field.model';
 export class SelectComponent implements OnInit {
   @Input() dynamicFormGroup: FormGroup;
   @Input() field: FieldModel;
-  
-  constructor() { }
+
+  constructor(private tabService: TabService) { }
 
   ngOnInit(): void {
+    const fieldData = this.field.fieldData[0];
+    if (fieldData.dataType === 'property') {
+      this.getPropertyFieldData(fieldData);
+    }
+  }
+
+  getPropertyFieldData(fieldData: FieldDataModel): void {
+    this.tabService.viewData$.subscribe(viewData => {
+      let propertyNames: string[] = [];
+      let valueName;
+
+      fieldData.fieldDataDisplayID.forEach(fieldID => {
+        viewData[fieldData.tabID].fields.forEach(field => {
+          if (field.fieldID === fieldID) {
+            propertyNames.push(field.name);
+          }
+          if (field.fieldID === fieldData.fieldValueID) {
+            valueName = field.name;
+          }
+        })
+      })
+
+      this.setFieldData(viewData, fieldData, propertyNames, valueName);
+    })
+  }
+
+  setFieldData(viewData: TabModel[], fieldData: FieldDataModel, propertyNames: string[], valueName: string): void {
+    let values = [];
+
+    viewData[fieldData.tabID].data.forEach(data => {
+      let value;
+
+      propertyNames.forEach(property => {
+        if (value) {
+          value.data = value.data + " " + data[property];
+        }
+        else {
+          value = { value: data[valueName], data: data[property] };
+        }
+      })
+
+      values.push(value);
+    })
+
+    this.field.fieldData = values;
   }
 }

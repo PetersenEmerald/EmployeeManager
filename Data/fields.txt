@@ -1,0 +1,170 @@
+[
+      {
+        "columnType": "id",
+        "displayName": "ID",
+        "fieldID": 0,
+        "name": "employeeID",
+        "priority": 0,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "id"
+      },
+      {        
+        "columnType": "column",
+        "displayName": "Default Phone Number",
+        "fieldID": 1,        
+        "name": "defaultPhoneNumber",
+        "placeholder": "Default Phone Number",
+        "priority": 5,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "short-text",
+        "validationRules": ["required", "pattern"],
+        "validatorPattern": "[- +()0-9]+"
+      },
+      {     
+        "columnType": "column",
+        "displayName": "Email",
+        "fieldID": 2,        
+        "name": "email",
+        "placeholder": "Email",
+        "priority": 6,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "short-text",
+        "validationRules": ["required", "email"]
+      },
+      {        
+        "columnType": "column",
+        "displayName": "Fax",
+        "fieldID": 3,        
+        "name": "fax",
+        "placeholder": "Fax",
+        "priority": 7,
+        "tabID": 0,
+        "tableColumn": false,
+        "type": "short-text"
+      },
+      {        
+        "columnType": "column",
+        "displayName": "First Name",
+        "fieldID": 4,        
+        "name": "firstName",
+        "placeholder": "First Name",
+        "priority": 3,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "short-text",
+        "validationRules": ["required", "pattern"],
+        "validatorPattern": "[A-Za-z0-9\\-\\_]+"
+      },
+      {        
+        "columnType": "column",
+        "displayName": "Last Name",
+        "fieldID": 5,        
+        "name": "lastName",
+        "placeholder": "Last Name",
+        "priority": 4,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "short-text",
+        "validationRules": ["required", "pattern"],
+        "validatorPattern": "[A-Za-z0-9\\-\\_]+"
+      },
+      {        
+        "columnType": "column",
+        "displayName": "Title",
+        "fieldID": 6,        
+        "name": "title",
+        "placeholder": "Title",
+        "priority": 2,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "short-text"
+      },
+      {
+        "columnType": "activeIcon",
+        "displayName": "Is Active",
+        "fieldID": 7,        
+        "name": "employeeIsActive",
+        "placeholder": "Is Active",
+        "priority": 1,
+        "tabID": 0,
+        "tableColumn": true,
+        "type": "slide-toggle"
+      },
+      {
+        "columnType": "id",
+        "displayName": "ID",
+        "fieldID": 8,
+        "name": "projectID",
+        "priority": 0,
+        "tabID": 1,
+        "tableColumn": true,
+        "type": "id"
+      },
+      {
+        "columnType": "activeIcon",
+        "displayName": "Is Active",
+        "fieldID": 9,        
+        "name": "projectIsActive",
+        "placeholder": "Is Active",
+        "priority": 1,
+        "tabID": 1,
+        "tableColumn": true,
+        "type": "slide-toggle"
+      },
+      {
+        "columnType": "column",
+        "displayName": "Project Name",
+        "fieldID": 10,        
+        "name": "projectName",
+        "placeholder": "Project Name",
+        "priority": 2,
+        "tabID": 1,
+        "tableColumn": true,
+        "type": "short-text"
+      },      {
+        "columnType": "column",
+        "displayName": "Date",
+        "fieldID": 11,        
+        "name": "projectDate",
+        "placeholder": "Date",
+        "priority": 3,
+        "tabID": 1,
+        "tableColumn": true,
+        "type": "date",
+        validationRules: ['required']
+      },
+      {
+        "columnType": "column",
+        "displayName": "Employee Contact",
+        "fieldData": [{
+          "displayName": "1",
+          "fieldDataDisplayID": [4, 5],
+          "fieldValueID": 0,
+          "dataType": "property",
+          "tabID": 0,
+          "value": "1"
+        }],
+        "fieldID": 7,        
+        "name": "contactEmployeeID",
+        "placeholder": "Employee Contacte",
+        "priority": 4,
+        "tabID": 1,
+        "tableColumn": true,
+        "type": "select"
+      }
+]
+  
+
+      //  {
+      //    fieldData: this.setEmployeeFieldData(employees),
+      //    label: 'Employee Contact',
+      //    name: 'contactEmployeeID',
+      //    placeholder: 'Employee Contact',
+      //    priority: 0,
+      //    type: 'select',
+      //    value: this.project.contactEmployeeID
+      //  }
+      //]

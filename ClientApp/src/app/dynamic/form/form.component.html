@@ -2,11 +2,11 @@
   <div class="form display-flex">
     <h2>{{formTitle}}</h2>
     <div style="flex: 1"></div>
-    <mat-slide-toggle formControlName="isActive" class="toggle-space">Active</mat-slide-toggle>
   </div>
   <mat-grid-list cols="2" rowHeight="3:1">
-    <ng-container *ngFor="let field of fields">
-      <mat-grid-tile *ngIf="field.type != 'id' && field.name != 'isActive'">
+    <ng-container *ngFor="let field of data.view.fields">
+      <mat-grid-tile *ngIf="field.type != 'id'">
+        <app-slide-toggle *ngIf="field.type == 'slide-toggle'" [field]="field" [dynamicFormGroup]="dynamicFormGroup" class="toggle-space"></app-slide-toggle>
         <app-date *ngIf="field.type == 'date'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-date>
         <app-select *ngIf="field.type == 'select'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-select>
         <app-short-text *ngIf="field.type == 'short-text'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-short-text>

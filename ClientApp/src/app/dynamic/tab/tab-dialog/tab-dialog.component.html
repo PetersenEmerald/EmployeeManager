@@ -1,0 +1,4 @@
+<app-dialog-form *ngIf="tabData" [data]="tabData" [formTitle]="tabData.view.displayName + ' Form'"
+  (updateFieldsEvent)="updateValues($event)" (newInstanceEvent)="newData()" (saveInstanceEvent)="saveData()"
+  (deleteInstanceEvent)="deleteData()">
+</app-dialog-form>

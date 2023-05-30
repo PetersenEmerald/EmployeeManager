@@ -2,6 +2,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,7 +20,9 @@ import { FormComponent } from './form/form.component';
 import { SelectComponent } from './input/select/select.component';
 import { ShortTextComponent } from './input/short-text/short-text.component';
 import { SlideToggleComponent } from './input/slide-toggle/slide-toggle.component';
+import { TabComponent } from './tab/tab.component';
 import { TableComponent } from './table/table.component';
+import { TabDialogComponent } from './tab/tab-dialog/tab-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { TableComponent } from './table/table.component';
     SelectComponent,
     ShortTextComponent,
     SlideToggleComponent,
+    TabComponent,
+    TabDialogComponent,
     TableComponent,
   ],
   imports: [
@@ -42,11 +47,13 @@ import { TableComponent } from './table/table.component';
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatNativeDateModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatTableModule,
     ReactiveFormsModule],
-  exports: [DialogFormComponent, FormComponent, TableComponent],
+  entryComponents: [TabDialogComponent],
+  exports: [DialogFormComponent, FormComponent, TabComponent, TableComponent],
   providers: [DatePipe]
 })
 export class DynamicModule { }

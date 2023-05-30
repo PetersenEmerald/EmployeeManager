@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
-import { FieldModel } from '../models/field.model';
 
 @Component({
   selector: 'app-form',
@@ -8,8 +7,8 @@ import { FieldModel } from '../models/field.model';
   styleUrls: ['./form.component.css'],
   providers: [FormGroupDirective]
 })
-export class FormComponent {
-  @Input() fields: FieldModel[];
+export class FormComponent implements AfterViewInit, OnInit {
+  @Input() data: any;
   @Input() formTitle: string;
   @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
@@ -19,15 +18,19 @@ export class FormComponent {
   dynamicFormGroup: FormGroup;
   formControls: any[];
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.buildForm();
-    this.dynamicFormGroup.valueChanges.subscribe(value => {
-        if (this.dynamicFormGroup.dirty) {          
-          this.updateFieldsEvent.emit(this.dynamicFormGroup.value);
-        }
-      });
+    this.dynamicFormGroup.valueChanges.subscribe(() => {
+      if (this.dynamicFormGroup.dirty) {
+        this.updateFieldsEvent.emit(this.dynamicFormGroup.value);
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
   }
 
   private buildForm() {
@@ -37,10 +40,9 @@ export class FormComponent {
 
   private getFormControlsFields() {
     const formGroupFields = {};
-    this.fields.sort(function(a, b) { return a.priority - b.priority; })
-    for (const field of this.fields) {
+    for (const field of this.data.view.fields) {
       const validators = this.addValidator(field);
-      formGroupFields[field.name] = new FormControl(field.value, validators);
+      formGroupFields[field.name] = new FormControl(this.data.values[field.name], validators);
     }
 
     return formGroupFields;
@@ -58,7 +60,7 @@ export class FormComponent {
         case "pattern":
           return Validators.pattern(field.validatorPattern);
         case "required":
-          return Validators.required;        
+          return Validators.required;
       }
     });
     return validators;

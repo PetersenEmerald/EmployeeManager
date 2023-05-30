@@ -1,10 +1,10 @@
 <div [formGroup]="dynamicFormGroup">
     <mat-form-field class="field-space" appearance="fill">
-        <mat-label>{{field.label}}</mat-label>
+        <mat-label>{{field.displayName}}</mat-label>
         <mat-select [formControlName]="field.name">
             <ng-containter *ngIf="field.fieldData">
                 <mat-option *ngFor="let fieldData of field.fieldData" [value]="fieldData.value">
-                    {{fieldData.displayName}}
+                    {{fieldData.data}}
                 </mat-option>
             </ng-containter>
         </mat-select>

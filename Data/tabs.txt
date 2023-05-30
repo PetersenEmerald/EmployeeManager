@@ -1,0 +1,12 @@
+[
+  {
+    "tabID": 0,
+    "displayName": "Employees",
+    "name": "employees",
+  },
+  {
+    "tabID": 1,
+    "displayName": "Projects",
+    "name": "projects",
+  }
+]
