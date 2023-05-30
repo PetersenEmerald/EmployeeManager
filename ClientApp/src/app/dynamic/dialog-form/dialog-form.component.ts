@@ -7,14 +7,16 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog-form.component.css']
 })
 export class DialogFormComponent {
-  @Input() fields: any;
+  @Input() data: any;
   @Input() formTitle: string;
   @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dialogRef: MatDialogRef<DialogFormComponent>) { }
+  constructor(public dialogRef: MatDialogRef<DialogFormComponent>) {
+    console.log(this.data);
+  }
 
   updateValues(event: any): void {
     this.updateFieldsEvent.emit(event);

@@ -5,7 +5,7 @@
     <mat-slide-toggle formControlName="isActive" class="toggle-space">Active</mat-slide-toggle>
   </div>
   <mat-grid-list cols="2" rowHeight="3:1">
-    <ng-container *ngFor="let field of fields">
+    <ng-container *ngFor="let field of data.view.fields">
       <mat-grid-tile *ngIf="field.type != 'id' && field.name != 'isActive'">
         <app-date *ngIf="field.type == 'date'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-date>
         <app-select *ngIf="field.type == 'select'" [field]="field" [dynamicFormGroup]="dynamicFormGroup"></app-select>

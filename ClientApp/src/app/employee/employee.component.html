@@ -1,3 +1,1 @@
-<div *ngIf="(employeeService.employees$ | async) as employees">
-  <app-table [dataSource]="employees" [columns]="columns" (rowClickEvent)="openEmployeeDialog($event)"></app-table>
-</div>
+<app-table [dataSource]="data.data" [columns]="columns" (rowClickEvent)="openEmployeeDialog($event)"></app-table>

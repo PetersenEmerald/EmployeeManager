@@ -1,6 +1,5 @@
 ﻿using EmployeeViewer.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -12,11 +11,13 @@ namespace EmployeeViewer.Controllers
      [Route("[controller]")]
      public class ViewController : ControllerBase
      {
+          private static List<TabModel> tabs;
+
           [HttpGet]
           [Route("getData")]
           public List<TabModel> GetData()
           {
-               List<TabModel> tabs = JsonConvert.DeserializeObject<List<TabModel>>(DataManager.GetData("tabs"));
+               tabs = JsonConvert.DeserializeObject<List<TabModel>>(DataManager.GetData("tabs"));
                List<FieldModel> fields = JsonConvert.DeserializeObject<List<FieldModel>>(DataManager.GetData("fields"));
 
                for (var i = 0; i < tabs.Count; i++)
@@ -34,6 +35,15 @@ namespace EmployeeViewer.Controllers
                     tabs[i].data = JsonConvert.DeserializeObject<List<ExpandoObject>>(DataManager.GetData(tabs[i].name));
                }
                return tabs;
+          }
+
+          [HttpPost]
+          [Route("saveData")]
+          public List<TabModel> SaveData(DataModel data)
+          {
+               int tabIndex = tabs.FindIndex(tab => tab.tabID == data.tabID);
+               DataManager.SaveData(data.values, tabs[tabIndex].name);
+               return GetData();
           }
      }
 }

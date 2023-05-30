@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DataModel, TabModel } from '../dynamic/models/tab.model';
 import { EmployeeModel } from '../models/employee.model';
 
 @Injectable({
@@ -10,20 +11,8 @@ export class EmployeeHttpService {
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
-  getEmployees(): Observable<EmployeeModel[]> {
-    return this.http.get<EmployeeModel[]>(this.baseUrl + 'employee');
-  }
-
-  newEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
-    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/newEmployee', employee);
-  }
-
-  saveEmployee(employee: EmployeeModel): Observable<EmployeeModel[]> {
-    return this.http.post<EmployeeModel[]>(this.baseUrl + 'employee/saveEmployee', employee);
-  }
-
-  deleteEmployee(employeeID: number): Observable<EmployeeModel[]> {
-    return this.http.delete<EmployeeModel[]>(this.baseUrl + 'employee/' + employeeID);
+  saveData(data: DataModel): Observable<TabModel[]> {
+    return this.http.post<TabModel[]>(this.baseUrl + 'view/saveData', data);
   }
 
   getViewData(): Observable<any[]> {

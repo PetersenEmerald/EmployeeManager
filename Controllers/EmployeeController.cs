@@ -9,60 +9,60 @@ namespace EmployeeViewer.Controllers
      [Route("[controller]")]
      public class EmployeeController : ControllerBase
      {
-          private static string fileName = "employees";
+          // private static string fileName = "employees";
           private static int latestEmployeeID = 0;
           private static List<EmployeeModel> employees;
 
-          [HttpGet]
-          public List<EmployeeModel> GetEmployees()
-          {
-               employees = JsonConvert.DeserializeObject<List<EmployeeModel>>(DataManager.GetData(fileName));
-               latestEmployeeID = employees[employees.Count - 1].employeeID;
-               return employees;
-          }
+          //[HttpGet]
+          //public List<EmployeeModel> GetEmployees()
+          //{
+          //     employees = JsonConvert.DeserializeObject<List<EmployeeModel>>(DataManager.GetData(fileName));
+          //     latestEmployeeID = employees[employees.Count - 1].employeeID;
+          //     return employees;
+          //}
 
-          [HttpPost]
-          [Route("newEmployee")]
-          public List<EmployeeModel> NewEmployee(EmployeeModel employee)
-          {
-               latestEmployeeID++;
-               employee.employeeID = latestEmployeeID;
-               employees.Add(employee);
-               Save();
+          //[HttpPost]
+          //[Route("newData")]
+          //public List<object> NewData(object data, string fileName)
+          //{
+          //     latestEmployeeID++;
+          //     //data.employeeID = latestEmployeeID;
+          //     // employees.Add(data);
+          //     DataManager.SaveData(data, fileName);
 
-               latestEmployeeID = employee.employeeID;
-               return employees;
-          }
+          //     // latestEmployeeID = data.employeeID;
+          //     return data;
+          //}
 
-          [HttpPost]
-          [Route("saveEmployee")]
-          public List<EmployeeModel> SaveEmployee(EmployeeModel employee)
-          {
-               int employeeIndex = employees.FindIndex((emp) => emp.employeeID == employee.employeeID);
-               if (employeeIndex != -1)
-               {
-                    employees[employeeIndex] = employee;
-               }
+          //[HttpPost]
+          //[Route("saveEmployee")]
+          //public List<EmployeeModel> SaveData(object data, string fileName)
+          //{
+          //     //int employeeIndex = employees.FindIndex((emp) => emp.employeeID == employee.employeeID);
+          //     //if (employeeIndex != -1)
+          //     //{
+          //     //     employees[employeeIndex] = employee;
+          //     //}
 
-               Save();
-               return employees;
-          }
+          //     DataManager.SaveData(data, fileName);
+          //     return data;
+          //}
 
-          [HttpDelete("{employeeID}")]
-          public List<EmployeeModel> DeleteEmployee(int employeeID)
-          {
-               int employeeIndex = employees.FindIndex((emp) => emp.employeeID == employeeID);
-               if (employeeIndex != -1)
-               {
-                    employees.RemoveAt(employeeIndex);
-               }
+          //[HttpDelete("{employeeID}")]
+          //public List<EmployeeModel> DeleteEmployee(int dataID, string fileName)
+          //{
+          //     //int employeeIndex = employees.FindIndex((emp) => emp.employeeID == employeeID);
+          //     //if (employeeIndex != -1)
+          //     //{
+          //     //     employees.RemoveAt(employeeIndex);
+          //     //}
 
-               Save();
-               return employees;
-          }
+          //     DataManager.SaveData(data, fileName);
+          //     return data;
+          //}
 
-          private void Save() {
-               DataManager.SaveData(fileName, employees);
-          }
+          //private void Save(object data, string file) {
+          //     DataManager.SaveData(data, file);
+          //}
      }
 }

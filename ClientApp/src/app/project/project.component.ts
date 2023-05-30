@@ -33,7 +33,7 @@ export class ProjectComponent implements OnInit {
   }
 
   initializeProjectTable(): void {
-    this.employeeService.getEmployees();
+    // this.employeeService.getEmployees();
     this.employeeService.employees$.subscribe((employees) => {
       this.employees = employees;
 

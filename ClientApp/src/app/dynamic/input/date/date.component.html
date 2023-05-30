@@ -1,6 +1,6 @@
 <div [formGroup]="dynamicFormGroup">
     <mat-form-field class="field-space" appearance="fill">
-        <mat-label>{{field.label}}</mat-label>
+        <mat-label>{{field.displayName}}</mat-label>
         <input matInput [matDatepicker]="picker" [formControlName]="field.name" />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>

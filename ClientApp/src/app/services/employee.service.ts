@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { DataModel, TabModel } from '../dynamic/models/tab.model';
 import { EmployeeModel } from '../models/employee.model';
 import { EmployeeHttpService } from './employee-http.service';
 
@@ -8,31 +9,18 @@ import { EmployeeHttpService } from './employee-http.service';
 })
 export class EmployeeService {
   employees$: BehaviorSubject<EmployeeModel[]> = new BehaviorSubject([]);
-  viewData$: BehaviorSubject<any[]> = new BehaviorSubject([]);
+  viewData$: BehaviorSubject<TabModel[]> = new BehaviorSubject([]);
 
   constructor(private employeeHttpService: EmployeeHttpService) { }
 
-  getEmployees(): void {
-    this.employeeHttpService.getEmployees().subscribe(result => {
-      this.employees$.next(result);
-    }, error => console.error(error));
-  }
 
-  newEmployee(employee: EmployeeModel): void {
-    this.employeeHttpService.newEmployee(employee).subscribe(result => {
-      this.employees$.next(result);
-    }, error => console.error(error));
-  }
-
-  saveEmployee(employee: EmployeeModel): void {
-    this.employeeHttpService.saveEmployee(employee).subscribe(result => {
-      this.employees$.next(result);
-    }, error => console.error(error));
-  }
-
-  deleteEmployee(employeeID: number): void {
-    this.employeeHttpService.deleteEmployee(employeeID).subscribe(result => {
-      this.employees$.next(result);
+  saveData(newData: TabModel): void {
+    const saveData: DataModel = {
+      tabID: newData.tabID,
+      values: JSON.stringify(newData.data)
+    }
+    this.employeeHttpService.saveData(saveData).subscribe(result => {
+      this.viewData$.next(result);
     }, error => console.error(error));
   }
 

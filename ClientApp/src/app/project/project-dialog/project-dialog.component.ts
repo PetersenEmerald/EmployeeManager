@@ -29,50 +29,50 @@ export class ProjectDialogComponent implements OnInit {
 
   initializeProjectForm(): void {
     this.employeeService.employees$.subscribe((employees) => {
-      this.fields = [
-        {
-          name: 'projectID',
-          priority: 2,
-          type: 'id',
-          value: this.project.projectID
-        },
-        {
-          label: 'Project Name',
-          name: 'projectName',
-          placeholder: 'Project Name',
-          priority: 2,
-          type: 'short-text',
-          validationRules: ['pattern', 'required'],
-          validatorPattern: '[A-Za-z0-9\.\-\_ ]+',
-          value: this.project.projectName
-        },
-        {
-          label: 'Date',
-          name: 'date',
-          placeholder: 'Date',
-          priority: 1,
-          type: 'date',
-          validationRules: ['required'],
-          value: new Date(this.project.projectDate)
-        },
-        {
-          label: 'Is Active',
-          name: 'isActive',
-          placeholder: 'Is Active',
-          priority: 0,
-          type: 'slide-toggle',
-          value: this.project.isActive
-        },
-        {
-          fieldData: this.setEmployeeFieldData(employees),
-          label: 'Employee Contact',
-          name: 'contactEmployeeID',
-          placeholder: 'Employee Contact',
-          priority: 0,
-          type: 'select',
-          value: this.project.contactEmployeeID
-        }
-      ];
+      //this.fields = [
+      //  {
+      //    name: 'projectID',
+      //    priority: 2,
+      //    type: 'id',
+      //    value: this.project.projectID
+      //  },
+      //  {
+      //    label: 'Project Name',
+      //    name: 'projectName',
+      //    placeholder: 'Project Name',
+      //    priority: 2,
+      //    type: 'short-text',
+      //    validationRules: ['pattern', 'required'],
+      //    validatorPattern: '[A-Za-z0-9\.\-\_ ]+',
+      //    value: this.project.projectName
+      //  },
+      //  {
+      //    label: 'Date',
+      //    name: 'date',
+      //    placeholder: 'Date',
+      //    priority: 1,
+      //    type: 'date',
+      //    validationRules: ['required'],
+      //    value: new Date(this.project.projectDate)
+      //  },
+      //  {
+      //    label: 'Is Active',
+      //    name: 'isActive',
+      //    placeholder: 'Is Active',
+      //    priority: 0,
+      //    type: 'slide-toggle',
+      //    value: this.project.isActive
+      //  },
+      //  {
+      //    fieldData: this.setEmployeeFieldData(employees),
+      //    label: 'Employee Contact',
+      //    name: 'contactEmployeeID',
+      //    placeholder: 'Employee Contact',
+      //    priority: 0,
+      //    type: 'select',
+      //    value: this.project.contactEmployeeID
+      //  }
+      //];
     });
     this.cdr.detectChanges();
   }

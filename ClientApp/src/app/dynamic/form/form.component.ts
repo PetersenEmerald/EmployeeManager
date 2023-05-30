@@ -9,7 +9,7 @@ import { FieldModel } from '../models/field.model';
   providers: [FormGroupDirective]
 })
 export class FormComponent {
-  @Input() fields: FieldModel[];
+  @Input() data: any;
   @Input() formTitle: string;
   @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
@@ -37,10 +37,9 @@ export class FormComponent {
 
   private getFormControlsFields() {
     const formGroupFields = {};
-    this.fields.sort(function(a, b) { return a.priority - b.priority; })
-    for (const field of this.fields) {
+    for (const field of this.data.view.fields) {
       const validators = this.addValidator(field);
-      formGroupFields[field.name] = new FormControl(field.value, validators);
+      formGroupFields[field.name] = new FormControl(this.data.values[field.name], validators);
     }
 
     return formGroupFields;

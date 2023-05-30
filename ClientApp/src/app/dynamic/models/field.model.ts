@@ -1,11 +1,16 @@
 export class FieldModel {
+  fieldID: number;
+  tabID: number;
+  name: string;
+  tableColumn: boolean;
+  type: string;
+
+  columnType?: string;
+  displayName?: string;
   fieldData?: FieldDataModel[];
-  label?: string;
-  name?: string;
   placeholder?: string;
   required?: boolean = false;
   priority?: number;
-  type?: string;
   validationRules?: string[];
   validatorPattern?: string;
   value: any;

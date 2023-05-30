@@ -63,7 +63,7 @@ namespace EmployeeViewer.Controllers
 
           private void Save()
           {
-               DataManager.SaveData(fileName, projects);
+               // DataManager.SaveData(fileName, projects);
           }
      }
 }

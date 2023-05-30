@@ -1,7 +1,7 @@
 [
       {
         "columnType": "id",
-        "displayName": "Employee ID",
+        "displayName": "ID",
         "fieldID": 0,
         "name": "employeeID",
         "priority": 0,
@@ -62,7 +62,7 @@
         "columnType": "column",
         "displayName": "Last Name",
         "fieldID": 5,        
-        "name": "lastMame",
+        "name": "lastName",
         "placeholder": "Last Name",
         "priority": 4,
         "tabID": 0,

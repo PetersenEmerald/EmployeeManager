@@ -3,6 +3,7 @@ import { EmployeeService } from '../services/employee.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnDescription } from 'app/models/column.model';
 import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.component';
+import { TabModel } from '../dynamic/models/tab.model';
 
 @Component({
   selector: 'app-employee',
@@ -10,7 +11,7 @@ import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.compo
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  @Input() data: any;
+  @Input() data: TabModel;
   columns: ColumnDescription[] = [];
   selectedRowIndex = -1;
 
@@ -18,7 +19,6 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTableColumns();
-    this.employeeService.getEmployees();
   }
 
   getTableColumns(): void {
@@ -34,10 +34,12 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  openEmployeeDialog(employee: any): void {
+  openEmployeeDialog(selectedRow: any): void {
     this.dialog.open(EmployeeDialogComponent, {
       width: '750px',
-      data: { employee: employee },
+      data: {
+        data: { view: this.data, values: selectedRow }
+      },
     });
   }
 }

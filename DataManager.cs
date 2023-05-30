@@ -1,5 +1,9 @@
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
 
 namespace EmployeeViewer
 {
@@ -11,11 +15,10 @@ namespace EmployeeViewer
                return System.IO.File.ReadAllText(formattedFileName);
           }
 
-          public static void SaveData(string fileName, object data)
+          public static void SaveData(string data, string fileName)
           {
-               string json = JsonConvert.SerializeObject(data, Formatting.Indented);
                string formattedFileName = string.Format(@"{0}\Data\" + fileName + ".txt", Environment.CurrentDirectory);
-               System.IO.File.WriteAllText(formattedFileName, json);
+               System.IO.File.WriteAllText(formattedFileName, data);
           }
      }
 }
