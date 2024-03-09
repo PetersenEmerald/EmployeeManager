@@ -149,7 +149,7 @@
         }],
         "fieldID": 7,        
         "name": "contactEmployeeID",
-        "placeholder": "Employee Contacte",
+        "placeholder": "Employee Contact",
         "priority": 4,
         "tabID": 1,
         "tableColumn": true,
