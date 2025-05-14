@@ -2,7 +2,7 @@
 The purpose of this project to be a dynamically generated website. At this time, the website uses a mock database to generate its tabs, tables, and forms.
 
 # Technology
-- Angular v14.3
+- Angular v18.2
 - Typescript
 - CSS
 - HTML
