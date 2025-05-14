@@ -55,5 +55,3 @@ The purpose of this project to be a dynamically generated website. At this time,
     - Save
     - New
     - Delete
-
-Created using Visual Studio Community 2023.
