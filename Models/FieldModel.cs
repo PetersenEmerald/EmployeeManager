@@ -1,4 +1,4 @@
-﻿namespace EmployeeViewer.Models
+﻿namespace EmployeeManager.Models
 {
      public class FieldModel
      {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Dynamic;
 
-namespace EmployeeViewer.Models
+namespace EmployeeManager.Models
 {
      public class TabModel
      {

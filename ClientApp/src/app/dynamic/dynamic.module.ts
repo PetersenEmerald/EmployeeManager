@@ -1,6 +1,7 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -13,7 +14,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { DateComponent } from './input/date/date.component';
 import { DialogFormComponent } from './dialog-form/dialog-form.component';
 import { FormComponent } from './form/form.component';
@@ -52,7 +52,6 @@ import { TabDialogComponent } from './tab/tab-dialog/tab-dialog.component';
     MatSlideToggleModule,
     MatTableModule,
     ReactiveFormsModule],
-  entryComponents: [TabDialogComponent],
   exports: [DialogFormComponent, FormComponent, TabComponent, TableComponent],
   providers: [DatePipe]
 })

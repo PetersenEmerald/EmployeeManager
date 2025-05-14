@@ -2,7 +2,7 @@
   background: #42A948;
 }
 
-.mat-row:hover {
+.mat-mdc-row:hover {
   background-color: grey;
 }
 

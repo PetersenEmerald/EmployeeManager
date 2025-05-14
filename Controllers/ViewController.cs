@@ -1,11 +1,11 @@
-﻿using EmployeeViewer.Models;
+﻿using EmployeeManager.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 
-namespace EmployeeViewer.Controllers
+namespace EmployeeManager.Controllers
 {
      [ApiController]
      [Route("[controller]")]

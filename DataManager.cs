@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 
-namespace EmployeeViewer
+namespace EmployeeManager
 {
      public class DataManager
      {
