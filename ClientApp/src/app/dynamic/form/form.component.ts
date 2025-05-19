@@ -40,6 +40,7 @@ export class FormComponent implements AfterViewInit, OnInit {
 
   private getFormControlsFields() {
     const formGroupFields = {};
+    
     for (const field of this.data.view.fields) {
       const validators = this.addValidator(field);
       formGroupFields[field.name] = new FormControl(this.data.values[field.name], validators);

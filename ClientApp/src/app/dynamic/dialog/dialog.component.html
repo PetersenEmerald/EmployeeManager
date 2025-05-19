@@ -1,0 +1,14 @@
+<div class="display-flex">
+    <div class="flex-align"></div>
+    <button mat-raised-button color="warn" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="container">
+    <app-form *ngIf="tabData" [data]="tabData" [formTitle]="tabData.view.displayName + ' Form'" 
+        (deleteInstanceEvent)="deleteRecord()"
+        (newInstanceEvent)="create()"
+        (saveInstanceEvent)="save()"
+        (updateFieldsEvent)="updateValues($event)">
+    </app-form>
+</mat-dialog-content>

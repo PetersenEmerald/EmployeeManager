@@ -15,7 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DateComponent } from './input/date/date.component';
-import { DialogFormComponent } from './dialog-form/dialog-form.component';
+import { DialogComponent } from './dialog/dialog.component';
 import { FormComponent } from './form/form.component';
 import { SelectComponent } from './input/select/select.component';
 import { ShortTextComponent } from './input/short-text/short-text.component';
@@ -25,7 +25,7 @@ import { TableComponent } from './table/table.component';
 @NgModule({
   declarations: [
     DateComponent,
-    DialogFormComponent,
+    DialogComponent,
     FormComponent,
     SelectComponent,
     ShortTextComponent,
@@ -48,7 +48,7 @@ import { TableComponent } from './table/table.component';
     MatSlideToggleModule,
     MatTableModule,
     ReactiveFormsModule],
-  exports: [DialogFormComponent, FormComponent, TableComponent],
+  exports: [DialogComponent, FormComponent, TableComponent],
   providers: [DatePipe]
 })
 export class DynamicModule { }

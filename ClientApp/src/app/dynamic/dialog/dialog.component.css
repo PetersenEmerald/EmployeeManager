@@ -1,9 +1,9 @@
-.container {
-    overflow: hidden;
-}
-
 .action-header {
     margin-bottom: 20px;
+}
+
+.container {
+    overflow: hidden;
 }
 
 .form {

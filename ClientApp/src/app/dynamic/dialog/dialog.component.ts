@@ -5,11 +5,11 @@ import { TabDataModel } from '../models/tab.model';
 import { TabService } from 'app/services/tab.service';
 
 @Component({
-  selector: 'app-dialog-form',
-  templateUrl: './dialog-form.component.html',
-  styleUrls: ['./dialog-form.component.css']
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.css']
 })
-export class DialogFormComponent implements OnInit {
+export class DialogComponent implements OnInit {
   @Input() formTitle: string;
   @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
   @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
@@ -19,7 +19,7 @@ export class DialogFormComponent implements OnInit {
   fields: FieldModel[];
   tabData: TabDataModel;
 
-  constructor(public dialogRef: MatDialogRef<DialogFormComponent>,
+  constructor(public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, public employeeService: TabService) { }
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class DialogFormComponent implements OnInit {
     this.tabData.values = event;
   }
 
-  newInstance(): void {
+  create(): void {
     const idName = this.getIDName();
     const lastIndex = this.tabData.view.data.length - 1;
 
@@ -41,13 +41,13 @@ export class DialogFormComponent implements OnInit {
     this.employeeService.saveData(this.tabData.view);
   }
 
-  saveInstance(): void {
+  save(): void {
     const idName = this.getIDName();
     this.tabData.view.data[this.tabData.values[idName]] = this.tabData.values;
     this.employeeService.saveData(this.tabData.view);
   }
 
-  deleteInstance(): void {
+  deleteRecord(): void {
     const idName = this.getIDName();
     this.tabData.view.data.forEach((data, index) => {
       if (this.tabData.values[idName] === data[idName]) {

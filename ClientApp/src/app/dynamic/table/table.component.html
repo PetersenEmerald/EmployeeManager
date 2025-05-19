@@ -1,5 +1,4 @@
-<table [dataSource]="dataSource.data" mat-table class="mat-elevation-z8 table-style" *ngIf="columns?.length > 0" 
-  (click)="openDialog($event)">
+<table [dataSource]="dataSource.data" mat-table class="mat-elevation-z8 table-style" *ngIf="columns?.length > 0">
   <ng-container *ngFor="let column of columns">
     <ng-container matColumnDef="{{column.name}}" *ngIf="column.columnType == 'column' || column.columnType == 'id'">
       <th *matHeaderCellDef mat-header-cell>{{column.displayName}}</th>
@@ -15,6 +14,6 @@
   </ng-container>
   <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row [ngClass]="{'highlight': selectedRowIndex == row[rowID]}"
-    (click)="outputRow(row); highlight(row)">
+    (click)="outputRow(row); highlight(row); openDialog(row)">
   </tr>
 </table>

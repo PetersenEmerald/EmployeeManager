@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ColumnDescription } from 'app/models/column.model';
-import { DialogFormComponent } from '../dialog-form/dialog-form.component';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-table',
@@ -64,7 +64,7 @@ export class TableComponent implements OnInit {
   }
 
   openDialog(selectedRow: any): void {
-    this.dialog.open(DialogFormComponent, {
+    this.dialog.open(DialogComponent, {
       width: '750px',
       data: {
         data: { view: this.dataSource, values: selectedRow }
