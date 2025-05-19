@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FieldDataModel, FieldModel } from '../../models/field.model';
 import { TabModel } from '../../models/tab.model';
-import { TabService } from '../../services/tab.service';
+import { TabService } from '../../../services/tab.service';
 
 @Component({
   selector: 'app-select',

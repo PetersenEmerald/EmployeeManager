@@ -1,3 +1,15 @@
 .container {
     overflow: hidden;
 }
+
+.action-header {
+    margin-bottom: 20px;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+.toggle-space {
+    margin-top: 10px;
+}

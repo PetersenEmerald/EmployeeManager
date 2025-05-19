@@ -1,1 +1,51 @@
-[{"projectID":0,"projectIsActive":true,"projectName":"Alan Parsons Project1","projectDate":"2023-05-03T05:00:00.000Z","contactEmployeeID":5},{"projectID":1,"projectIsActive":true,"projectName":"Project Tester","projectDate":"05/04/2023","contactEmployeeID":6},{"contactEmployeeID":8,"projectIsActive":false,"projectName":"G2002.0100","projectDate":"2/2/2017","projectID":2},{"contactEmployeeID":5,"projectIsActive":true,"projectName":"G2003.0100","projectDate":"03/03/2018","projectID":3},{"contactEmployeeID":9,"projectIsActive":false,"projectName":"G2004.0100","projectDate":"4/4/2019","projectID":4},{"contactEmployeeID":7,"projectIsActive":true,"projectName":"G2005.0100","projectDate":"05/05/2020","projectID":5},{"contactEmployeeID":2,"projectIsActive":false,"projectName":"S2000.0200","projectDate":"6/6/2010","projectID":6}]
+[
+  {
+    "projectID": 0,
+    "projectIsActive": true,
+    "projectName": "Alan Parsons Project1",
+    "projectDate": "2023-05-03T05:00:00.000Z",
+    "contactEmployeeID": 5
+  },
+  {
+    "projectID": 1,
+    "projectIsActive": true,
+    "projectName": "Project Tester",
+    "projectDate": "05/04/2023",
+    "contactEmployeeID": 6
+  },
+  {
+    "contactEmployeeID": 8,
+    "projectIsActive": false,
+    "projectName": "G2002.0100",
+    "projectDate": "2/2/2017",
+    "projectID": 2
+  },
+  {
+    "contactEmployeeID": 5,
+    "projectIsActive": true,
+    "projectName": "G2003.0100",
+    "projectDate": "03/03/2018",
+    "projectID": 3
+  },
+  {
+    "contactEmployeeID": 9,
+    "projectIsActive": false,
+    "projectName": "G2004.0100",
+    "projectDate": "4/4/2019",
+    "projectID": 4
+  },
+  {
+    "contactEmployeeID": 7,
+    "projectIsActive": true,
+    "projectName": "G2005.0100",
+    "projectDate": "05/05/2020",
+    "projectID": 5
+  },
+  {
+    "contactEmployeeID": 2,
+    "projectIsActive": false,
+    "projectName": "S2000.0200",
+    "projectDate": "6/6/2010",
+    "projectID": 6
+  }
+]

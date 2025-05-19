@@ -5,7 +5,7 @@
     </button>
 </div>
 <mat-dialog-content class="container">
-    <app-form [data]="data" [formTitle]="formTitle" (updateFieldsEvent)="updateValues($event)"
+    <app-form [data]="tabData" [formTitle]="tabData.view.displayName + ' Form'" (updateFieldsEvent)="updateValues($event)"
         (newInstanceEvent)="newInstance()" (saveInstanceEvent)="saveInstance()"
         (deleteInstanceEvent)="deleteInstance()"></app-form>
 </mat-dialog-content>

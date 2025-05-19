@@ -1,4 +1,5 @@
-<table [dataSource]="dataSource" mat-table class="mat-elevation-z8 table-style">
+<table [dataSource]="dataSource.data" mat-table class="mat-elevation-z8 table-style" *ngIf="columns?.length > 0" 
+  (click)="openDialog($event)">
   <ng-container *ngFor="let column of columns">
     <ng-container matColumnDef="{{column.name}}" *ngIf="column.columnType == 'column' || column.columnType == 'id'">
       <th *matHeaderCellDef mat-header-cell>{{column.displayName}}</th>

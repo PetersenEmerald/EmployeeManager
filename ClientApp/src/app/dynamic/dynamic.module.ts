@@ -20,9 +20,7 @@ import { FormComponent } from './form/form.component';
 import { SelectComponent } from './input/select/select.component';
 import { ShortTextComponent } from './input/short-text/short-text.component';
 import { SlideToggleComponent } from './input/slide-toggle/slide-toggle.component';
-import { TabComponent } from './tab/tab.component';
 import { TableComponent } from './table/table.component';
-import { TabDialogComponent } from './tab/tab-dialog/tab-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +30,6 @@ import { TabDialogComponent } from './tab/tab-dialog/tab-dialog.component';
     SelectComponent,
     ShortTextComponent,
     SlideToggleComponent,
-    TabComponent,
-    TabDialogComponent,
     TableComponent,
   ],
   imports: [
@@ -52,7 +48,7 @@ import { TabDialogComponent } from './tab/tab-dialog/tab-dialog.component';
     MatSlideToggleModule,
     MatTableModule,
     ReactiveFormsModule],
-  exports: [DialogFormComponent, FormComponent, TabComponent, TableComponent],
+  exports: [DialogFormComponent, FormComponent, TableComponent],
   providers: [DatePipe]
 })
 export class DynamicModule { }

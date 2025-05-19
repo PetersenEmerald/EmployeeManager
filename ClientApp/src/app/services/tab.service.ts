@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { TabHttpService } from './tab-http.service';
-import { DataModel, TabModel } from '../models/tab.model';
+import { DataModel, TabModel } from '../dynamic/models/tab.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,7 @@ export class TabService {
       tabID: newData.tabID,
       values: JSON.stringify(newData.data)
     }
+    
     this.tabHttpService.saveData(saveData).subscribe(result => {
       this.viewData$.next(result);
     }, error => console.error(error));
