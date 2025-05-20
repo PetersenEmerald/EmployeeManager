@@ -32,8 +32,6 @@ export class TableComponent implements OnInit {
         return;
       }
     });
-
-    console.log(this.columns)
   }
 
   outputRow(row): void {

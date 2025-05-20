@@ -8,14 +8,9 @@ import { TabModel } from 'app/dynamic/models/tab.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // public viewData: TabModel[] = [];
-
   constructor(public employeeService: TabService) { }
 
   ngOnInit(): void {
     this.employeeService.getViewData();
-    // this.employeeService.viewData$.subscribe((viewData) => {
-    //   console.log({viewData})
-    // })
   }
 }

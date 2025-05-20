@@ -10,7 +10,6 @@ export class TabHttpService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   getViewData(): Observable<any[]> {
-    console.log('!!!', this.baseUrl + 'view/getData')
     return this.http.get<any[]>(this.baseUrl + 'view/getData');
   }
 
