@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
+import { TabService } from 'app/services/tab.service';
 
 @Component({
   selector: 'app-form',
@@ -10,21 +11,18 @@ import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular
 export class FormComponent implements AfterViewInit, OnInit {
   @Input() data: any;
   @Input() formTitle: string;
-  @Output() deleteInstanceEvent: EventEmitter<any> = new EventEmitter();
-  @Output() newInstanceEvent: EventEmitter<any> = new EventEmitter();
-  @Output() saveInstanceEvent: EventEmitter<any> = new EventEmitter();
-  @Output() updateFieldsEvent: EventEmitter<any> = new EventEmitter();
+  @Output() closeDialogEvent: EventEmitter<any> = new EventEmitter();
 
   dynamicFormGroup: FormGroup;
   formControls: any[];
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef, private employeeService: TabService) { }
 
   ngOnInit() {
     this.buildForm();
     this.dynamicFormGroup.valueChanges.subscribe(() => {
       if (this.dynamicFormGroup.dirty) {
-        this.updateFieldsEvent.emit(this.dynamicFormGroup.value);
+        this.updateValues(this.dynamicFormGroup.value);
       }
     });
   }
@@ -67,15 +65,50 @@ export class FormComponent implements AfterViewInit, OnInit {
     return validators;
   }
 
-  newInstance(): void {
-    this.newInstanceEvent.emit();
+  updateValues(event: any): void {
+    this.data.values = event;
   }
 
-  saveInstance(): void {
-    this.saveInstanceEvent.emit();
+  createRecord(): void {
+    const idName = this.getIDName();
+    const lastIndex = this.data.view.data.length - 1;
+
+    let newValues = this.data.values;
+    newValues[idName] = this.data.view.data[lastIndex][idName] + 1;
+
+    this.data.view.data.push(newValues);
+    this.employeeService.saveData(this.data.view);
+
+    // TODO: Add toast about creation. Add option to open to switch to this new record.
   }
 
-  deleteInstance(): void {
-    this.deleteInstanceEvent.emit();
+  saveRecord(): void {
+    const idName = this.getIDName();
+    this.data.view.data[this.data.values[idName]] = this.data.values;
+    this.employeeService.saveData(this.data.view);
+
+    // TODO: Add dialog about saving.
+  }
+
+  deleteRecord(): void {
+    const idName = this.getIDName();
+    this.data.view.data.forEach((data, index) => {
+      if (this.data.values[idName] === data[idName]) {
+        this.data.view.data.splice(index, 1);
+      }
+    });
+    this.employeeService.saveData(this.data.view);
+    this.closeDialogEvent.emit();
+  }
+
+  getIDName(): string {
+    let idName;
+    this.data.view.fields.some(field => {
+      if (field.type.toString() === 'id') {
+        idName = field.name;
+        return;
+      }
+    });
+    return idName;
   }
 }

@@ -1,7 +1,11 @@
+button {
+  margin-right: 5px;
+}
+
 .toggle-space {
   margin-top: 10px;
 }
 
 .form {
-  margin-left: 60px;
+  margin-left: 20px;
 }

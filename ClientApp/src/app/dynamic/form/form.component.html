@@ -3,7 +3,7 @@
     <h2>{{formTitle}}</h2>
     <div style="flex: 1"></div>
   </div>
-  <mat-grid-list cols="2" rowHeight="3:1">
+  <mat-grid-list cols="2" rowHeight="5:1">
     <ng-container *ngFor="let field of data.view.fields">
       <mat-grid-tile *ngIf="field.type != 'id'">
         <app-slide-toggle *ngIf="field.type == 'slide-toggle'" [field]="field" [dynamicFormGroup]="dynamicFormGroup" class="toggle-space"></app-slide-toggle>
@@ -17,9 +17,10 @@
 
 <div class="display-flex">
   <div class="flex-align"></div>
-  <button mat-raised-button color="warn" (click)="deleteInstance()">Delete</button>
-  <button mat-raised-button color="accent" (click)="newInstance()" [disabled]="!dynamicFormGroup.valid">New</button>
-  <button mat-raised-button color="primary" (click)="saveInstance()"[disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">
+  <!-- TODO Add Dynamic Button -->
+  <button mat-raised-button color="warn" (click)="deleteRecord()">Delete</button>
+  <button mat-raised-button color="accent" (click)="createRecord()" [disabled]="!dynamicFormGroup.valid">New</button>
+  <button mat-raised-button color="primary" (click)="saveRecord()"[disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">
     Save
   </button>
 </div>
