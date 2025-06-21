@@ -11,7 +11,7 @@ namespace EmployeeManager.Controllers
      [Route("[controller]")]
      public class ViewController : ControllerBase
      {
-          private static List<TabModel> tabs;
+          private List<TabModel> tabs = new List<TabModel>();
 
           [HttpGet]
           [Route("getData")]
@@ -41,8 +41,9 @@ namespace EmployeeManager.Controllers
           [Route("saveData")]
           public List<TabModel> SaveData(DataModel data)
           {
+               GetData();
                int tabIndex = tabs.FindIndex(tab => tab.tabID == data.tabID);
-               DataManager.SaveData(data.values, tabs[tabIndex].name);
+               if (tabIndex > -1) DataManager.SaveData(data.values, tabs[tabIndex].name);
                return GetData();
           }
      }

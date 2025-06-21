@@ -9,6 +9,8 @@ namespace EmployeeManager
 {
      public class DataManager
      {
+          private static readonly object fileLock = new object();
+
           public static string GetData(string fileName)
           {
                string formattedFileName = string.Format(@"{0}\Data\" + fileName + ".txt", Environment.CurrentDirectory);
@@ -18,7 +20,10 @@ namespace EmployeeManager
           public static void SaveData(string data, string fileName)
           {
                string formattedFileName = string.Format(@"{0}\Data\" + fileName + ".txt", Environment.CurrentDirectory);
-               System.IO.File.WriteAllText(formattedFileName, data);
+               lock (fileLock)
+               {
+                    System.IO.File.WriteAllText(formattedFileName, data);
+               }
           }
      }
 }
