@@ -20,6 +20,7 @@ export class FormComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.buildForm();
+
     this.dynamicFormGroup.valueChanges.subscribe(() => {
       if (this.dynamicFormGroup.dirty) {
         this.updateValues(this.dynamicFormGroup.value);

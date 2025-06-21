@@ -17,10 +17,9 @@
 
 <div class="display-flex">
   <div class="flex-align"></div>
-  <!-- TODO Add Dynamic Button -->
-  <button mat-raised-button color="warn" (click)="deleteRecord()">Delete</button>
-  <button mat-raised-button color="accent" (click)="createRecord()" [disabled]="!dynamicFormGroup.valid">New</button>
-  <button mat-raised-button color="primary" (click)="saveRecord()"[disabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty">
-    Save
-  </button>
+  <app-button [text]="'Delete'" [color]="'warn'" (click)="deleteRecord()"></app-button>
+  <app-button [text]="'New'" [color]="'accent'" [isDisabled]="!dynamicFormGroup.valid"
+    (click)="createRecord()"></app-button>
+  <app-button [text]="'Save'" [color]="'primary'" [isDisabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty"
+    (click)="saveRecord()"></app-button>
 </div>
