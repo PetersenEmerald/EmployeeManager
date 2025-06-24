@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './button/button.component';
@@ -47,6 +48,7 @@ import { TableComponent } from './table/table.component';
     MatNativeDateModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
     MatTableModule,
     ReactiveFormsModule],
   exports: [DialogComponent, FormComponent, TableComponent],

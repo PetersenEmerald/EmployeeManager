@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
 import { TabService } from 'app/services/tab.service';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-form',
@@ -16,7 +17,7 @@ export class FormComponent implements AfterViewInit, OnInit {
   dynamicFormGroup: FormGroup;
   formControls: any[];
 
-  constructor(private cdr: ChangeDetectorRef, private employeeService: TabService) { }
+  constructor(private cdr: ChangeDetectorRef, private employeeService: TabService, private toastService: ToastService) { }
 
   ngOnInit() {
     this.buildForm();
@@ -80,7 +81,8 @@ export class FormComponent implements AfterViewInit, OnInit {
     this.data.view.data.push(newValues);
     this.employeeService.saveData(this.data.view);
 
-    // TODO: Add toast about creation. Add option to open to switch to this new record.
+    this.toastService.showToast('Created new record.');
+    // Add option to switch to new record.
   }
 
   saveRecord(): void {
@@ -88,7 +90,7 @@ export class FormComponent implements AfterViewInit, OnInit {
     this.data.view.data[this.data.values[idName]] = this.data.values;
     this.employeeService.saveData(this.data.view);
 
-    // TODO: Add dialog about saving.
+    this.toastService.showToast('Saved record.');
   }
 
   deleteRecord(): void {
@@ -98,7 +100,9 @@ export class FormComponent implements AfterViewInit, OnInit {
         this.data.view.data.splice(index, 1);
       }
     });
+    
     this.employeeService.saveData(this.data.view);
+    this.toastService.showToast('Deleted record.');
     this.closeDialogEvent.emit();
   }
 
