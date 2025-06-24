@@ -17,9 +17,7 @@
 
 <div class="display-flex">
   <div class="flex-align"></div>
-  <app-button [text]="'Delete'" [color]="'warn'" (click)="deleteRecord()"></app-button>
-  <app-button [text]="'New'" [color]="'accent'" [isDisabled]="!dynamicFormGroup.valid"
-    (click)="createRecord()"></app-button>
-  <app-button [text]="'Save'" [color]="'primary'" [isDisabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty"
-    (click)="saveRecord()"></app-button>
+  <app-button [text]="'Delete'" [color]="'warn'" (buttonClick)="deleteRecord()"></app-button>
+  <app-button [text]="'New'" [color]="'accent'" [isDisabled]="!dynamicFormGroup.valid" (buttonClick)="createRecord()"></app-button>
+  <app-button [text]="'Save'" [color]="'primary'" [isDisabled]="!dynamicFormGroup.valid || !dynamicFormGroup.dirty" (buttonClick)="saveRecord()"></app-button>
 </div>

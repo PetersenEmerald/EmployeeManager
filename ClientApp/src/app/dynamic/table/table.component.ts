@@ -39,8 +39,6 @@ export class TableComponent implements OnInit {
   }
 
   highlight(row): void {
-    // TODO: Bug where sometimes more than one row is selected.
-    
     const rowID = row[this.rowID];
     if (this.selectedRowIndex != rowID) {
       this.selectedRowIndex = rowID;

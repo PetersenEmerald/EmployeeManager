@@ -9,9 +9,9 @@ export class ButtonComponent {
   @Input() color: string = 'warm';
   @Input() isDisabled: boolean = false;
   @Input() text: string = '';
-  @Output() click: EventEmitter<void> = new EventEmitter();
+  @Output() buttonClick: EventEmitter<void> = new EventEmitter();
 
   onClick(): void {
-    this.click.emit();
+    this.buttonClick.emit();
   }
 }
