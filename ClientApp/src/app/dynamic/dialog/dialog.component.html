@@ -5,7 +5,5 @@
     </button>
 </div>
 <mat-dialog-content class="container">
-    <app-form *ngIf="tabData" [data]="tabData" [formTitle]="tabData.view.displayName + ' Form'" (closeDialogEvent)="closeDialog()">
-    </app-form>
+    <app-form *ngIf="tabData" [data]="tabData" [formTitle]="tabData.view.displayName + ' Form'" (closeDialogEvent)="closeDialog()"></app-form>
 </mat-dialog-content>
-<!-- TODO: Resolve accessibility zoom issues. -->

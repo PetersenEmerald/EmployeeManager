@@ -3,7 +3,7 @@
     <h2>{{formTitle}}</h2>
     <div style="flex: 1"></div>
   </div>
-  <mat-grid-list cols="2" rowHeight="5:1">
+  <mat-grid-list [cols]="getGridColumns()" rowHeight="100px">
     <ng-container *ngFor="let field of data.view.fields">
       <mat-grid-tile *ngIf="field.type != 'id'">
         <app-slide-toggle *ngIf="field.type == 'slide-toggle'" [field]="field" [dynamicFormGroup]="dynamicFormGroup" class="toggle-space"></app-slide-toggle>

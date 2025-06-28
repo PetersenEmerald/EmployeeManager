@@ -40,6 +40,7 @@ export class TableComponent implements OnInit {
 
   highlight(row): void {
     const rowID = row[this.rowID];
+    
     if (this.selectedRowIndex != rowID) {
       this.selectedRowIndex = rowID;
     }

@@ -49,6 +49,10 @@ export class FormComponent implements AfterViewInit, OnInit {
     return formGroupFields;
   }
 
+  getGridColumns(): number {
+    return window.innerWidth > 768 ? 2 : 1;
+  }
+
   private addValidator(field) {
     if (!field.validationRules) {
       return [];
@@ -82,7 +86,7 @@ export class FormComponent implements AfterViewInit, OnInit {
     this.employeeService.saveData(this.data.view);
 
     this.toastService.showToast('Created new record.');
-    // Add option to switch to new record.
+    // TODO: Add option to switch to new record.
   }
 
   saveRecord(): void {
@@ -100,7 +104,7 @@ export class FormComponent implements AfterViewInit, OnInit {
         this.data.view.data.splice(index, 1);
       }
     });
-    
+
     this.employeeService.saveData(this.data.view);
     this.toastService.showToast('Deleted record.');
     this.closeDialogEvent.emit();
@@ -108,12 +112,14 @@ export class FormComponent implements AfterViewInit, OnInit {
 
   getIDName(): string {
     let idName;
+
     this.data.view.fields.some(field => {
       if (field.type.toString() === 'id') {
         idName = field.name;
         return;
       }
     });
+
     return idName;
   }
 }
